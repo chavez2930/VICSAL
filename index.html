@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>VICSAL - Proveedor Integral Empresarial</title>
+    
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <!-- CSS Local -->
+    <link href="assets/css/styles.css" rel="stylesheet"/>
+
+    
+    <!-- Tailwind CDN y Configuración Local -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/tailwind-config.js"></script>
+</head>
+
+<body class="bg-surface font-body-md text-on-surface antialiased">
+    <svg width="0" height="0" style="position: absolute;">
+        <defs>
+            <clipPath id="squircleClip" clipPathUnits="objectBoundingBox">
+                <path d="M 0,0.5 C 0,0 0,0 0.5,0 S 1,0 1,0.5 1,1 0.5,1 0,1 0,0.5"></path>
+            </clipPath>
+        </defs>
+    </svg>
+
+    <div data-include="header"></div>
+
+    <main class="w-full pt-20 bg-surface min-h-screen">
+        <div class="flex flex-col w-full">
+            
+            <!-- HERO SECTION -->
+            <section class="relative w-full bg-surface-container-low overflow-hidden py-space-3xl lg:py-space-4xl">
+                <!-- Ambient prismatic glow accents -->
+                <div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-primary-fixed opacity-40 blur-3xl pointer-events-none"></div>
+                <div class="absolute top-1/2 -right-24 w-80 h-80 rounded-full bg-secondary-container opacity-30 blur-3xl pointer-events-none"></div>
+                <div class="max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop relative z-10">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center">
+                        <!-- Hero Text & Value Proposition -->
+                        <div class="lg:col-span-7 flex flex-col items-start">
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-lowest shadow-sm mb-space-md">
+                                <span class="w-2.5 h-2.5 rounded-full spectrum-badge"></span>
+                                <span class="font-label-xs text-label-xs uppercase tracking-widest text-primary-container font-bold">Proveedor Integral Empresarial</span>
+                            </div>
+                            <h1 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-primary-container leading-tight tracking-tight mb-space-md">
+                                Impulsamos la Imagen de tu Empresa con Soluciones Integrales
+                            </h1>
+                            <p class="font-body-lg text-body-lg text-secondary leading-relaxed mb-space-xl max-w-2xl">
+                                Uniformes corporativos, bordados de alta definición, artículos promocionales de alta gama y calzado industrial diseñados con rigor para fortalecer la identidad y pertenencia de tu equipo de trabajo.
+                            </p>
+                            <div class="flex flex-wrap items-center gap-space-sm w-full sm:w-auto mb-space-2xl">
+                                <a class="vs-btn w-full sm:w-auto inline-flex items-center justify-center gap-2 px-space-xl py-3 bg-primary-container text-on-primary font-body-md text-body-md font-semibold" href="#soluciones">
+                                    <span class="vs-btn-text">Conoce nuestros productos</span>
+                                    <span class="material-symbols-outlined vs-btn-icon text-[20px]">arrow_forward</span>
+                                </a>
+                                <a class="vs-btn vs-btn--light w-full sm:w-auto inline-flex items-center justify-center gap-2 px-space-lg py-3 bg-surface-container-lowest text-primary-container font-body-md text-body-md font-semibold" href="#cotizador-rapido">
+                                    <span class="material-symbols-outlined vs-btn-icon text-[20px]">request_quote</span>
+                                    <span class="vs-btn-text">Cotiza con nosotros</span>
+                                </a>
+                            </div>
+                            <!-- Trust & Capabilities Bar -->
+                            <div class="w-full grid grid-cols-2 sm:grid-cols-4 gap-space-md pt-space-lg bg-surface-container-lowest p-space-lg rounded-xl shadow-sm">
+                                <div class="flex flex-col">
+                                    <span class="font-headline-md text-headline-md text-primary-container tracking-tight leading-none">+15 Años</span>
+                                    <span class="font-label-md text-label-md text-secondary mt-1">Experiencia B2B</span>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="font-headline-md text-headline-md text-primary-container tracking-tight leading-none">99.4%</span>
+                                    <span class="font-label-md text-label-md text-secondary mt-1">Entregas a Tiempo</span>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="font-headline-md text-headline-md text-primary-container tracking-tight leading-none">+250</span>
+                                    <span class="font-label-md text-label-md text-secondary mt-1">Empresas Activas</span>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="font-headline-md text-headline-md text-primary-container tracking-tight leading-none">100%</span>
+                                    <span class="font-label-md text-label-md text-secondary mt-1">Cobertura México</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Hero Photo Visual: showcase rotativo tipo SaaS -->
+                        <div class="lg:col-span-5 relative mt-space-xl lg:mt-0">
+                            <!-- Tarjeta decorativa detrás, para dar profundidad -->
+                            <div class="absolute -inset-3 rounded-2xl bg-gradient-to-br from-primary-fixed to-secondary-container rotate-2 opacity-70 -z-10"></div>
+                            <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-surface-container-highest aspect-[4/3]" id="hero-carousel">
+                                <img alt="Equipo corporativo vistiendo uniformes institucionales VICSAL en oficinas modernas" class="hero-carousel-slide absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 ease-in-out opacity-100" data-subtitle="Identidad institucional de alto impacto" data-title="Uniformes Corporativos" src="https://picsum.photos/seed/vicsal-office/900/675"/>
+                                <img alt="Bordado industrial de alta definición VICSAL" class="hero-carousel-slide absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 ease-in-out opacity-0" data-subtitle="Precisión Tajima en cada puntada" data-title="Bordado Industrial" src="https://picsum.photos/seed/vicsal-bordados/900/675"/>
+                                <img alt="Camisa ejecutiva color verde esmeralda VICSAL" class="hero-carousel-slide absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 ease-in-out opacity-0" data-subtitle="Tonalidades institucionales a medida" data-title="Camisas Ejecutivas" src="https://picsum.photos/seed/vicsal-camisa/900/675"/>
+                                <img alt="Equipo de seguridad industrial y EPP VICSAL" class="hero-carousel-slide absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 ease-in-out opacity-0" data-subtitle="Certificación NOM / STPS" data-title="Seguridad y EPP" src="https://picsum.photos/seed/vicsal-seguridad/900/675"/>
+                                <img alt="Gorras bordadas ejecutivas VICSAL" class="hero-carousel-slide absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 ease-in-out opacity-0" data-subtitle="Bordado 3D y patch láser" data-title="Gorras y Sombrerería" src="https://picsum.photos/seed/vicsal-gorras/900/675"/>
+                                <img alt="Blusa corporativa de dama VICSAL" class="hero-carousel-slide absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 ease-in-out opacity-0" data-subtitle="Corte anatómico ejecutivo" data-title="Línea Dama" src="https://picsum.photos/seed/vicsal-dama/900/675"/>
+
+                                <!-- Contador de slide -->
+                                <div class="absolute top-4 right-4 z-20 px-2.5 py-1 rounded-full bg-black/30 backdrop-blur-md text-white font-label-xs text-label-xs font-semibold" id="hero-carousel-counter">01 / 06</div>
+
+                                <!-- Floating Tag dinámico, sincronizado con el slide -->
+                                <div class="absolute bottom-4 left-4 right-4 bg-surface-container-lowest/95 backdrop-blur-md p-space-md rounded-xl shadow-lg flex items-center justify-between z-20">
+                                    <div class="flex items-center gap-3 min-w-0">
+                                        <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-600 shrink-0">
+                                            <span class="material-symbols-outlined text-[24px]">verified</span>
+                                        </div>
+                                        <div class="min-w-0">
+                                            <h4 class="font-title-md text-title-md text-primary-container leading-none truncate" id="hero-carousel-title">Uniformes Corporativos</h4>
+                                            <p class="font-body-sm text-body-sm text-secondary mt-1 truncate" id="hero-carousel-subtitle">Identidad institucional de alto impacto</p>
+                                        </div>
+                                    </div>
+                                    <span class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-xs text-label-xs font-semibold uppercase shrink-0">Calidad VICSAL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- INTERACTIVE COLOR COMPARISON SLIDER -->
+            <section class="w-full bg-surface py-space-3xl lg:py-space-4xl">
+                <div class="max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop">
+                    <div class="flex flex-col items-center text-center max-w-3xl mx-auto mb-space-2xl">
+                        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high mb-space-xs">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                            <span class="font-label-xs text-label-xs uppercase font-bold text-secondary tracking-wider">Laboratorio Textil VICSAL</span>
+                        </div>
+                        <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary-container tracking-tight mb-space-xs">
+                            Descubre la tonalidad y tu estilo
+                        </h2>
+                        <p class="font-body-md text-body-md text-secondary leading-relaxed">
+                            Visualiza la versatilidad de nuestros textiles y precisión de pigmentación. Desliza horizontalmente la barra interactiva para comparar colores y acabados de nuestras camisas ejecutivas manga larga con botones al tono.
+                        </p>
+                    </div>
+                    <!-- Comparison Slider Box -->
+                    <div class="max-w-4xl mx-auto bg-surface-container-lowest rounded-2xl p-space-md md:p-space-lg shadow-xl">
+                        <div class="relative w-full aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-xl select-none touch-none bg-surface-container-low cursor-ew-resize" id="comparison-container">
+                            <!-- Image Right / Background (Rojo Borgoña) -->
+                            <img alt="Camisa ejecutiva de caballero color Rojo Borgoña VICSAL" class="absolute inset-0 w-full h-full object-contain pointer-events-none" src="assets/img/camisa-borgona.jpg"/>
+                            <div class="absolute top-4 right-4 z-10 px-3 py-1.5 rounded-full bg-primary-container/85 text-on-primary backdrop-blur-md font-label-md text-label-md flex items-center gap-2 shadow-md">
+                                <span class="w-2.5 h-2.5 rounded-full bg-[#9f1239]"></span>
+                                <span>Borgoña Ejecutivo #9F1239</span>
+                            </div>
+                            <!-- Image Left / Clipped (Verde Esmeralda) -->
+                            <div class="absolute inset-y-0 left-0 w-1/2 overflow-hidden pointer-events-none" id="slider-clipped-layer" style="width: 50%;">
+                                <img alt="Camisa ejecutiva de caballero color Verde Esmeralda VICSAL" class="absolute top-0 left-0 w-full max-w-none h-full object-contain pointer-events-none" id="slider-left-image" src="https://picsum.photos/seed/vicsal-camisa/900/675"/>
+                                <div class="absolute top-4 left-4 z-10 px-3 py-1.5 rounded-full bg-primary-container/85 text-on-primary backdrop-blur-md font-label-md text-label-md flex items-center gap-2 shadow-md">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-[#047857]"></span>
+                                    <span>Esmeralda Corporativo #047857</span>
+                                </div>
+                            </div>
+                            <!-- Draggable Divider Line & Knob -->
+                            <div class="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 z-20 flex items-center justify-center cursor-ew-resize" id="slider-handle" style="left: 50%;">
+                                <div class="w-0.5 h-full bg-surface-container-lowest shadow-[0_0_8px_rgba(0,0,0,0.5)]"></div>
+                                <div class="absolute w-12 h-12 rounded-full bg-primary-container text-on-primary shadow-2xl flex items-center justify-center transform hover:scale-110 active:scale-95 transition-transform">
+                                    <span class="material-symbols-outlined text-[20px]">swap_horiz</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slider Footer / Color Palette Swatches -->
+                        <div class="mt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md pt-space-md bg-surface-container-low rounded-xl px-space-lg py-space-md">
+                            <div class="flex flex-col items-center md:items-start">
+                                <span class="font-title-md text-title-md text-primary-container font-semibold">Tonalidades Institucionales Disponibles</span>
+                                <span class="font-body-sm text-body-sm text-secondary">Pigmentación reactiva indeleble para flotas corporativas</span>
+                            </div>
+                            <!-- Interactive Color Swatches -->
+                            <div class="flex items-center gap-2.5">
+                                <button class="color-swatch-btn vs-btn vs-btn-plain group w-8 h-8 bg-[#047857] ring-2 ring-offset-2 ring-primary-container" data-color="Esmeralda Corporativo" title="Verde Esmeralda" type="button"></button>
+                                <button class="color-swatch-btn vs-btn vs-btn-plain group w-8 h-8 bg-[#9f1239]" data-color="Borgoña Ejecutivo" title="Rojo Borgoña" type="button"></button>
+                                <button class="color-swatch-btn vs-btn vs-btn-plain group w-8 h-8 bg-[#0b1b3d]" data-color="Azul Marino Corporativo" title="Azul Marino" type="button"></button>
+                                <button class="color-swatch-btn vs-btn vs-btn-plain vs-btn--light group w-8 h-8 bg-[#ffffff] shadow-inner" data-color="Blanco Oxford" title="Blanco Oxford" type="button"></button>
+                                <button class="color-swatch-btn vs-btn vs-btn-plain group w-8 h-8 bg-[#374151]" data-color="Gris Grafito" title="Gris Grafito" type="button"></button>
+                            </div>
+                        </div>
+                        <!-- Feature Quality Bullets -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md mt-space-md">
+                            <div class="flex items-start gap-3 p-space-sm bg-surface rounded-lg">
+                                <span class="material-symbols-outlined text-emerald-600 text-[22px]">verified</span>
+                                <div>
+                                    <h5 class="font-title-md text-title-md text-primary-container text-[14px]">Algodón &amp; Poliéster 65/35</h5>
+                                    <p class="font-body-sm text-body-sm text-secondary mt-0.5">Tejido Oxford duradero anti-arrugas de alta transpirabilidad.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3 p-space-sm bg-surface rounded-lg">
+                                <span class="material-symbols-outlined text-indigo-600 text-[22px]">precision_manufacturing</span>
+                                <div>
+                                    <h5 class="font-title-md text-title-md text-primary-container text-[14px]">Bordado Institucional Tajima</h5>
+                                    <p class="font-body-sm text-body-sm text-secondary mt-0.5">Hasta 12 colores simultáneos con hilo de alta resistencia Madeira.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3 p-space-sm bg-surface rounded-lg">
+                                <span class="material-symbols-outlined text-amber-600 text-[22px]">local_laundry_service</span>
+                                <div>
+                                    <h5 class="font-title-md text-title-md text-primary-container text-[14px]">Garantía de Color (+60 Lavadas)</h5>
+                                    <p class="font-body-sm text-body-sm text-secondary mt-0.5">Fijación térmica que previene decoloración y encogimiento.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CATEGORÍAS DESTACADAS GRID -->
+            <section class="w-full bg-surface-container-low py-space-3xl lg:py-space-4xl" id="soluciones">
+                <div class="max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop">
+                    <div class="flex flex-col md:flex-row md:items-end justify-between mb-space-2xl gap-space-md">
+                        <div>
+                            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container mb-space-xs">
+                                <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+                                <span class="font-label-xs text-label-xs uppercase font-bold text-secondary tracking-wider">Catálogo Integral 2025</span>
+                            </div>
+                            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary-container tracking-tight">
+                                Nuestras Líneas de Soluciones
+                            </h2>
+                            <p class="font-body-md text-body-md text-secondary mt-1 max-w-xl">
+                                Suministro centralizado con certificación industrial: uniformes ejecutivos, protección de planta, bordados finos y marketing promocional.
+                            </p>
+                        </div>
+                        <a class="inline-flex items-center gap-1 text-primary-container font-label-md text-label-md font-bold hover:text-secondary transition-colors" data-path="cotizador" href="#">
+                            <span>Ver todas las categorías</span>
+                            <span class="material-symbols-outlined text-[18px]">east</span>
+                        </a>
+                    </div>
+                    <!-- Carrusel de tarjetas tipo video -->
+                    <div class="relative">
+                        <div class="flex gap-gutter-md overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar pb-space-sm -mx-margin-mobile px-margin-mobile md:mx-0 md:px-0" id="solutions-carousel">
+                            <!-- Card 1: Bordados Industriales -->
+                            <a class="group relative flex-shrink-0 w-[240px] sm:w-[280px] snap-start rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-path="catalogo-hombre-bordados" href="#">
+                                <div class="relative w-full aspect-[3/4] bg-surface-container-highest overflow-hidden">
+                                    <img alt="Bordado computarizado de alta densidad" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://picsum.photos/seed/vicsal-bordados/900/675"/>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-primary-container/90 via-primary-container/10 to-transparent"></div>
+                                    <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-primary-container/90 text-on-primary font-label-xs text-label-xs font-semibold backdrop-blur-sm">
+                                        Técnica Especializada
+                                    </div>
+                                    <div class="absolute bottom-0 left-0 right-0 p-space-md flex items-end justify-between gap-2">
+                                        <div>
+                                            <span class="font-label-xs text-label-xs uppercase tracking-wider text-emerald-300 font-bold">Alta Definición</span>
+                                            <h3 class="font-headline-sm text-headline-sm text-on-primary mt-1">Bordados Industriales</h3>
+                                            <p class="font-label-xs text-label-xs text-on-primary/70 mt-1">Capacidad: 25,000 pzas/mes</p>
+                                        </div>
+                                        <span class="vs-btn vs-btn-plain rounded-full shrink-0 w-9 h-9 flex items-center justify-center bg-surface-container-lowest text-primary-container">
+                                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                            <!-- Card 2: Prendas de Vestir Caballero -->
+                            <a class="group relative flex-shrink-0 w-[240px] sm:w-[280px] snap-start rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-path="catalogo-hombre-prendas" href="#">
+                                <div class="relative w-full aspect-[3/4] bg-surface-container-highest overflow-hidden">
+                                    <img alt="Camisa ejecutiva de corte formal manga larga" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://picsum.photos/seed/vicsal-camisa/900/675"/>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-primary-container/90 via-primary-container/10 to-transparent"></div>
+                                    <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-primary-container/90 text-on-primary font-label-xs text-label-xs font-semibold backdrop-blur-sm">
+                                        Línea Formal
+                                    </div>
+                                    <div class="absolute bottom-0 left-0 right-0 p-space-md flex items-end justify-between gap-2">
+                                        <div>
+                                            <span class="font-label-xs text-label-xs uppercase tracking-wider text-secondary-fixed font-bold">Caballero &amp; Ejecutivo</span>
+                                            <h3 class="font-headline-sm text-headline-sm text-on-primary mt-1">Prendas de Vestir</h3>
+                                            <p class="font-label-xs text-label-xs text-on-primary/70 mt-1">Tallas: XS hasta 4XL</p>
+                                        </div>
+                                        <span class="vs-btn vs-btn-plain rounded-full shrink-0 w-9 h-9 flex items-center justify-center bg-surface-container-lowest text-primary-container">
+                                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                            <!-- Card 3: V.S Souvenirs & Regalos Corporativos -->
+                            <a class="group relative flex-shrink-0 w-[240px] sm:w-[280px] snap-start rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-path="catalogo-accesorios-souvenirs" href="#">
+                                <div class="relative w-full aspect-[3/4] bg-surface-container-highest overflow-hidden">
+                                    <img alt="Gama de artículos promocionales corporativos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="assets/img/bento-souvenirs.jpg"/>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-primary-container/90 via-primary-container/10 to-transparent"></div>
+                                    <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-primary-container/90 text-on-primary font-label-xs text-label-xs font-semibold backdrop-blur-sm">
+                                        Merchandising B2B
+                                    </div>
+                                    <div class="absolute bottom-0 left-0 right-0 p-space-md flex items-end justify-between gap-2">
+                                        <div>
+                                            <span class="font-label-xs text-label-xs uppercase tracking-wider text-tertiary-fixed font-bold">Fidelización de Marca</span>
+                                            <h3 class="font-headline-sm text-headline-sm text-on-primary mt-1">V.S Souvenirs</h3>
+                                            <p class="font-label-xs text-label-xs text-on-primary/70 mt-1">Grabado láser &amp; Tampografía</p>
+                                        </div>
+                                        <span class="vs-btn vs-btn-plain rounded-full shrink-0 w-9 h-9 flex items-center justify-center bg-surface-container-lowest text-primary-container">
+                                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                            <!-- Card 4: Uniformes de Seguridad y EPP -->
+                            <a class="group relative flex-shrink-0 w-[240px] sm:w-[280px] snap-start rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-path="catalogo-calzado" href="#">
+                                <div class="relative w-full aspect-[3/4] bg-surface-container-highest overflow-hidden">
+                                    <img alt="Calzado y botas de seguridad industrial" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://picsum.photos/seed/vicsal-seguridad/900/675"/>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-primary-container/90 via-primary-container/10 to-transparent"></div>
+                                    <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-primary-container/90 text-on-primary font-label-xs text-label-xs font-semibold backdrop-blur-sm">
+                                        Seguridad Industrial
+                                    </div>
+                                    <div class="absolute bottom-0 left-0 right-0 p-space-md flex items-end justify-between gap-2">
+                                        <div>
+                                            <span class="font-label-xs text-label-xs uppercase tracking-wider text-amber-300 font-bold">Normativas NOM / STPS</span>
+                                            <h3 class="font-headline-sm text-headline-sm text-on-primary mt-1">Seguridad y Calzado</h3>
+                                            <p class="font-label-xs text-label-xs text-on-primary/70 mt-1">Certificación Dieléctrica</p>
+                                        </div>
+                                        <span class="vs-btn vs-btn-plain rounded-full shrink-0 w-9 h-9 flex items-center justify-center bg-surface-container-lowest text-primary-container">
+                                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                            <!-- Card 5: Gorras Bordadas y Estampadas -->
+                            <a class="group relative flex-shrink-0 w-[240px] sm:w-[280px] snap-start rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-path="catalogo-hombre-gorras" href="#">
+                                <div class="relative w-full aspect-[3/4] bg-surface-container-highest overflow-hidden">
+                                    <img alt="Colección premium de gorras ejecutivas de 6 paneles" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://picsum.photos/seed/vicsal-gorras/900/675"/>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-primary-container/90 via-primary-container/10 to-transparent"></div>
+                                    <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-primary-container/90 text-on-primary font-label-xs text-label-xs font-semibold backdrop-blur-sm">
+                                        Headwear Corporativo
+                                    </div>
+                                    <div class="absolute bottom-0 left-0 right-0 p-space-md flex items-end justify-between gap-2">
+                                        <div>
+                                            <span class="font-label-xs text-label-xs uppercase tracking-wider text-rose-300 font-bold">Bordado 3D &amp; Patch</span>
+                                            <h3 class="font-headline-sm text-headline-sm text-on-primary mt-1">Gorras y Sombrerería</h3>
+                                            <p class="font-label-xs text-label-xs text-on-primary/70 mt-1">Broches de metal &amp; velcro</p>
+                                        </div>
+                                        <span class="vs-btn vs-btn-plain rounded-full shrink-0 w-9 h-9 flex items-center justify-center bg-surface-container-lowest text-primary-container">
+                                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                            <!-- Card 6: Confección Dama Ejecutiva -->
+                            <a class="group relative flex-shrink-0 w-[240px] sm:w-[280px] snap-start rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-path="catalogo-mujer-prendas" href="#">
+                                <div class="relative w-full aspect-[3/4] bg-surface-container-highest overflow-hidden">
+                                    <img alt="Elegante blusa corporativa de dama" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://picsum.photos/seed/vicsal-dama/900/675"/>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-primary-container/90 via-primary-container/10 to-transparent"></div>
+                                    <div class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-primary-container/90 text-on-primary font-label-xs text-label-xs font-semibold backdrop-blur-sm">
+                                        Corte Anatómico
+                                    </div>
+                                    <div class="absolute bottom-0 left-0 right-0 p-space-md flex items-end justify-between gap-2">
+                                        <div>
+                                            <span class="font-label-xs text-label-xs uppercase tracking-wider text-sky-300 font-bold">Línea Dama</span>
+                                            <h3 class="font-headline-sm text-headline-sm text-on-primary mt-1">Prendas de Vestir Dama</h3>
+                                            <p class="font-label-xs text-label-xs text-on-primary/70 mt-1">Ajuste confort stretch</p>
+                                        </div>
+                                        <span class="vs-btn vs-btn-plain rounded-full shrink-0 w-9 h-9 flex items-center justify-center bg-surface-container-lowest text-primary-container">
+                                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <button aria-label="Ver soluciones anteriores" class="vs-btn vs-btn-plain rounded-full hidden md:flex items-center justify-center absolute top-1/2 -left-5 -translate-y-1/2 w-11 h-11 bg-surface-container-lowest text-primary-container shadow-lg z-10 transition-opacity duration-200" id="solutions-prev" type="button">
+                            <span class="material-symbols-outlined text-[22px]">chevron_left</span>
+                        </button>
+                        <button aria-label="Ver más soluciones" class="vs-btn vs-btn-plain rounded-full hidden md:flex items-center justify-center absolute top-1/2 -right-5 -translate-y-1/2 w-11 h-11 bg-surface-container-lowest text-primary-container shadow-lg z-10 transition-opacity duration-200" id="solutions-next" type="button">
+                            <span class="material-symbols-outlined text-[22px]">chevron_right</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MARCAS DISTRIBUIDAS & CERTIFICACIONES -->
+            <section class="w-full bg-surface-container-lowest py-space-2xl border-t border-b border-surface-container">
+                <div class="max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop">
+                    <div class="text-center max-w-xl mx-auto mb-space-lg">
+                        <span class="font-label-xs text-label-xs uppercase font-bold text-secondary tracking-widest">Alianzas Textiles Globales</span>
+                        <h3 class="font-title-lg text-title-lg text-primary-container font-bold mt-1">Marcas líderes que integramos en nuestras soluciones</h3>
+                    </div>
+                    <div class="marquee-wrapper relative overflow-hidden">
+                        <div class="marquee-track flex items-center gap-space-md" id="brands-marquee">
+                            <div class="flex items-center justify-center shrink-0 min-w-[150px] sm:min-w-[180px] p-space-md bg-surface rounded-xl hover:opacity-100 transition-opacity">
+                                <span class="font-headline-sm text-headline-sm font-bold text-secondary">DICKIES</span>
+                            </div>
+                            <div class="flex items-center justify-center shrink-0 min-w-[150px] sm:min-w-[180px] p-space-md bg-surface rounded-xl hover:opacity-100 transition-opacity">
+                                <span class="font-headline-sm text-headline-sm font-bold text-secondary">RED KAP</span>
+                            </div>
+                            <div class="flex items-center justify-center shrink-0 min-w-[150px] sm:min-w-[180px] p-space-md bg-surface rounded-xl hover:opacity-100 transition-opacity">
+                                <span class="font-headline-sm text-headline-sm font-bold text-secondary">BIG BANG</span>
+                            </div>
+                            <div class="flex items-center justify-center shrink-0 min-w-[150px] sm:min-w-[180px] p-space-md bg-surface rounded-xl hover:opacity-100 transition-opacity">
+                                <span class="font-headline-sm text-headline-sm font-bold text-secondary">GILDAN</span>
+                            </div>
+                            <div class="flex items-center justify-center shrink-0 min-w-[150px] sm:min-w-[180px] p-space-md bg-surface rounded-xl hover:opacity-100 transition-opacity">
+                                <span class="font-headline-sm text-headline-sm font-bold text-secondary">BERRENDO</span>
+                            </div>
+                            <div class="flex items-center justify-center shrink-0 min-w-[150px] sm:min-w-[180px] p-space-md bg-surface rounded-xl hover:opacity-100 transition-opacity">
+                                <span class="font-headline-sm text-headline-sm font-bold text-secondary">FLEXFIT</span>
+                            </div>
+                            <!-- Duplicado para el loop infinito (oculto de lectores de pantalla) -->
+                            <div aria-hidden="true" class="flex items-center justify-center shrink-0 min-w-[150px] sm:min-w-[180px] p-space-md bg-surface rounded-xl hover:opacity-100 transition-opacity">
+                                <span class="font-headline-sm text-headline-sm font-bold text-secondary">DICKIES</span>
+                            </div>
+                            <div aria-hidden="true" class="flex items-center justify-center shrink-0 min-w-[150px] sm:min-w-[180px] p-space-md bg-surface rounded-xl hover:opacity-100 transition-opacity">
+                                <span class="font-headline-sm text-headline-sm font-bold text-secondary">RED KAP</span>
+                            </div>
+                            <div aria-hidden="true" class="flex items-center justify-center shrink-0 min-w-[150px] sm:min-w-[180px] p-space-md bg-surface rounded-xl hover:opacity-100 transition-opacity">
+                                <span class="font-headline-sm text-headline-sm font-bold text-secondary">BIG BANG</span>
+                            </div>
+                            <div aria-hidden="true" class="flex items-center justify-center shrink-0 min-w-[150px] sm:min-w-[180px] p-space-md bg-surface rounded-xl hover:opacity-100 transition-opacity">
+                                <span class="font-headline-sm text-headline-sm font-bold text-secondary">GILDAN</span>
+                            </div>
+                            <div aria-hidden="true" class="flex items-center justify-center shrink-0 min-w-[150px] sm:min-w-[180px] p-space-md bg-surface rounded-xl hover:opacity-100 transition-opacity">
+                                <span class="font-headline-sm text-headline-sm font-bold text-secondary">BERRENDO</span>
+                            </div>
+                            <div aria-hidden="true" class="flex items-center justify-center shrink-0 min-w-[150px] sm:min-w-[180px] p-space-md bg-surface rounded-xl hover:opacity-100 transition-opacity">
+                                <span class="font-headline-sm text-headline-sm font-bold text-secondary">FLEXFIT</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <aside class="fixed bottom-6 right-6 z-40 flex items-center gap-3 group">
+        <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none bg-primary-container text-on-primary text-body-sm font-body-sm px-3.5 py-1.5 rounded-lg shadow-lg whitespace-nowrap">¿Necesitas cotización inmediata? Escríbenos</span>
+        <a aria-label="WhatsApp" class="vs-btn vs-btn-plain rounded-full flex items-center justify-center w-14 h-14 bg-emerald-600 text-on-primary shadow-xl" href="https://wa.me/527225438920" rel="noopener noreferrer" target="_blank">
+            <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
+            <svg class="relative h-7 w-7 text-white" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.001 2.002c-5.518 0-9.997 4.479-9.997 9.997 0 1.762.464 3.482 1.346 4.997l-1.42 5.19a.6.6 0 0 0 .735.735l5.19-1.42a9.96 9.96 0 0 0 4.146.894h.004c5.518 0 9.997-4.478 9.997-9.996 0-2.67-1.04-5.18-2.928-7.07a9.93 9.93 0 0 0-7.073-2.927zm0 18.312h-.003a8.3 8.3 0 0 1-4.234-1.16l-.304-.18-3.151.862.842-3.075-.198-.316a8.31 8.31 0 0 1-1.276-4.436c0-4.596 3.74-8.335 8.336-8.335a8.28 8.28 0 0 1 5.895 2.445 8.28 8.28 0 0 1 2.438 5.897c-.002 4.596-3.741 8.298-8.345 8.298zm4.568-6.223c-.25-.125-1.475-.728-1.704-.812-.229-.083-.396-.125-.563.125-.166.25-.646.812-.792.978-.146.167-.291.188-.541.063-.25-.125-1.056-.39-2.012-1.242-.744-.664-1.246-1.484-1.392-1.734-.146-.25-.016-.386.11-.51.113-.113.25-.292.375-.438.125-.146.166-.25.25-.417.083-.167.041-.313-.021-.438-.062-.125-.563-1.357-.771-1.858-.203-.487-.41-.421-.563-.429-.146-.007-.313-.009-.48-.009-.166 0-.437.062-.666.313-.229.25-.875.854-.875 2.083 0 1.229.896 2.417 1.021 2.583.125.167 1.764 2.695 4.273 3.78.597.258 1.062.412 1.425.527.599.19 1.144.163 1.575.099.48-.072 1.475-.603 1.683-1.187.208-.583.208-1.083.145-1.187-.062-.104-.229-.167-.479-.292z"></path>
+            </svg>
+        </a>
+    </aside>
+
+    <div data-include="footer"></div>
+
+    <!-- Cargar scripts al final ----------------------------------------
+         load-partials.js va PRIMERO: inyecta header.html y footer.html
+         y dispara "partials:loaded". nav.js depende de ese evento
+         porque manipula elementos que viven dentro del header. -->
+    <script src="assets/js/loadpartials.js"></script>
+    <script src="assets/js/slider.js"></script>
+    <script src="assets/js/herocarousel.js"></script>
+    <script src="assets/js/nav.js"></script>
+    <script src="assets/js/solutionscarousel.js"></script>
+</body>
+</html>

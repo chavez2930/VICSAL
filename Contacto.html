@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Contacto - VICSAL</title>
+
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+    <!-- CSS Local -->
+    <link href="assets/css/styles.css" rel="stylesheet"/>
+
+    <!-- Tailwind CDN y Configuración Local -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/tailwind-config.js"></script>
+</head>
+
+<body class="bg-surface font-body-md text-on-surface antialiased">
+    <svg width="0" height="0" style="position: absolute;">
+        <defs>
+            <clipPath id="squircleClip" clipPathUnits="objectBoundingBox">
+                <path d="M 0,0.5 C 0,0 0,0 0.5,0 S 1,0 1,0.5 1,1 0.5,1 0,1 0,0.5"></path>
+            </clipPath>
+        </defs>
+    </svg>
+
+    <div data-include="header"></div>
+
+    <main class="w-full pt-20 bg-surface min-h-screen">
+        <!-- HERO -->
+        <section class="relative w-full bg-surface-container-low overflow-hidden py-space-3xl lg:py-space-4xl">
+            <div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-primary-fixed opacity-40 blur-3xl pointer-events-none"></div>
+            <div class="max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop relative z-10">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-lowest shadow-sm mb-space-md">
+                    <span class="w-2.5 h-2.5 rounded-full spectrum-badge"></span>
+                    <span class="font-label-xs text-label-xs uppercase tracking-widest text-primary-container font-bold">Contacto</span>
+                </div>
+                <h1 class="font-headline-xl-mobile text-headline-xl-mobile lg:font-headline-xl lg:text-headline-xl text-on-surface max-w-3xl">Hablemos de lo que tu empresa necesita</h1>
+                <p class="mt-space-md font-body-lg text-body-lg text-secondary max-w-2xl">Escríbenos, llámanos o pide una cotización B2B en línea. Un ejecutivo de cuenta te responde a la brevedad.</p>
+            </div>
+        </section>
+
+        <!-- FORMULARIO + DATOS -->
+        <section class="w-full py-space-3xl">
+            <div class="max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg">
+
+                    <!-- Formulario -->
+                    <form class="lg:col-span-7 flex flex-col gap-space-md bg-surface-container-low rounded-xl p-space-lg">
+                        <h2 class="font-title-lg text-title-lg text-on-surface">Cuéntanos sobre tu proyecto</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+                            <div class="flex flex-col gap-1.5">
+                                <label class="font-label-md text-label-md text-on-surface-variant" for="nombre">Nombre</label>
+                                <input class="rounded-lg border border-outline-variant bg-surface px-space-sm py-2.5 font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" id="nombre" name="nombre" type="text" placeholder="Tu nombre"/>
+                            </div>
+                            <div class="flex flex-col gap-1.5">
+                                <label class="font-label-md text-label-md text-on-surface-variant" for="empresa">Empresa</label>
+                                <input class="rounded-lg border border-outline-variant bg-surface px-space-sm py-2.5 font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" id="empresa" name="empresa" type="text" placeholder="Nombre de tu empresa"/>
+                            </div>
+                            <div class="flex flex-col gap-1.5">
+                                <label class="font-label-md text-label-md text-on-surface-variant" for="correo">Correo</label>
+                                <input class="rounded-lg border border-outline-variant bg-surface px-space-sm py-2.5 font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" id="correo" name="correo" type="email" placeholder="tucorreo@empresa.com"/>
+                            </div>
+                            <div class="flex flex-col gap-1.5">
+                                <label class="font-label-md text-label-md text-on-surface-variant" for="telefono">Teléfono</label>
+                                <input class="rounded-lg border border-outline-variant bg-surface px-space-sm py-2.5 font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" id="telefono" name="telefono" type="tel" placeholder="55 1234 5678"/>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-1.5">
+                            <label class="font-label-md text-label-md text-on-surface-variant" for="mensaje">¿Qué necesitas?</label>
+                            <textarea class="rounded-lg border border-outline-variant bg-surface px-space-sm py-2.5 font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" id="mensaje" name="mensaje" rows="4" placeholder="Uniformes, cantidad aproximada, plazos, etc."></textarea>
+                        </div>
+                        <button class="vs-btn inline-flex items-center justify-center gap-2 px-space-md py-2.5 bg-primary-container text-on-primary font-body-md text-body-md font-semibold self-start" type="submit">
+                            <span class="vs-btn-text">Enviar mensaje</span>
+                            <span class="material-symbols-outlined vs-btn-icon text-[18px]">send</span>
+                        </button>
+                        <p class="font-body-sm text-body-sm text-on-surface-variant">Este formulario todavía no está conectado a un servidor de envío — hay que integrarlo con tu backend, un servicio como Formspree, o una automatización antes de publicarlo.</p>
+                    </form>
+
+                    <!-- Datos de contacto -->
+                    <div class="lg:col-span-5 flex flex-col gap-space-md">
+                        <div class="flex items-start gap-3 p-space-md bg-surface-container-low rounded-xl">
+                            <div style="clip-path: url(#squircleClip)" class="w-11 h-11 shrink-0 bg-gradient-to-br from-primary-container to-primary flex items-center justify-center shadow-md">
+                                <span class="material-symbols-outlined text-white text-[20px]">location_on</span>
+                            </div>
+                            <div class="flex flex-col gap-0.5">
+                                <span class="font-title-md text-title-md text-on-surface">Sede Operativa</span>
+                                <span class="font-body-sm text-body-sm text-on-surface-variant">Hacienda el Arbolillo, Lote 87-B, Col. Hacienda del Valle II, C.P. 50210, San Mateo Otzacatipan, Edo. de México</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 p-space-md bg-surface-container-low rounded-xl">
+                            <div style="clip-path: url(#squircleClip)" class="w-11 h-11 shrink-0 bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center shadow-md">
+                                <span class="material-symbols-outlined text-white text-[20px]">call</span>
+                            </div>
+                            <div class="flex flex-col gap-0.5">
+                                <span class="font-title-md text-title-md text-on-surface">Teléfono</span>
+                                <span class="font-body-sm text-body-sm text-on-surface-variant">+52 722 543 8920</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 p-space-md bg-surface-container-low rounded-xl">
+                            <div style="clip-path: url(#squircleClip)" class="w-11 h-11 shrink-0 bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-md">
+                                <span class="material-symbols-outlined text-white text-[20px]">mail</span>
+                            </div>
+                            <div class="flex flex-col gap-0.5">
+                                <span class="font-title-md text-title-md text-on-surface">Correo</span>
+                                <span class="font-body-sm text-body-sm text-on-surface-variant">ventas@vicsal.com.mx</span>
+                                <span class="font-body-sm text-body-sm text-on-surface-variant">atencion@vicsal.com.mx</span>
+                            </div>
+                        </div>
+                        <a class="vs-btn inline-flex items-center justify-center gap-2 px-space-md py-2.5 bg-emerald-600 text-on-primary font-body-md text-body-md font-semibold" href="https://wa.me/527225438920" rel="noopener noreferrer" target="_blank">
+                            <span class="vs-btn-text">Escribir por WhatsApp</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <aside class="fixed bottom-6 right-6 z-40 flex items-center gap-3 group">
+        <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none bg-primary-container text-on-primary text-body-sm font-body-sm px-3.5 py-1.5 rounded-lg shadow-lg whitespace-nowrap">¿Necesitas cotización inmediata? Escríbenos</span>
+        <a aria-label="WhatsApp" class="vs-btn vs-btn-plain rounded-full flex items-center justify-center w-14 h-14 bg-emerald-600 text-on-primary shadow-xl" href="https://wa.me/527225438920" rel="noopener noreferrer" target="_blank">
+            <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
+            <svg class="relative h-7 w-7 text-white" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.001 2.002c-5.518 0-9.997 4.479-9.997 9.997 0 1.762.464 3.482 1.346 4.997l-1.42 5.19a.6.6 0 0 0 .735.735l5.19-1.42a9.96 9.96 0 0 0 4.146.894h.004c5.518 0 9.997-4.478 9.997-9.996 0-2.67-1.04-5.18-2.928-7.07a9.93 9.93 0 0 0-7.073-2.927zm0 18.312h-.003a8.3 8.3 0 0 1-4.234-1.16l-.304-.18-3.151.862.842-3.075-.198-.316a8.31 8.31 0 0 1-1.276-4.436c0-4.596 3.74-8.335 8.336-8.335a8.28 8.28 0 0 1 5.895 2.445 8.28 8.28 0 0 1 2.438 5.897c-.002 4.596-3.741 8.298-8.345 8.298zm4.568-6.223c-.25-.125-1.475-.728-1.704-.812-.229-.083-.396-.125-.563.125-.166.25-.646.812-.792.978-.146.167-.291.188-.541.063-.25-.125-1.056-.39-2.012-1.242-.744-.664-1.246-1.484-1.392-1.734-.146-.25-.016-.386.11-.51.113-.113.25-.292.375-.438.125-.146.166-.25.25-.417.083-.167.041-.313-.021-.438-.062-.125-.563-1.357-.771-1.858-.203-.487-.41-.421-.563-.429-.146-.007-.313-.009-.48-.009-.166 0-.437.062-.666.313-.229.25-.875.854-.875 2.083 0 1.229.896 2.417 1.021 2.583.125.167 1.764 2.695 4.273 3.78.597.258 1.062.412 1.425.527.599.19 1.144.163 1.575.099.48-.072 1.475-.603 1.683-1.187.208-.583.208-1.083.145-1.187-.062-.104-.229-.167-.479-.292z"></path>
+            </svg>
+        </a>
+    </aside>
+
+    <div data-include="footer"></div>
+
+    <!-- Cargar scripts al final ----------------------------------------
+         loadpartials.js va PRIMERO: inyecta header.html y footer.html,
+         y nav.js viaja PEGADO al componente header (se carga solo,
+         ver assets/js/loadpartials.js -> COMPONENT_SCRIPTS). No hace
+         falta poner <script src="assets/js/nav.js"> aquí a mano. -->
+    <script src="assets/js/loadpartials.js"></script>
+</body>
+</html>

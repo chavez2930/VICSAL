@@ -1,0 +1,173 @@
+/* ======================================================================
+   BOTÓN ÚNICO DEL SITIO
+   Adaptado del efecto de Uiverse.io by Cornerstone-04 que subiste:
+   botón plano cuyo marco se "dibuja" al hover con dos trazos opuestos
+   (inferior-izquierdo y superior-derecho) que se encuentran. Reemplaza
+   por completo el efecto anterior (brillo + letras animadas, Uiverse
+   by dexter-st). Es el ÚNICO efecto/diseño de botón en todo el sitio.
+
+   - No fija background-color ni color de texto: cada botón conserva su
+     propio color (bg-primary-container, bg-surface-container-lowest,
+     bg-emerald-600, etc.) definido con las clases de Tailwind que ya
+     tenías en el HTML.
+   - El marco que se dibuja en el hover ya NO es negro (#262626, como
+     en el Uiverse original); usa el MISMO degradado pink-500 ->
+     orange-400 -> emerald-500 que se pinta cuando seleccionas/pasas el
+     mouse por una opción del menú de arriba (ver Nav.js y los
+     after:from-pink-500 after:via-orange-400 after:to-emerald-500 del
+     header), para que el "look" de selección coincida en todo el sitio.
+   - Variante ".vs-btn--light" se conserva por compatibilidad con el
+     HTML, pero ya no cambia nada visualmente: el marco degradado se ve
+     igual sobre cualquier fondo.
+   ====================================================================== */
+
+.vs-btn {
+  --vs-accent-1: #ec4899; /* pink-500 */
+  --vs-accent-2: #fb923c; /* orange-400 */
+  --vs-accent-3: #10b981; /* emerald-500 */
+  --vs-gradient: linear-gradient(
+    90deg,
+    var(--vs-accent-1),
+    var(--vs-accent-2) 50%,
+    var(--vs-accent-3)
+  );
+
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
+  user-select: none;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Trazo inferior + izquierdo (entra desde la derecha) */
+.vs-btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  border-bottom: 3px solid transparent;
+  border-left: 3px solid transparent;
+  border-image: var(--vs-gradient) 1;
+  box-sizing: border-box;
+  transform: translateX(100%);
+  pointer-events: none;
+}
+
+/* Trazo superior + derecho (entra desde la izquierda) */
+.vs-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  border-top: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-image: var(--vs-gradient) 1;
+  box-sizing: border-box;
+  transform: translateX(-100%);
+  pointer-events: none;
+}
+
+.vs-btn:hover,
+.vs-btn:focus-visible {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.18);
+}
+
+.vs-btn:hover::before,
+.vs-btn:focus-visible::before {
+  height: 100%;
+  transform: translateX(0);
+  transition:
+    0.3s transform linear,
+    0.3s height linear 0.3s;
+}
+
+.vs-btn:hover::after,
+.vs-btn:focus-visible::after {
+  height: 100%;
+  transform: translateX(0);
+  transition:
+    0.3s transform linear,
+    0.3s height linear 0.5s;
+}
+
+/* ---------- Texto e ícono ----------
+   Sin animaciones: heredan el color que ya trae cada botón
+   (text-on-primary, text-primary-container, etc.) */
+.vs-btn-text {
+  position: relative;
+  z-index: 1;
+}
+
+.vs-btn-icon {
+  position: relative;
+  z-index: 1;
+}
+/* ======================================================================
+   CARRUSEL DE SOLUCIONES (tarjetas tipo video)
+   Oculta la barra de scroll nativa para que el desplazamiento horizontal
+   se controle con las flechas (o swipe/drag), igual que un carrusel de
+   tarjetas de video.
+   ====================================================================== */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ======================================================================
+   MARQUEE DE MARCAS (slider infinito y automático)
+   La pista contiene el set de logos + un set duplicado (aria-hidden) y
+   se desliza con una animación CSS de translateX(0) a translateX(-50%);
+   como el segundo set es idéntico al primero, el loop se ve continuo.
+   Se pausa al pasar el mouse y respeta "reduce motion".
+   ====================================================================== */
+.marquee-wrapper {
+  --vs-marquee-fade: 48px;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 var(--vs-marquee-fade),
+    #000 calc(100% - var(--vs-marquee-fade)),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 var(--vs-marquee-fade),
+    #000 calc(100% - var(--vs-marquee-fade)),
+    transparent
+  );
+}
+
+.marquee-track {
+  width: max-content;
+  animation: vs-marquee 26s linear infinite;
+}
+
+.marquee-wrapper:hover .marquee-track,
+.marquee-wrapper:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes vs-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}

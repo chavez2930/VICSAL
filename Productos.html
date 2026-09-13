@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Productos - VICSAL</title>
+
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+    <!-- CSS Local -->
+    <link href="assets/css/styles.css" rel="stylesheet"/>
+
+    <!-- Tailwind CDN y Configuración Local -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/tailwind-config.js"></script>
+</head>
+
+<body class="bg-surface font-body-md text-on-surface antialiased">
+    <svg width="0" height="0" style="position: absolute;">
+        <defs>
+            <clipPath id="squircleClip" clipPathUnits="objectBoundingBox">
+                <path d="M 0,0.5 C 0,0 0,0 0.5,0 S 1,0 1,0.5 1,1 0.5,1 0,1 0,0.5"></path>
+            </clipPath>
+        </defs>
+    </svg>
+
+    <div data-include="header"></div>
+
+    <main class="w-full pt-20 bg-surface min-h-screen">
+        <!-- HERO -->
+        <section class="relative w-full bg-surface-container-low overflow-hidden py-space-3xl lg:py-space-4xl">
+            <div class="absolute top-1/2 -right-24 w-80 h-80 rounded-full bg-secondary-container opacity-30 blur-3xl pointer-events-none"></div>
+            <div class="max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop relative z-10">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-lowest shadow-sm mb-space-md">
+                    <span class="w-2.5 h-2.5 rounded-full spectrum-badge"></span>
+                    <span class="font-label-xs text-label-xs uppercase tracking-widest text-primary-container font-bold">Catálogo</span>
+                </div>
+                <h1 class="font-headline-xl-mobile text-headline-xl-mobile lg:font-headline-xl lg:text-headline-xl text-on-surface max-w-3xl">Todo lo que tu empresa necesita, en un solo proveedor</h1>
+                <p class="mt-space-md font-body-lg text-body-lg text-secondary max-w-2xl">Confección corporativa, calzado industrial, bordado técnico y artículos promocionales — organizados por línea para que encuentres justo lo que buscas.</p>
+            </div>
+        </section>
+
+        <!-- CATEGORÍAS -->
+        <section class="w-full py-space-3xl">
+            <div class="max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter-lg">
+
+                    <div class="flex flex-col gap-space-sm p-space-lg bg-surface-container-low rounded-xl">
+                        <span class="material-symbols-outlined text-primary-container text-[28px]">checkroom</span>
+                        <h3 class="font-title-lg text-title-lg text-on-surface">Hombre</h3>
+                        <ul class="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-1.5">
+                            <li>Playeras</li>
+                            <li>Prendas de vestir</li>
+                            <li>Uniformes de seguridad y EPP</li>
+                            <li>Gorras bordadas o estampadas</li>
+                            <li>Bordados industriales</li>
+                        </ul>
+                    </div>
+
+                    <div class="flex flex-col gap-space-sm p-space-lg bg-surface-container-low rounded-xl">
+                        <span class="material-symbols-outlined text-primary-container text-[28px]">woman</span>
+                        <h3 class="font-title-lg text-title-lg text-on-surface">Mujer</h3>
+                        <ul class="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-1.5">
+                            <li>Playeras y Blusas</li>
+                            <li>Prendas de vestir dama</li>
+                            <li>Bordados y aplicaciones</li>
+                            <li>Gorras bordadas o estampadas</li>
+                        </ul>
+                    </div>
+
+                    <div class="flex flex-col gap-space-sm p-space-lg bg-surface-container-low rounded-xl">
+                        <span class="material-symbols-outlined text-primary-container text-[28px]">footprint</span>
+                        <h3 class="font-title-lg text-title-lg text-on-surface">Calzado</h3>
+                        <ul class="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-1.5">
+                            <li>Zapatos industriales</li>
+                            <li>Botas de seguridad</li>
+                            <li>Tenis corporativos</li>
+                            <li>Calzado antiderrapante</li>
+                        </ul>
+                    </div>
+
+                    <div class="flex flex-col gap-space-sm p-space-lg bg-surface-container-low rounded-xl">
+                        <span class="material-symbols-outlined text-primary-container text-[28px]">backpack</span>
+                        <h3 class="font-title-lg text-title-lg text-on-surface">Accesorios</h3>
+                        <ul class="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-1.5">
+                            <li>V.S Souvenirs</li>
+                            <li>Gorras y Sombrerería</li>
+                            <li>Mochilas y Bolsas</li>
+                            <li>Artículos promocionales</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- BORDADO INDUSTRIAL -->
+        <section class="w-full py-space-3xl bg-surface-container-low">
+            <div class="max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter-lg items-center">
+                    <div class="flex flex-col gap-space-sm">
+                        <h2 class="font-headline-lg text-headline-lg text-on-surface">Bordado Institucional Tajima</h2>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant">Hasta 12 colores simultáneos con hilo de alta resistencia Madeira, sobre tejido Oxford duradero y anti-arrugas de alta transpirabilidad — pensado para uso corporativo diario.</p>
+                        <div class="pt-space-sm">
+                            <a class="vs-btn inline-flex items-center justify-center gap-2 px-space-md py-2.5 bg-primary-container text-on-primary font-body-md text-body-md font-semibold" data-path="cotizador" href="contacto.html">
+                                <span class="vs-btn-text">Solicitar cotización</span>
+                                <span class="material-symbols-outlined vs-btn-icon text-[18px]">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-space-sm">
+                        <div class="flex flex-col items-center gap-2 p-space-sm bg-surface rounded-lg text-center">
+                            <span class="material-symbols-outlined text-emerald-600 text-[22px]">verified</span>
+                            <span class="font-body-sm text-body-sm text-on-surface-variant">Algodón &amp; Poliéster 65/35</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-2 p-space-sm bg-surface rounded-lg text-center">
+                            <span class="material-symbols-outlined text-indigo-600 text-[22px]">precision_manufacturing</span>
+                            <span class="font-body-sm text-body-sm text-on-surface-variant">Bordado Tajima 12 colores</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-2 p-space-sm bg-surface rounded-lg text-center">
+                            <span class="material-symbols-outlined text-amber-600 text-[22px]">local_shipping</span>
+                            <span class="font-body-sm text-body-sm text-on-surface-variant">Entrega en flotas corporativas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="w-full py-space-3xl">
+            <div class="max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-space-md bg-primary-container rounded-xl px-space-lg py-space-xl">
+                    <div class="flex flex-col gap-1">
+                        <h3 class="font-headline-md text-headline-md text-on-primary">¿No encuentras lo que buscas?</h3>
+                        <p class="font-body-md text-body-md text-on-primary/80">Cuéntanos qué necesita tu empresa y te armamos una propuesta a la medida.</p>
+                    </div>
+                    <a class="vs-btn inline-flex items-center justify-center px-space-md py-2.5 bg-surface-container-lowest text-primary-container font-body-md text-body-md font-semibold shrink-0" data-path="contacto" href="contacto.html"><span class="vs-btn-text">Hablar con un ejecutivo</span></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <aside class="fixed bottom-6 right-6 z-40 flex items-center gap-3 group">
+        <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none bg-primary-container text-on-primary text-body-sm font-body-sm px-3.5 py-1.5 rounded-lg shadow-lg whitespace-nowrap">¿Necesitas cotización inmediata? Escríbenos</span>
+        <a aria-label="WhatsApp" class="vs-btn vs-btn-plain rounded-full flex items-center justify-center w-14 h-14 bg-emerald-600 text-on-primary shadow-xl" href="https://wa.me/527225438920" rel="noopener noreferrer" target="_blank">
+            <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
+            <svg class="relative h-7 w-7 text-white" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.001 2.002c-5.518 0-9.997 4.479-9.997 9.997 0 1.762.464 3.482 1.346 4.997l-1.42 5.19a.6.6 0 0 0 .735.735l5.19-1.42a9.96 9.96 0 0 0 4.146.894h.004c5.518 0 9.997-4.478 9.997-9.996 0-2.67-1.04-5.18-2.928-7.07a9.93 9.93 0 0 0-7.073-2.927zm0 18.312h-.003a8.3 8.3 0 0 1-4.234-1.16l-.304-.18-3.151.862.842-3.075-.198-.316a8.31 8.31 0 0 1-1.276-4.436c0-4.596 3.74-8.335 8.336-8.335a8.28 8.28 0 0 1 5.895 2.445 8.28 8.28 0 0 1 2.438 5.897c-.002 4.596-3.741 8.298-8.345 8.298zm4.568-6.223c-.25-.125-1.475-.728-1.704-.812-.229-.083-.396-.125-.563.125-.166.25-.646.812-.792.978-.146.167-.291.188-.541.063-.25-.125-1.056-.39-2.012-1.242-.744-.664-1.246-1.484-1.392-1.734-.146-.25-.016-.386.11-.51.113-.113.25-.292.375-.438.125-.146.166-.25.25-.417.083-.167.041-.313-.021-.438-.062-.125-.563-1.357-.771-1.858-.203-.487-.41-.421-.563-.429-.146-.007-.313-.009-.48-.009-.166 0-.437.062-.666.313-.229.25-.875.854-.875 2.083 0 1.229.896 2.417 1.021 2.583.125.167 1.764 2.695 4.273 3.78.597.258 1.062.412 1.425.527.599.19 1.144.163 1.575.099.48-.072 1.475-.603 1.683-1.187.208-.583.208-1.083.145-1.187-.062-.104-.229-.167-.479-.292z"></path>
+            </svg>
+        </a>
+    </aside>
+
+    <div data-include="footer"></div>
+
+    <!-- Cargar scripts al final ----------------------------------------
+         loadpartials.js va PRIMERO: inyecta header.html y footer.html,
+         y nav.js viaja PEGADO al componente header (se carga solo,
+         ver assets/js/loadpartials.js -> COMPONENT_SCRIPTS). No hace
+         falta poner <script src="assets/js/nav.js"> aquí a mano. -->
+    <script src="assets/js/loadpartials.js"></script>
+</body>
+</html>

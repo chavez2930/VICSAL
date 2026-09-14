@@ -86,3 +86,62 @@ document.addEventListener('partials:loaded', () => {
   setActiveFromUrl();
 
 });
+
+
+/* ==========================================================
+     MENÚ MÓVIL (hamburguesa + acordeón de Productos)
+     Igual que el resto de este archivo, va dentro del listener
+     'partials:loaded' porque el header se inyecta después.
+     ========================================================== */
+  const menuToggle = document.getElementById('mobile-menu-toggle');
+  const menuPanel = document.getElementById('mobile-menu-panel');
+  const menuIcon = document.getElementById('mobile-menu-icon');
+
+  if (menuToggle && menuPanel) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = !menuPanel.classList.contains('hidden');
+
+      if (isOpen) {
+        menuPanel.classList.add('hidden');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        if (menuIcon) menuIcon.textContent = 'menu';
+      } else {
+        menuPanel.classList.remove('hidden');
+        menuToggle.setAttribute('aria-expanded', 'true');
+        if (menuIcon) menuIcon.textContent = 'close';
+      }
+    });
+  }
+
+  // Acordeón de "Productos" dentro del menú móvil
+  const productosToggle = document.getElementById('mobile-productos-toggle');
+  const productosPanel = document.getElementById('mobile-productos-panel');
+  const productosChevron = document.getElementById('mobile-productos-chevron');
+
+  if (productosToggle && productosPanel) {
+    productosToggle.addEventListener('click', () => {
+      const isOpen = !productosPanel.classList.contains('hidden');
+
+      if (isOpen) {
+        productosPanel.classList.add('hidden');
+        productosToggle.setAttribute('aria-expanded', 'false');
+        if (productosChevron) productosChevron.style.transform = 'rotate(0deg)';
+      } else {
+        productosPanel.classList.remove('hidden');
+        productosToggle.setAttribute('aria-expanded', 'true');
+        if (productosChevron) productosChevron.style.transform = 'rotate(180deg)';
+      }
+    });
+  }
+
+  // Si la pantalla crece a tamaño de escritorio (xl) mientras el menú
+  // móvil está abierto, ciérralo — evita que quede "atorado" abierto
+  // si alguien gira su tablet o cambia de ventana.
+  const desktopBreakpoint = window.matchMedia('(min-width: 1280px)');
+  desktopBreakpoint.addEventListener('change', (e) => {
+    if (e.matches && menuPanel && !menuPanel.classList.contains('hidden')) {
+      menuPanel.classList.add('hidden');
+      if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+      if (menuIcon) menuIcon.textContent = 'menu';
+    }
+  });

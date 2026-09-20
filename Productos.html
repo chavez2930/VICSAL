@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Catálogo VICSAL: uniformes corporativos e industriales, calzado de seguridad, EPP, promocionales, mobiliario y tecnología." name="description"/>
     <title>Productos - VICSAL</title>
 
     <!-- Fuentes -->
@@ -41,60 +42,104 @@
                     <span class="font-label-xs text-label-xs uppercase tracking-widest text-primary-container font-bold">Catálogo</span>
                 </div>
                 <h1 class="font-headline-xl-mobile text-headline-xl-mobile lg:font-headline-xl lg:text-headline-xl text-on-surface max-w-3xl">Todo lo que tu empresa necesita, en un solo proveedor</h1>
-                <p class="mt-space-md font-body-lg text-body-lg text-secondary max-w-2xl">Confección corporativa, calzado industrial, bordado técnico y artículos promocionales — organizados por línea para que encuentres justo lo que buscas.</p>
+                <p class="mt-space-md font-body-lg text-body-lg text-secondary max-w-2xl">Uniformes corporativos e industriales, calzado de seguridad, Equipo de Protección Personal, promocionales, mobiliario y tecnología, organizados por línea para que encuentres justo lo que buscas.</p>
+                <!-- BUSCADOR -->
+                <div class="mt-space-xl max-w-2xl" role="search">
+                    <label class="sr-only" for="search-input">Buscar productos</label>
+                    <div class="rounded-xl p-[2px] bg-outline-variant/60 focus-within:bg-gradient-to-r focus-within:from-pink-500 focus-within:via-orange-400 focus-within:to-emerald-500 shadow-lg transition-shadow">
+                        <div class="relative flex items-center h-14 bg-surface-container-lowest rounded-[6px]">
+                            <span class="material-symbols-outlined absolute left-4 text-[24px] text-secondary pointer-events-none" aria-hidden="true">search</span>
+                            <input id="search-input" type="search" autocomplete="off" spellcheck="false" placeholder="Busca producto, tela o color…" class="w-full h-full bg-transparent pl-12 pr-12 md:pr-24 rounded-[6px] font-body-lg text-body-lg text-on-surface placeholder:text-on-surface-variant/70 focus:outline-none [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden"/>
+                            <button id="search-clear" type="button" aria-label="Borrar búsqueda" class="hidden flex absolute right-3 md:right-12 w-8 h-8 items-center justify-center rounded-lg text-secondary hover:bg-surface-container transition-colors">
+                                <span class="material-symbols-outlined text-[20px]" aria-hidden="true">close</span>
+                            </button>
+                            <kbd class="hidden md:inline-flex absolute right-3 h-6 min-w-6 px-1.5 items-center justify-center rounded-md border border-outline-variant bg-surface-container-low font-label-md text-label-md text-secondary" aria-hidden="true">/</kbd>
+                        </div>
+                    </div>
+                    <div class="mt-space-md flex flex-wrap items-center gap-2">
+                        <span class="font-body-sm text-body-sm text-secondary">Prueba con:</span>
+                        <div id="search-suggest" class="contents"></div>
+                    </div>
+                    <p id="search-stats" class="mt-space-sm font-label-md text-label-md text-secondary"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATÁLOGO -->
+        <section id="catalogo" class="w-full pt-space-2xl pb-space-3xl">
+            <div class="max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop">
+                <div id="resultados" class="scroll-mt-24"></div>
+
+                <!-- Línea + orden + filtros (móvil) -->
+                <div class="flex flex-col gap-space-md mb-space-lg">
+                    <div class="flex flex-wrap items-center justify-between gap-space-sm">
+                        <div id="linea-tabs" role="tablist" aria-label="Línea de productos" class="inline-flex max-w-full overflow-x-auto no-scrollbar p-1 bg-surface-container rounded-xl gap-1">
+                            <button type="button" role="tab" data-linea="" aria-selected="false" class="shrink-0 inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-space-md py-2 rounded-lg font-body-sm text-body-sm sm:font-body-md sm:text-body-md font-semibold transition-colors text-on-surface-variant hover:text-on-surface">Todos<span data-count class="font-label-md text-label-md text-secondary tabular-nums"></span></button>
+                            <button type="button" role="tab" data-linea="uniformes" aria-selected="false" class="shrink-0 inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-space-md py-2 rounded-lg font-body-sm text-body-sm sm:font-body-md sm:text-body-md font-semibold transition-colors text-on-surface-variant hover:text-on-surface">Uniformes<span data-count class="font-label-md text-label-md text-secondary tabular-nums"></span></button>
+                            <button type="button" role="tab" data-linea="calzado" aria-selected="false" class="shrink-0 inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-space-md py-2 rounded-lg font-body-sm text-body-sm sm:font-body-md sm:text-body-md font-semibold transition-colors text-on-surface-variant hover:text-on-surface">Calzado<span data-count class="font-label-md text-label-md text-secondary tabular-nums"></span></button>
+                            <button type="button" role="tab" data-linea="epp" aria-selected="false" class="shrink-0 inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-space-md py-2 rounded-lg font-body-sm text-body-sm sm:font-body-md sm:text-body-md font-semibold transition-colors text-on-surface-variant hover:text-on-surface">EPP<span data-count class="font-label-md text-label-md text-secondary tabular-nums"></span></button>
+                        </div>
+                        <div class="flex items-center gap-space-sm">
+                            <button id="filters-open" type="button" aria-expanded="false" aria-controls="filters" class="lg:hidden inline-flex items-center gap-2 px-space-md py-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant text-primary-container font-body-md text-body-md font-semibold hover:border-primary-container transition-colors">
+                                <span class="material-symbols-outlined text-[20px]" aria-hidden="true">tune</span>Filtros
+                                <span id="filters-badge" class="hidden inline-flex min-w-5 h-5 px-1.5 rounded-full bg-primary-container text-on-primary font-label-md text-label-md items-center justify-center"></span>
+                            </button>
+                            <label class="flex items-center gap-2 font-body-sm text-body-sm text-secondary">
+                                <span class="hidden sm:inline">Ordenar</span>
+                                <select id="sort-select" class="rounded-lg bg-surface-container-lowest border border-outline-variant px-3 py-2.5 font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container">
+                                    <option value="sug">Sugeridos</option>
+                                    <option value="az">Nombre A–Z</option>
+                                    <option value="za">Nombre Z–A</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                    <div id="active-filters" class="hidden flex flex-wrap items-center gap-2"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-[18rem_1fr] gap-gutter-lg items-start">
+                    <div id="filters-overlay" class="hidden fixed inset-0 z-[60] bg-primary-container/50 lg:hidden"></div>
+
+                    <!-- Filtros (barra lateral en escritorio / cortina en móvil) -->
+                    <aside id="filters" aria-label="Filtros" class="fixed inset-y-0 left-0 z-[65] w-[88vw] max-w-sm -translate-x-full transition-transform duration-300 bg-surface flex flex-col lg:static lg:z-auto lg:w-auto lg:max-w-none lg:translate-x-0 lg:bg-transparent lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)]">
+                        <div class="lg:hidden flex items-center justify-between px-space-md py-space-sm border-b border-surface-container">
+                            <span class="font-headline-sm text-headline-sm text-on-surface">Filtros</span>
+                            <button type="button" data-close-drawer aria-label="Cerrar filtros" class="w-10 h-10 inline-flex items-center justify-center rounded-lg text-primary-container hover:bg-surface-container transition-colors">
+                                <span class="material-symbols-outlined" aria-hidden="true">close</span>
+                            </button>
+                        </div>
+                        <div class="flex-1 min-h-0 overflow-y-auto px-space-md py-space-sm bg-surface-container-lowest lg:rounded-xl lg:shadow-sm">
+                            <div class="hidden lg:flex items-center justify-between pb-space-xs border-b border-surface-container">
+                                <span class="font-title-md text-title-md text-on-surface">Filtros</span>
+                                <button type="button" data-clear-all class="font-body-sm text-body-sm text-primary-container font-semibold hover:underline">Limpiar</button>
+                            </div>
+                            <div id="filters-groups"></div>
+                        </div>
+                        <div class="lg:hidden p-space-md border-t border-surface-container bg-surface">
+                            <button id="filters-apply" type="button" class="vs-btn w-full inline-flex items-center justify-center px-space-md py-3 bg-primary-container text-on-primary font-body-md text-body-md font-semibold"><span class="vs-btn-text" data-apply-text>Ver productos</span></button>
+                        </div>
+                    </aside>
+
+                    <!-- Resultados -->
+                    <div class="min-w-0">
+                        <p id="results-count" class="mb-space-sm font-body-md text-body-md text-on-surface-variant" aria-live="polite"></p>
+                        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-gutter-md"></div>
+                        <noscript><p class="font-body-md text-body-md text-on-surface-variant">Activa JavaScript para ver el catálogo, o <a class="text-primary-container font-semibold underline" href="contacto.html">escríbenos</a> y te lo enviamos.</p></noscript>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- CATEGORÍAS -->
         <section class="w-full py-space-3xl">
             <div class="max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter-lg">
-
-                    <div class="flex flex-col gap-space-sm p-space-lg bg-surface-container-low rounded-xl">
-                        <span class="material-symbols-outlined text-primary-container text-[28px]">checkroom</span>
-                        <h3 class="font-title-lg text-title-lg text-on-surface">Hombre</h3>
-                        <ul class="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-1.5">
-                            <li>Playeras</li>
-                            <li>Prendas de vestir</li>
-                            <li>Uniformes de seguridad y EPP</li>
-                            <li>Gorras bordadas o estampadas</li>
-                            <li>Bordados industriales</li>
-                        </ul>
-                    </div>
-
-                    <div class="flex flex-col gap-space-sm p-space-lg bg-surface-container-low rounded-xl">
-                        <span class="material-symbols-outlined text-primary-container text-[28px]">woman</span>
-                        <h3 class="font-title-lg text-title-lg text-on-surface">Mujer</h3>
-                        <ul class="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-1.5">
-                            <li>Playeras y Blusas</li>
-                            <li>Prendas de vestir dama</li>
-                            <li>Bordados y aplicaciones</li>
-                            <li>Gorras bordadas o estampadas</li>
-                        </ul>
-                    </div>
-
-                    <div class="flex flex-col gap-space-sm p-space-lg bg-surface-container-low rounded-xl">
-                        <span class="material-symbols-outlined text-primary-container text-[28px]">footprint</span>
-                        <h3 class="font-title-lg text-title-lg text-on-surface">Calzado</h3>
-                        <ul class="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-1.5">
-                            <li>Zapatos industriales</li>
-                            <li>Botas de seguridad</li>
-                            <li>Tenis corporativos</li>
-                            <li>Calzado antiderrapante</li>
-                        </ul>
-                    </div>
-
-                    <div class="flex flex-col gap-space-sm p-space-lg bg-surface-container-low rounded-xl">
-                        <span class="material-symbols-outlined text-primary-container text-[28px]">backpack</span>
-                        <h3 class="font-title-lg text-title-lg text-on-surface">Accesorios</h3>
-                        <ul class="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-1.5">
-                            <li>V.S Souvenirs</li>
-                            <li>Gorras y Sombrerería</li>
-                            <li>Mochilas y Bolsas</li>
-                            <li>Artículos promocionales</li>
-                        </ul>
-                    </div>
-
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter-lg">
+<div class="flex flex-col gap-space-sm p-space-lg bg-surface-container-low rounded-xl"><span class="material-symbols-outlined text-primary-container text-[28px]">checkroom</span><h3 class="font-title-lg text-title-lg text-on-surface">Uniformes corporativos e industriales</h3><ul class="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-1.5"><li>Playeras y polos</li><li>Camisas y blusas</li><li>Pantalones y camisolas</li><li>Uniformes por giro: industrial, restaurante y seguridad privada</li><li>Bordados industriales</li></ul></div>
+<div class="flex flex-col gap-space-sm p-space-lg bg-surface-container-low rounded-xl"><span class="material-symbols-outlined text-primary-container text-[28px]">footprint</span><h3 class="font-title-lg text-title-lg text-on-surface">Calzado de seguridad</h3><ul class="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-1.5"><li>Calzado con casco</li><li>Calzado sin casco</li><li>Botas para soldador</li><li>Calzado antiderrapante</li></ul></div>
+<div class="flex flex-col gap-space-sm p-space-lg bg-surface-container-low rounded-xl"><span class="material-symbols-outlined text-primary-container text-[28px]">health_and_safety</span><h3 class="font-title-lg text-title-lg text-on-surface">Equipo de Protección Personal</h3><ul class="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-1.5"><li>Chalecos con reflejante</li><li>Uniformes de seguridad y EPP</li></ul></div>
+<div class="flex flex-col gap-space-sm p-space-lg bg-surface-container-low rounded-xl"><span class="material-symbols-outlined text-primary-container text-[28px]">redeem</span><h3 class="font-title-lg text-title-lg text-on-surface">Promocionales</h3><ul class="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-1.5"><li>V.S Souvenirs</li><li>Gorras y sombrerería</li><li>Mochilas y bolsas</li><li>Artículos promocionales</li></ul></div>
+<div class="flex flex-col gap-space-sm p-space-lg bg-surface-container-low rounded-xl"><span class="material-symbols-outlined text-primary-container text-[28px]">chair</span><h3 class="font-title-lg text-title-lg text-on-surface">Mobiliario</h3><ul class="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-1.5"><li>Consulta opciones con un ejecutivo</li></ul></div>
+<div class="flex flex-col gap-space-sm p-space-lg bg-surface-container-low rounded-xl"><span class="material-symbols-outlined text-primary-container text-[28px]">devices</span><h3 class="font-title-lg text-title-lg text-on-surface">Tecnología</h3><ul class="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-1.5"><li>Consulta opciones con un ejecutivo</li></ul></div>
                 </div>
             </div>
         </section>
@@ -131,6 +176,20 @@
             </div>
         </section>
 
+        <!-- KAIZER -->
+        <section class="w-full py-space-3xl">
+            <div class="max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter-lg items-center">
+                    <img alt="Bota de seguridad Kaizer M-7 con casco de poliamida, antiperforación y suela dieléctrica" class="w-full rounded-xl shadow-xl" src="assets/img/calzado-kaizer.jpg"/>
+                    <div class="flex flex-col gap-space-sm">
+                        <h2 class="font-headline-lg text-headline-lg text-on-surface">Kaizer M-7: calzado de seguridad para la industria azucarera</h2>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant">Casco de poliamida, sistema antiperforación (anticlavos) y suela dieléctrica contra riesgos eléctricos, en una bota pensada para entornos exigentes.</p>
+                        <div class="pt-space-sm"><a class="vs-btn inline-flex items-center justify-center px-space-md py-2.5 bg-primary-container text-on-primary font-body-md text-body-md font-semibold" href="contacto.html"><span class="vs-btn-text">Cotizar calzado</span></a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- CTA -->
         <section class="w-full py-space-3xl">
             <div class="max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop">
@@ -145,9 +204,47 @@
         </section>
     </main>
 
+    <!-- VISTA PREVIA DE PRODUCTO -->
+    <div id="qv" class="hidden fixed inset-0 z-[70]" role="dialog" aria-modal="true" aria-labelledby="qv-title">
+        <div id="qv-backdrop" class="absolute inset-0 bg-primary-container/60 backdrop-blur-sm opacity-0 transition-opacity duration-200"></div>
+        <div class="absolute inset-0 overflow-y-auto" data-qv-outside>
+            <div class="min-h-full flex items-end sm:items-center justify-center sm:p-space-lg" data-qv-outside>
+                <div id="qv-panel" class="relative w-full max-w-4xl bg-surface-container-lowest rounded-t-xl sm:rounded-xl shadow-2xl overflow-hidden grid md:grid-cols-2 opacity-0 translate-y-3 transition-all duration-200">
+                    <button id="qv-close" type="button" aria-label="Cerrar vista previa" class="absolute top-3 right-3 z-10 w-10 h-10 inline-flex items-center justify-center rounded-lg bg-surface-container-lowest/90 text-primary-container hover:bg-surface-container shadow-sm transition-colors">
+                        <span class="material-symbols-outlined" aria-hidden="true">close</span>
+                    </button>
+                    <div id="qv-visual"></div>
+                    <div class="flex flex-col gap-space-md p-space-lg">
+                        <div class="flex flex-col gap-space-xs md:pr-10">
+                            <span id="qv-eyebrow" class="font-label-xs text-label-xs uppercase tracking-wider text-secondary font-bold"></span>
+                            <h2 id="qv-title" class="font-headline-md text-headline-md text-on-surface"></h2>
+                            <p id="qv-desc" class="font-body-md text-body-md text-on-surface-variant"></p>
+                        </div>
+                        <div id="qv-specs-wrap">
+                            <h3 class="font-label-md text-label-md text-primary-container uppercase tracking-wider font-bold mb-space-xs">Ficha técnica</h3>
+                            <dl id="qv-specs"></dl>
+                        </div>
+                        <div class="mt-auto flex flex-col gap-space-sm pt-space-sm">
+                            <a id="qv-cta" href="contacto.html" data-path="contacto" class="vs-btn inline-flex items-center justify-center gap-2 px-space-md py-3 bg-primary-container text-on-primary font-body-md text-body-md font-semibold">
+                                <span class="vs-btn-text">Más información</span>
+                                <span class="material-symbols-outlined vs-btn-icon text-[18px]" aria-hidden="true">arrow_forward</span>
+                            </a>
+                            <p class="font-label-md text-label-md text-secondary text-center">Solicita informes y cotización de este producto.</p>
+                            <div id="qv-nav" class="flex items-center justify-between pt-space-sm border-t border-surface-container">
+                                <button id="qv-prev" type="button" class="inline-flex items-center gap-1 px-space-sm py-2 rounded-lg text-primary-container font-body-sm text-body-sm font-semibold hover:bg-surface-container transition-colors disabled:opacity-40 disabled:pointer-events-none"><span class="material-symbols-outlined text-[20px]" aria-hidden="true">chevron_left</span>Anterior</button>
+                                <span id="qv-pos" class="font-label-md text-label-md text-secondary tabular-nums"></span>
+                                <button id="qv-next" type="button" class="inline-flex items-center gap-1 px-space-sm py-2 rounded-lg text-primary-container font-body-sm text-body-sm font-semibold hover:bg-surface-container transition-colors disabled:opacity-40 disabled:pointer-events-none">Siguiente<span class="material-symbols-outlined text-[20px]" aria-hidden="true">chevron_right</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <aside class="fixed bottom-6 right-6 z-40 flex items-center gap-3 group">
         <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none bg-primary-container text-on-primary text-body-sm font-body-sm px-3.5 py-1.5 rounded-lg shadow-lg whitespace-nowrap">¿Necesitas cotización inmediata? Escríbenos</span>
-        <a aria-label="WhatsApp" class="vs-btn vs-btn-plain rounded-full flex items-center justify-center w-14 h-14 bg-emerald-600 text-on-primary shadow-xl" href="https://wa.me/527225438920" rel="noopener noreferrer" target="_blank">
+        <a aria-label="WhatsApp" class="vs-btn vs-btn-plain rounded-full flex items-center justify-center w-14 h-14 bg-emerald-600 text-on-primary shadow-xl" href="https://wa.me/527223494427" rel="noopener noreferrer" target="_blank">
             <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
             <svg class="relative h-7 w-7 text-white" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12.001 2.002c-5.518 0-9.997 4.479-9.997 9.997 0 1.762.464 3.482 1.346 4.997l-1.42 5.19a.6.6 0 0 0 .735.735l5.19-1.42a9.96 9.96 0 0 0 4.146.894h.004c5.518 0 9.997-4.478 9.997-9.996 0-2.67-1.04-5.18-2.928-7.07a9.93 9.93 0 0 0-7.073-2.927zm0 18.312h-.003a8.3 8.3 0 0 1-4.234-1.16l-.304-.18-3.151.862.842-3.075-.198-.316a8.31 8.31 0 0 1-1.276-4.436c0-4.596 3.74-8.335 8.336-8.335a8.28 8.28 0 0 1 5.895 2.445 8.28 8.28 0 0 1 2.438 5.897c-.002 4.596-3.741 8.298-8.345 8.298zm4.568-6.223c-.25-.125-1.475-.728-1.704-.812-.229-.083-.396-.125-.563.125-.166.25-.646.812-.792.978-.146.167-.291.188-.541.063-.25-.125-1.056-.39-2.012-1.242-.744-.664-1.246-1.484-1.392-1.734-.146-.25-.016-.386.11-.51.113-.113.25-.292.375-.438.125-.146.166-.25.25-.417.083-.167.041-.313-.021-.438-.062-.125-.563-1.357-.771-1.858-.203-.487-.41-.421-.563-.429-.146-.007-.313-.009-.48-.009-.166 0-.437.062-.666.313-.229.25-.875.854-.875 2.083 0 1.229.896 2.417 1.021 2.583.125.167 1.764 2.695 4.273 3.78.597.258 1.062.412 1.425.527.599.19 1.144.163 1.575.099.48-.072 1.475-.603 1.683-1.187.208-.583.208-1.083.145-1.187-.062-.104-.229-.167-.479-.292z"></path>
@@ -163,5 +260,7 @@
          ver assets/js/loadpartials.js -> COMPONENT_SCRIPTS). No hace
          falta poner <script src="assets/js/nav.js"> aquí a mano. -->
     <script src="assets/js/loadpartials.js"></script>
+    <script src="assets/js/productosdata.js"></script>
+    <script src="assets/js/catalogo.js"></script>
 </body>
 </html>

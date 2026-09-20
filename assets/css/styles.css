@@ -171,3 +171,10 @@
     animation: none;
   }
 }
+
+/* ---- Clases usadas en el HTML que faltaban ---- */
+.spectrum-badge { background: linear-gradient(90deg, #ec4899, #fb923c, #10b981); }
+.spectrum-border-top { border-top: 3px solid transparent; border-image: linear-gradient(90deg, #ec4899, #fb923c, #10b981) 1; }
+.vs-btn-plain { overflow: visible; }
+.vs-btn-plain::before, .vs-btn-plain::after { display: none; }
+a[href^="mailto:"] { overflow-wrap: anywhere; }

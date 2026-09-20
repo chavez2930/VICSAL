@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Contacto VICSAL: cotiza uniformes, calzado de seguridad, EPP, promocionales, mobiliario y tecnología para tu empresa." name="description"/>
     <title>Contacto - VICSAL</title>
 
     <!-- Fuentes -->
@@ -18,6 +19,19 @@
     <!-- Tailwind CDN y Configuración Local -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="assets/js/tailwind-config.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/intl-tel-input@29/dist/css/intlTelInput.css" rel="stylesheet"/>
+    <style>
+    /* Campos: al enfocar, el borde usa el mismo degradado de los botones */
+    .vs-field:focus{outline:none;box-shadow:none;border:2px solid transparent;
+      padding-top:calc(.625rem - 1px);padding-bottom:calc(.625rem - 1px);
+      background:linear-gradient(#f7f9fb,#f7f9fb) padding-box,linear-gradient(90deg,#ec4899,#fb923c 50%,#10b981) border-box}
+    .vs-field:not(.vs-tel):focus{padding-left:calc(.75rem - 1px);padding-right:calc(.75rem - 1px)}
+    .vs-field::placeholder{color:#75777f}
+    .iti{width:100%}
+    /* Distintivo de reCAPTCHA v3: abajo a la izquierda, se expande al pasar el mouse */
+    .grecaptcha-badge{width:70px!important;overflow:hidden!important;transition:width .3s ease!important;left:4px!important;right:auto!important}
+    .grecaptcha-badge:hover{width:256px!important}
+</style>
 </head>
 
 <body class="bg-surface font-body-md text-on-surface antialiased">
@@ -53,33 +67,19 @@
                     <!-- Formulario -->
                     <form class="lg:col-span-7 flex flex-col gap-space-md bg-surface-container-low rounded-xl p-space-lg">
                         <h2 class="font-title-lg text-title-lg text-on-surface">Cuéntanos sobre tu proyecto</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
-                            <div class="flex flex-col gap-1.5">
-                                <label class="font-label-md text-label-md text-on-surface-variant" for="nombre">Nombre</label>
-                                <input class="rounded-lg border border-outline-variant bg-surface px-space-sm py-2.5 font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" id="nombre" name="nombre" type="text" placeholder="Tu nombre"/>
-                            </div>
-                            <div class="flex flex-col gap-1.5">
-                                <label class="font-label-md text-label-md text-on-surface-variant" for="empresa">Empresa</label>
-                                <input class="rounded-lg border border-outline-variant bg-surface px-space-sm py-2.5 font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" id="empresa" name="empresa" type="text" placeholder="Nombre de tu empresa"/>
-                            </div>
-                            <div class="flex flex-col gap-1.5">
-                                <label class="font-label-md text-label-md text-on-surface-variant" for="correo">Correo</label>
-                                <input class="rounded-lg border border-outline-variant bg-surface px-space-sm py-2.5 font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" id="correo" name="correo" type="email" placeholder="tucorreo@empresa.com"/>
-                            </div>
-                            <div class="flex flex-col gap-1.5">
-                                <label class="font-label-md text-label-md text-on-surface-variant" for="telefono">Teléfono</label>
-                                <input class="rounded-lg border border-outline-variant bg-surface px-space-sm py-2.5 font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" id="telefono" name="telefono" type="tel" placeholder="55 1234 5678"/>
-                            </div>
-                        </div>
-                        <div class="flex flex-col gap-1.5">
-                            <label class="font-label-md text-label-md text-on-surface-variant" for="mensaje">¿Qué necesitas?</label>
-                            <textarea class="rounded-lg border border-outline-variant bg-surface px-space-sm py-2.5 font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container" id="mensaje" name="mensaje" rows="4" placeholder="Uniformes, cantidad aproximada, plazos, etc."></textarea>
-                        </div>
-                        <button class="vs-btn inline-flex items-center justify-center gap-2 px-space-md py-2.5 bg-primary-container text-on-primary font-body-md text-body-md font-semibold self-start" type="submit">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md items-start">
+<div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface-variant" for="nombre">Nombre</label><textarea autocomplete="name" class="vs-field w-full rounded-lg border border-outline-variant bg-surface px-space-sm py-2.5 font-body-md text-body-md text-on-surface resize-none overflow-hidden" data-autogrow data-single id="nombre" name="nombre" placeholder="Tu nombre" required rows="1"></textarea></div>
+<div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface-variant" for="empresa">Empresa</label><textarea autocomplete="organization" class="vs-field w-full rounded-lg border border-outline-variant bg-surface px-space-sm py-2.5 font-body-md text-body-md text-on-surface resize-none overflow-hidden" data-autogrow data-single id="empresa" name="empresa" placeholder="Nombre de tu empresa" rows="1"></textarea></div>
+<div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface-variant" for="correo">Correo</label><input autocomplete="email" class="vs-field w-full rounded-lg border border-outline-variant bg-surface px-space-sm py-2.5 font-body-md text-body-md text-on-surface" id="correo" name="correo" placeholder="tucorreo@empresa.com" required type="email"/></div>
+<div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface-variant" for="telefono">Teléfono</label><input autocomplete="tel-national" class="vs-field w-full rounded-lg border border-outline-variant bg-surface px-space-sm py-2.5 font-body-md text-body-md text-on-surface vs-tel" id="telefono" name="telefono" type="tel"/></div>
+</div>
+<div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface-variant" for="mensaje">¿Qué necesitas?</label><textarea class="vs-field w-full rounded-lg border border-outline-variant bg-surface px-space-sm py-2.5 font-body-md text-body-md text-on-surface resize-none overflow-hidden" data-autogrow id="mensaje" name="mensaje" placeholder="Uniformes, cantidad aproximada, plazos, etc." required rows="4"></textarea></div>
+<div class="flex flex-col gap-1.5">
+<p class="hidden font-body-sm text-body-sm text-error" id="captcha-error" role="alert">No pudimos verificar que eres una persona. Inténtalo de nuevo.</p></div>
+<button class="vs-btn inline-flex items-center justify-center gap-2 px-space-md py-2.5 bg-primary-container text-on-primary font-body-md text-body-md font-semibold self-start" type="submit">
                             <span class="vs-btn-text">Enviar mensaje</span>
                             <span class="material-symbols-outlined vs-btn-icon text-[18px]">send</span>
                         </button>
-                        <p class="font-body-sm text-body-sm text-on-surface-variant">Este formulario todavía no está conectado a un servidor de envío — hay que integrarlo con tu backend, un servicio como Formspree, o una automatización antes de publicarlo.</p>
                     </form>
 
                     <!-- Datos de contacto -->
@@ -99,7 +99,7 @@
                             </div>
                             <div class="flex flex-col gap-0.5">
                                 <span class="font-title-md text-title-md text-on-surface">Teléfono</span>
-                                <span class="font-body-sm text-body-sm text-on-surface-variant">+52 722 543 8920</span>
+                                <a class="font-body-sm text-body-sm text-on-surface-variant" href="tel:+527223494427">722 349 4427</a>
                             </div>
                         </div>
                         <div class="flex items-start gap-3 p-space-md bg-surface-container-low rounded-xl">
@@ -108,11 +108,11 @@
                             </div>
                             <div class="flex flex-col gap-0.5">
                                 <span class="font-title-md text-title-md text-on-surface">Correo</span>
-                                <span class="font-body-sm text-body-sm text-on-surface-variant">ventas@vicsal.com.mx</span>
-                                <span class="font-body-sm text-body-sm text-on-surface-variant">atencion@vicsal.com.mx</span>
+                                <a class="font-body-sm text-body-sm text-on-surface-variant" href="mailto:gerencia.ventas@solucionesvicsal.com">gerencia.ventas@solucionesvicsal.com</a>
+                                <a class="font-body-sm text-body-sm text-on-surface-variant" href="mailto:ventas1@solucionesvicsal.com">ventas1@solucionesvicsal.com</a>
                             </div>
                         </div>
-                        <a class="vs-btn inline-flex items-center justify-center gap-2 px-space-md py-2.5 bg-emerald-600 text-on-primary font-body-md text-body-md font-semibold" href="https://wa.me/527225438920" rel="noopener noreferrer" target="_blank">
+                        <a class="vs-btn inline-flex items-center justify-center gap-2 px-space-md py-2.5 bg-emerald-600 text-on-primary font-body-md text-body-md font-semibold" href="https://wa.me/527223494427" rel="noopener noreferrer" target="_blank">
                             <span class="vs-btn-text">Escribir por WhatsApp</span>
                         </a>
                     </div>
@@ -124,7 +124,7 @@
 
     <aside class="fixed bottom-6 right-6 z-40 flex items-center gap-3 group">
         <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none bg-primary-container text-on-primary text-body-sm font-body-sm px-3.5 py-1.5 rounded-lg shadow-lg whitespace-nowrap">¿Necesitas cotización inmediata? Escríbenos</span>
-        <a aria-label="WhatsApp" class="vs-btn vs-btn-plain rounded-full flex items-center justify-center w-14 h-14 bg-emerald-600 text-on-primary shadow-xl" href="https://wa.me/527225438920" rel="noopener noreferrer" target="_blank">
+        <a aria-label="WhatsApp" class="vs-btn vs-btn-plain rounded-full flex items-center justify-center w-14 h-14 bg-emerald-600 text-on-primary shadow-xl" href="https://wa.me/527223494427" rel="noopener noreferrer" target="_blank">
             <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
             <svg class="relative h-7 w-7 text-white" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12.001 2.002c-5.518 0-9.997 4.479-9.997 9.997 0 1.762.464 3.482 1.346 4.997l-1.42 5.19a.6.6 0 0 0 .735.735l5.19-1.42a9.96 9.96 0 0 0 4.146.894h.004c5.518 0 9.997-4.478 9.997-9.996 0-2.67-1.04-5.18-2.928-7.07a9.93 9.93 0 0 0-7.073-2.927zm0 18.312h-.003a8.3 8.3 0 0 1-4.234-1.16l-.304-.18-3.151.862.842-3.075-.198-.316a8.31 8.31 0 0 1-1.276-4.436c0-4.596 3.74-8.335 8.336-8.335a8.28 8.28 0 0 1 5.895 2.445 8.28 8.28 0 0 1 2.438 5.897c-.002 4.596-3.741 8.298-8.345 8.298zm4.568-6.223c-.25-.125-1.475-.728-1.704-.812-.229-.083-.396-.125-.563.125-.166.25-.646.812-.792.978-.146.167-.291.188-.541.063-.25-.125-1.056-.39-2.012-1.242-.744-.664-1.246-1.484-1.392-1.734-.146-.25-.016-.386.11-.51.113-.113.25-.292.375-.438.125-.146.166-.25.25-.417.083-.167.041-.313-.021-.438-.062-.125-.563-1.357-.771-1.858-.203-.487-.41-.421-.563-.429-.146-.007-.313-.009-.48-.009-.166 0-.437.062-.666.313-.229.25-.875.854-.875 2.083 0 1.229.896 2.417 1.021 2.583.125.167 1.764 2.695 4.273 3.78.597.258 1.062.412 1.425.527.599.19 1.144.163 1.575.099.48-.072 1.475-.603 1.683-1.187.208-.583.208-1.083.145-1.187-.062-.104-.229-.167-.479-.292z"></path>
@@ -140,5 +140,105 @@
          ver assets/js/loadpartials.js -> COMPONENT_SCRIPTS). No hace
          falta poner <script src="assets/js/nav.js"> aquí a mano. -->
     <script src="assets/js/loadpartials.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@29/dist/js/intlTelInput.min.js"></script>
+    <script>
+    (function () {
+        var form = document.querySelector('form');
+
+        /* Campos que crecen solos (sin tirador de tamaño) */
+        var grow = Array.prototype.slice.call(document.querySelectorAll('[data-autogrow]'));
+        function fit(el) {
+            el.style.height = 'auto';
+            el.style.height = (el.scrollHeight + el.offsetHeight - el.clientHeight) + 'px';
+        }
+        grow.forEach(function (el) {
+            el.addEventListener('input', function () {
+                if (el.hasAttribute('data-single')) el.value = el.value.replace(/[\r\n]+/g, ' ');
+                fit(el);
+            });
+            el.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' && el.hasAttribute('data-single')) e.preventDefault();
+            });
+            el.addEventListener('focus', function () { fit(el); });
+            el.addEventListener('blur', function () { fit(el); });
+        });
+        function fitAll() { grow.forEach(fit); }
+        window.addEventListener('resize', fitAll);
+        window.addEventListener('load', fitAll);
+        fitAll();
+
+        /* Teléfono: todos los países (intl-tel-input) con búsqueda y validación por país */
+        var tel = document.getElementById('telefono');
+        var iti = window.intlTelInput(tel, {
+            initialCountry: 'mx',
+            countryOrder: ['mx', 'us', 'ca'],
+            separateDialCode: true,
+            countryNameLocale: 'es',
+            uiTranslations: {
+                selectedCountryAriaLabel: 'Cambiar país del teléfono, seleccionado ${countryName} (${dialCode})',
+                noCountrySelected: 'Selecciona el país del teléfono',
+                countryListAriaLabel: 'Lista de países',
+                searchPlaceholder: 'Buscar país o lada',
+                clearSearchAriaLabel: 'Borrar búsqueda',
+                searchEmptyState: 'Sin resultados',
+                searchSummaryAria: function (n) { return n === 0 ? 'Sin resultados' : n === 1 ? '1 resultado' : n + ' resultados'; }
+            },
+            loadUtils: function () { return import('https://cdn.jsdelivr.net/npm/intl-tel-input@29/dist/js/utils.js'); }
+        });
+        function checkTel() {
+            var ok = null;
+            try { ok = iti.isValidNumber(); } catch (e) {}
+            tel.setCustomValidity(tel.value.trim() && ok === false ? 'Escribe un número de teléfono válido para el país seleccionado.' : '');
+        }
+        tel.addEventListener('input', checkTel);
+        tel.addEventListener('countrychange', checkTel);
+        if (iti.promise) iti.promise.then(checkTel);
+
+        /* Captcha (Google reCAPTCHA v3, invisible) */
+        var RECAPTCHA_SITE_KEY = '6LdkTsUtAAAAAKq2VZidT8EBJ0gwEx5c61zxKRre'; /* solo la clave del sitio; la secreta NUNCA va aquí */
+        var err = document.getElementById('captcha-error');
+        var rc = document.createElement('script');
+        rc.src = 'https://www.google.com/recaptcha/api.js?render=' + RECAPTCHA_SITE_KEY + '&hl=es';
+        rc.async = true;
+        document.head.appendChild(rc);
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            err.classList.add('hidden');
+            var win = window.open('', '_blank'); /* se abre dentro del clic para que el navegador no lo bloquee */
+            function fail() { if (win) win.close(); err.classList.remove('hidden'); }
+            if (!window.grecaptcha) return fail();
+            window.grecaptcha.ready(function () {
+                window.grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'contacto' }).then(function (token) {
+                    /* token: aquí se enviaría a un servidor para verificarlo con la clave secreta */
+                    var f = new FormData(form), phone = '';
+                    if (tel.value.trim()) {
+                        phone = iti.getNumber('INTERNATIONAL') || ('+' + iti.getSelectedCountryData().dialCode + ' ' + tel.value.trim());
+                    }
+                    var msg = ['Hola, soy ' + f.get('nombre') + (f.get('empresa') ? ' de ' + f.get('empresa') : '') + '.', 'Correo: ' + f.get('correo'), phone ? 'Teléfono: ' + phone : '', '', f.get('mensaje')].join('\n');
+                    var url = 'https://wa.me/527223494427?text=' + encodeURIComponent(msg);
+                    if (win) { win.opener = null; win.location.href = url; } else { window.location.href = url; }
+                    form.reset();
+                    fitAll();
+                }, fail);
+            });
+        });
+    })();
+    </script>
+    <script>
+    /* Pre-llena "¿Qué necesitas?" cuando llegan desde el catálogo (productos.html -> "Más info").
+       El catálogo manda: contacto.html?producto=...&categoria=...&ref=...
+       Si entran a esta página normal (sin ?producto=) no hace nada. */
+    (function () {
+        var q = new URLSearchParams(window.location.search);
+        var producto = (q.get('producto') || '').trim().slice(0, 200);
+        var mensaje = document.getElementById('mensaje');
+        if (!producto || !mensaje || mensaje.value) return;
+        var categoria = (q.get('categoria') || '').trim().slice(0, 120);
+        mensaje.value = 'Hola, me interesa el producto: ' + producto + (categoria ? ' (' + categoria + ')' : '') +
+            '. Me gustaría recibir informes y cotización.\n\nCantidad aproximada: ';
+        mensaje.dispatchEvent(new Event('input', { bubbles: true })); /* activa el auto-crecimiento del campo */
+    })();
+    </script>
 </body>
 </html>

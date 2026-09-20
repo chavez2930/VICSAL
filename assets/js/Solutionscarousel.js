@@ -37,13 +37,32 @@ document.addEventListener('DOMContentLoaded', () => {
     return firstCard.getBoundingClientRect().width + gap;
   }
 
+  // Salto INSTANTÁNEO a una posición del carrusel.
+  // El track tiene la clase "scroll-smooth" (scroll-behavior: smooth), y por
+  // eso cualquier "track.scrollLeft = ..." se anima en vez de saltar: al
+  // reacomodar el loop se veía cómo todo el carrusel se rebobinaba. Aquí se
+  // desactiva ese comportamiento (y el snap) solo durante el salto y se
+  // restaura enseguida, así el cambio entre originales y copias no se nota.
+  function jumpTo(left) {
+    const prevBehavior = track.style.scrollBehavior;
+    const prevSnap = track.style.scrollSnapType;
+
+    track.style.scrollBehavior = 'auto';
+    track.style.scrollSnapType = 'none';
+    track.scrollLeft = left;
+    void track.offsetWidth; // fuerza al navegador a aplicar el salto ya
+
+    track.style.scrollBehavior = prevBehavior;
+    track.style.scrollSnapType = prevSnap;
+  }
+
   function normalizeScroll() {
     if (!loopWidth) return;
 
     if (track.scrollLeft >= loopWidth) {
-      track.scrollLeft -= loopWidth;
+      jumpTo(track.scrollLeft - loopWidth);
     } else if (track.scrollLeft < 0) {
-      track.scrollLeft += loopWidth;
+      jumpTo(track.scrollLeft + loopWidth);
     }
   }
 
@@ -61,7 +80,15 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', refreshLoopWidth);
 
   if (prevBtn) {
-    prevBtn.addEventListener('click', () => scrollByCards(-1));
+    prevBtn.addEventListener('click', () => {
+      // Al inicio no hay nada a la izquierda: se salta (sin que se note) a la
+      // misma posición dentro de las copias y de ahí se retrocede, para que
+      // la flecha izquierda también sea infinita.
+      if (loopWidth && track.scrollLeft < getStep()) {
+        jumpTo(track.scrollLeft + loopWidth);
+      }
+      scrollByCards(-1);
+    });
   }
   if (nextBtn) {
     nextBtn.addEventListener('click', () => scrollByCards(1));

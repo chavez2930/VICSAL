@@ -245,7 +245,7 @@
 
   function visualHTML(p, big) {
     if (p.img) {
-      return '<img src="' + esc(p.img) + '" alt="' + esc(p.nombre) + '" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>';
+      return '<img src="' + esc(p.img) + '" alt="' + esc(p.nombre) + '" loading="lazy" class="absolute inset-0 w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"/>';
     }
     return '<div class="absolute inset-0 flex items-center justify-center" style="background-image:radial-gradient(rgba(11,27,61,.10) 1px,transparent 1.5px);background-size:16px 16px">' +
       '<span class="material-symbols-outlined ' + (big ? 'text-[120px]' : 'text-[68px]') + ' text-primary-container/25 group-hover:scale-110 transition-transform duration-500" aria-hidden="true">' + esc(p._cat.icono) + '</span></div>';

@@ -1,23 +1,20 @@
 <?php
 /**
  * Configuración de conexión a la base de datos y reCAPTCHA.
- *
- * Puedes definir estos valores como variables de entorno del servidor
- * (recomendado en producción) o editar directamente los valores por
- * defecto de abajo (getenv devuelve false si no existe la variable).
+ * Ajustado para el hosting Neubox (cPanel) - usuario soluc481.
  */
 
-// --- MySQL (deben coincidir con tu docker/.env) ---
-define('DB_HOST', getenv('MYSQL_HOST') ?: '127.0.0.1');
+// --- MySQL (hosting Neubox) ---
+define('DB_HOST', getenv('MYSQL_HOST') ?: 'solucionesvicsal.com');
 define('DB_PORT', getenv('MYSQL_PORT') ?: '3306');
-define('DB_NAME', getenv('MYSQL_DATABASE') ?: 'vicsal');
-define('DB_USER', getenv('MYSQL_USER') ?: 'vicsal_app');
-define('DB_PASS', getenv('MYSQL_PASSWORD') ?: 'vicsal');
+define('DB_NAME', getenv('MYSQL_DATABASE') ?: 'soluc481_vicsal');
+define('DB_USER', getenv('MYSQL_USER') ?: 'soluc481_vicsal');
+define('DB_PASS', getenv('MYSQL_PASSWORD') ?: 'vicsal20262728');
 
 // --- reCAPTCHA v3 ---
 // La SITE KEY (pública) ya está en Contacto.html.
 // Aquí va la SECRET KEY (privada), NUNCA la publiques en el frontend.
-define('RECAPTCHA_SECRET_KEY', getenv('RECAPTCHA_SECRET_KEY') ?: 'PON_AQUI_TU_SECRET_KEY');
+define('RECAPTCHA_SECRET_KEY', getenv('RECAPTCHA_SECRET_KEY') ?: '6LdkTsUtAAAAAGj9w30raYNLFaevKTBhCR9gPz5W');
 define('RECAPTCHA_MIN_SCORE', 0.5);
 
 /**
@@ -35,6 +32,7 @@ function vs_get_pdo(): PDO
             PDO::ATTR_EMULATE_PREPARES => false,
         ]);
     } catch (PDOException $e) {
+        error_log('Error de conexión PDO: ' . $e->getMessage());
         http_response_code(500);
         header('Content-Type: application/json; charset=utf-8');
         echo json_encode(['ok' => false, 'error' => 'No se pudo conectar a la base de datos.']);

@@ -12,8 +12,23 @@
 
 declare(strict_types=1);
 
+// Evita que cualquier warning/notice de PHP se cuele en la respuesta y
+// rompa el JSON que espera el frontend. Los errores se siguen registrando
+// en el log del servidor (error_log), solo no se imprimen en la salida.
+ini_set('display_errors', '0');
+error_reporting(E_ALL);
+
 header('Content-Type: application/json; charset=utf-8');
-require __DIR__ . '/db.php';
+
+// ---------------------------------------------------------------------
+// 0) Config de base de datos: usa db.php (local/Docker) si existe;
+//    si no, usa db_vicsal.php (hosting Neubox).
+// ---------------------------------------------------------------------
+if (file_exists(__DIR__ . '/db.php')) {
+    require __DIR__ . '/db.php';
+} else {
+    require __DIR__ . '/db_vicsal.php';
+}
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
@@ -106,14 +121,50 @@ if (!empty($errors)) {
 // ---------------------------------------------------------------------
 $recaptchaScore = null;
 if (RECAPTCHA_SECRET_KEY !== 'PON_AQUI_TU_SECRET_KEY') {
-    $verify = @file_get_contents('https://www.google.com/recaptcha/api/siteverify?' . http_build_query([
-        'secret'   => RECAPTCHA_SECRET_KEY,
-        'response' => $captchaTok,
-        'remoteip' => $_SERVER['REMOTE_ADDR'] ?? '',
-    ]));
+    $verify = null;
+
+    if (function_exists('curl_init')) {
+        // cURL: funciona incluso cuando allow_url_fopen está deshabilitado
+        // (muy común en hosting compartido tipo cPanel).
+        // Detecta si estamos en el servidor embebido de PHP (desarrollo local,
+        // `php -S ...`). SOLO en ese caso se desactiva la verificación SSL,
+        // porque en Windows local suele faltar el archivo de certificados raíz.
+        // En el hosting real (Apache/LiteSpeed) esto NUNCA se activa, así que
+        // en producción la verificación SSL se mantiene segura.
+        $esServidorLocalDeDesarrollo = (php_sapi_name() === 'cli-server');
+
+        $ch = curl_init('https://www.google.com/recaptcha/api/siteverify');
+        curl_setopt_array($ch, [
+            CURLOPT_POST           => true,
+            CURLOPT_POSTFIELDS     => http_build_query([
+                'secret'   => RECAPTCHA_SECRET_KEY,
+                'response' => $captchaTok,
+                'remoteip' => $_SERVER['REMOTE_ADDR'] ?? '',
+            ]),
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT        => 10,
+            CURLOPT_SSL_VERIFYPEER => !$esServidorLocalDeDesarrollo,
+            CURLOPT_SSL_VERIFYHOST => $esServidorLocalDeDesarrollo ? 0 : 2,
+        ]);
+        $verify = curl_exec($ch);
+        $curlError = curl_error($ch);
+
+        if ($verify === false) {
+            error_log('reCAPTCHA cURL error: ' . $curlError);
+        }
+    } else {
+        // Fallback si cURL no está disponible
+        $verify = @file_get_contents('https://www.google.com/recaptcha/api/siteverify?' . http_build_query([
+            'secret'   => RECAPTCHA_SECRET_KEY,
+            'response' => $captchaTok,
+            'remoteip' => $_SERVER['REMOTE_ADDR'] ?? '',
+        ]));
+    }
+
     $result = $verify ? json_decode($verify, true) : null;
 
     if (!$result || empty($result['success']) || ($result['score'] ?? 0) < RECAPTCHA_MIN_SCORE) {
+        error_log('reCAPTCHA verify failed: ' . json_encode($result));
         http_response_code(422);
         echo json_encode(['ok' => false, 'errors' => [
             'captcha' => 'No pudimos verificar que eres una persona. Inténtalo de nuevo.',

@@ -43,8 +43,311 @@
                 </div>
                 <h1 class="font-headline-xl-mobile text-headline-xl-mobile lg:font-headline-xl lg:text-headline-xl text-on-surface max-w-3xl">Todo lo que tu empresa necesita, en un solo proveedor</h1>
                 <p class="mt-space-md font-body-lg text-body-lg text-secondary max-w-2xl">Uniformes corporativos e industriales, calzado de seguridad, Equipo de Protección Personal, promocionales, mobiliario y tecnología, organizados por línea para que encuentres justo lo que buscas.</p>
+
+                <!-- CARRUSEL PRENDAS MÁS VENDIDAS -->
+                <div class="mt-space-2xl">
+                    <div class="flex items-center gap-2 mb-space-sm">
+                        <span class="material-symbols-outlined text-primary-container text-[20px]">local_fire_department</span>
+                        <span class="font-label-md text-label-md uppercase tracking-wider text-primary-container font-bold">Lo más vendido</span>
+                    </div>
+                    <div class="marquee-wrapper">
+                        <div class="marquee-track flex gap-gutter-md" id="bestsellers-track" style="animation-duration: 32s;">
+                            <a class="group relative flex-shrink-0 w-[150px] sm:w-[170px] rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 bg-surface-container-lowest" data-path="bestseller-camisola-mezclilla" href="#catalogo">
+                                <div class="relative w-full aspect-square bg-white overflow-hidden">
+                                    <img alt="Camisola de mezclilla industrial VICSAL" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500" src="assets/img/productos/Camisolas/Camisola_Mezclilla_14oz_sinReflejantes.png"/>
+                                    <span class="absolute top-2 left-2 inline-flex items-center px-2 py-0.5 rounded-full spectrum-badge text-white font-label-xs text-label-xs font-bold shadow-sm">Más vendido</span>
+                                </div>
+                                <div class="p-space-sm">
+                                    <h3 class="font-body-sm text-body-sm text-on-surface font-semibold leading-snug">Camisola de Mezclilla</h3>
+                                </div>
+                            </a>
+                            <a class="group relative flex-shrink-0 w-[150px] sm:w-[170px] rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 bg-surface-container-lowest" data-path="bestseller-playera-polo" href="#catalogo">
+                                <div class="relative w-full aspect-square bg-white overflow-hidden">
+                                    <img alt="Playera tipo polo manga larga VICSAL" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500" src="assets/img/productos/Playera_Polo/Playera_Polo_MLarga_caballero.png"/>
+                                    <span class="absolute top-2 left-2 inline-flex items-center px-2 py-0.5 rounded-full spectrum-badge text-white font-label-xs text-label-xs font-bold shadow-sm">Más vendido</span>
+                                </div>
+                                <div class="p-space-sm">
+                                    <h3 class="font-body-sm text-body-sm text-on-surface font-semibold leading-snug">Playera Tipo Polo</h3>
+                                </div>
+                            </a>
+                            <a class="group relative flex-shrink-0 w-[150px] sm:w-[170px] rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 bg-surface-container-lowest" data-path="bestseller-camisa-ejecutiva" href="#catalogo">
+                                <div class="relative w-full aspect-square bg-white overflow-hidden">
+                                    <img alt="Camisa ejecutiva de vestir VICSAL" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500" src="assets/img/productos/Blusa_Camisa_Mlarga/Camisa_Caballero.png"/>
+                                    <span class="absolute top-2 left-2 inline-flex items-center px-2 py-0.5 rounded-full spectrum-badge text-white font-label-xs text-label-xs font-bold shadow-sm">Más vendido</span>
+                                </div>
+                                <div class="p-space-sm">
+                                    <h3 class="font-body-sm text-body-sm text-on-surface font-semibold leading-snug">Camisa Ejecutiva</h3>
+                                </div>
+                            </a>
+                            <a class="group relative flex-shrink-0 w-[150px] sm:w-[170px] rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 bg-surface-container-lowest" data-path="bestseller-chaleco-seguridad" href="#catalogo">
+                                <div class="relative w-full aspect-square bg-white overflow-hidden">
+                                    <img alt="Chaleco de seguridad tipo brigadista" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500" src="assets/img/productos/chalecos_seguridad/Chaleco_Seguridad_Gabardina_V2.png"/>
+                                    <span class="absolute top-2 left-2 inline-flex items-center px-2 py-0.5 rounded-full spectrum-badge text-white font-label-xs text-label-xs font-bold shadow-sm">Más vendido</span>
+                                </div>
+                                <div class="p-space-sm">
+                                    <h3 class="font-body-sm text-body-sm text-on-surface font-semibold leading-snug">Chaleco de Seguridad</h3>
+                                </div>
+                            </a>
+                            <a class="group relative flex-shrink-0 w-[150px] sm:w-[170px] rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 bg-surface-container-lowest" data-path="bestseller-calzado-casco" href="#catalogo">
+                                <div class="relative w-full aspect-square bg-white overflow-hidden">
+                                    <img alt="Bota de seguridad con casco Kaizer K-02" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500" src="assets/img/productos/Calzado_Casco/Kaizer_K-02.png"/>
+                                    <span class="absolute top-2 left-2 inline-flex items-center px-2 py-0.5 rounded-full spectrum-badge text-white font-label-xs text-label-xs font-bold shadow-sm">Más vendido</span>
+                                </div>
+                                <div class="p-space-sm">
+                                    <h3 class="font-body-sm text-body-sm text-on-surface font-semibold leading-snug">Calzado con Casco K-02</h3>
+                                </div>
+                            </a>
+                            <a class="group relative flex-shrink-0 w-[150px] sm:w-[170px] rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 bg-surface-container-lowest" data-path="bestseller-bota-soldador" href="#catalogo">
+                                <div class="relative w-full aspect-square bg-white overflow-hidden">
+                                    <img alt="Bota para soldador con puntera de policarbonato" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500" src="assets/img/productos/Calzado_Casco/Kaizer_342.png"/>
+                                    <span class="absolute top-2 left-2 inline-flex items-center px-2 py-0.5 rounded-full spectrum-badge text-white font-label-xs text-label-xs font-bold shadow-sm">Más vendido</span>
+                                </div>
+                                <div class="p-space-sm">
+                                    <h3 class="font-body-sm text-body-sm text-on-surface font-semibold leading-snug">Bota para Soldador</h3>
+                                </div>
+                            </a>
+                            <a class="group relative flex-shrink-0 w-[150px] sm:w-[170px] rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 bg-surface-container-lowest" data-path="bestseller-chamarra-dama" href="#catalogo">
+                                <div class="relative w-full aspect-square bg-white overflow-hidden">
+                                    <img alt="Chamarra térmica corporativa para dama" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500" src="assets/img/productos/chamarras/Chamarra_Termica_Dama.png"/>
+                                    <span class="absolute top-2 left-2 inline-flex items-center px-2 py-0.5 rounded-full spectrum-badge text-white font-label-xs text-label-xs font-bold shadow-sm">Más vendido</span>
+                                </div>
+                                <div class="p-space-sm">
+                                    <h3 class="font-body-sm text-body-sm text-on-surface font-semibold leading-snug">Chamarra Térmica Dama</h3>
+                                </div>
+                            </a>
+                            <a class="group relative flex-shrink-0 w-[150px] sm:w-[170px] rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 bg-surface-container-lowest" data-path="bestseller-camisa-blusa-dama" href="#catalogo">
+                                <div class="relative w-full aspect-square bg-white overflow-hidden">
+                                    <img alt="Camisa y blusa de manga larga para dama" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500" src="assets/img/productos/Blusa_Camisa_Mlarga/Camisa_Dama.png"/>
+                                    <span class="absolute top-2 left-2 inline-flex items-center px-2 py-0.5 rounded-full spectrum-badge text-white font-label-xs text-label-xs font-bold shadow-sm">Más vendido</span>
+                                </div>
+                                <div class="p-space-sm">
+                                    <h3 class="font-body-sm text-body-sm text-on-surface font-semibold leading-snug">Blusa Manga Larga Dama</h3>
+                                </div>
+                            </a>
+                            <!-- Set duplicado (idéntico) para loop continuo -->
+                            <a aria-hidden="true" class="group relative flex-shrink-0 w-[150px] sm:w-[170px] rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 bg-surface-container-lowest" href="#catalogo" tabindex="-1">
+                                <div class="relative w-full aspect-square bg-white overflow-hidden">
+                                    <img alt="" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500" src="assets/img/productos/Camisolas/Camisola_Mezclilla_14oz_sinReflejantes.png"/>
+                                    <span class="absolute top-2 left-2 inline-flex items-center px-2 py-0.5 rounded-full spectrum-badge text-white font-label-xs text-label-xs font-bold shadow-sm">Más vendido</span>
+                                </div>
+                                <div class="p-space-sm">
+                                    <h3 class="font-body-sm text-body-sm text-on-surface font-semibold leading-snug">Camisola de Mezclilla</h3>
+                                </div>
+                            </a>
+                            <a aria-hidden="true" class="group relative flex-shrink-0 w-[150px] sm:w-[170px] rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 bg-surface-container-lowest" href="#catalogo" tabindex="-1">
+                                <div class="relative w-full aspect-square bg-white overflow-hidden">
+                                    <img alt="" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500" src="assets/img/productos/Playera_Polo/Playera_Polo_MLarga_caballero.png"/>
+                                    <span class="absolute top-2 left-2 inline-flex items-center px-2 py-0.5 rounded-full spectrum-badge text-white font-label-xs text-label-xs font-bold shadow-sm">Más vendido</span>
+                                </div>
+                                <div class="p-space-sm">
+                                    <h3 class="font-body-sm text-body-sm text-on-surface font-semibold leading-snug">Playera Tipo Polo</h3>
+                                </div>
+                            </a>
+                            <a aria-hidden="true" class="group relative flex-shrink-0 w-[150px] sm:w-[170px] rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 bg-surface-container-lowest" href="#catalogo" tabindex="-1">
+                                <div class="relative w-full aspect-square bg-white overflow-hidden">
+                                    <img alt="" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500" src="assets/img/productos/Blusa_Camisa_Mlarga/Camisa_Caballero.png"/>
+                                    <span class="absolute top-2 left-2 inline-flex items-center px-2 py-0.5 rounded-full spectrum-badge text-white font-label-xs text-label-xs font-bold shadow-sm">Más vendido</span>
+                                </div>
+                                <div class="p-space-sm">
+                                    <h3 class="font-body-sm text-body-sm text-on-surface font-semibold leading-snug">Camisa Ejecutiva</h3>
+                                </div>
+                            </a>
+                            <a aria-hidden="true" class="group relative flex-shrink-0 w-[150px] sm:w-[170px] rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 bg-surface-container-lowest" href="#catalogo" tabindex="-1">
+                                <div class="relative w-full aspect-square bg-white overflow-hidden">
+                                    <img alt="" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500" src="assets/img/productos/chalecos_seguridad/Chaleco_Seguridad_Gabardina_V2.png"/>
+                                    <span class="absolute top-2 left-2 inline-flex items-center px-2 py-0.5 rounded-full spectrum-badge text-white font-label-xs text-label-xs font-bold shadow-sm">Más vendido</span>
+                                </div>
+                                <div class="p-space-sm">
+                                    <h3 class="font-body-sm text-body-sm text-on-surface font-semibold leading-snug">Chaleco de Seguridad</h3>
+                                </div>
+                            </a>
+                            <a aria-hidden="true" class="group relative flex-shrink-0 w-[150px] sm:w-[170px] rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 bg-surface-container-lowest" href="#catalogo" tabindex="-1">
+                                <div class="relative w-full aspect-square bg-white overflow-hidden">
+                                    <img alt="" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500" src="assets/img/productos/Calzado_Casco/Kaizer_K-02.png"/>
+                                    <span class="absolute top-2 left-2 inline-flex items-center px-2 py-0.5 rounded-full spectrum-badge text-white font-label-xs text-label-xs font-bold shadow-sm">Más vendido</span>
+                                </div>
+                                <div class="p-space-sm">
+                                    <h3 class="font-body-sm text-body-sm text-on-surface font-semibold leading-snug">Calzado con Casco K-02</h3>
+                                </div>
+                            </a>
+                            <a aria-hidden="true" class="group relative flex-shrink-0 w-[150px] sm:w-[170px] rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 bg-surface-container-lowest" href="#catalogo" tabindex="-1">
+                                <div class="relative w-full aspect-square bg-white overflow-hidden">
+                                    <img alt="" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500" src="assets/img/productos/Calzado_Casco/Kaizer_342.png"/>
+                                    <span class="absolute top-2 left-2 inline-flex items-center px-2 py-0.5 rounded-full spectrum-badge text-white font-label-xs text-label-xs font-bold shadow-sm">Más vendido</span>
+                                </div>
+                                <div class="p-space-sm">
+                                    <h3 class="font-body-sm text-body-sm text-on-surface font-semibold leading-snug">Bota para Soldador</h3>
+                                </div>
+                            </a>
+                            <a aria-hidden="true" class="group relative flex-shrink-0 w-[150px] sm:w-[170px] rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 bg-surface-container-lowest" href="#catalogo" tabindex="-1">
+                                <div class="relative w-full aspect-square bg-white overflow-hidden">
+                                    <img alt="" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500" src="assets/img/productos/chamarras/Chamarra_Termica_Dama.png"/>
+                                    <span class="absolute top-2 left-2 inline-flex items-center px-2 py-0.5 rounded-full spectrum-badge text-white font-label-xs text-label-xs font-bold shadow-sm">Más vendido</span>
+                                </div>
+                                <div class="p-space-sm">
+                                    <h3 class="font-body-sm text-body-sm text-on-surface font-semibold leading-snug">Chamarra Térmica Dama</h3>
+                                </div>
+                            </a>
+                            <a aria-hidden="true" class="group relative flex-shrink-0 w-[150px] sm:w-[170px] rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 bg-surface-container-lowest" href="#catalogo" tabindex="-1">
+                                <div class="relative w-full aspect-square bg-white overflow-hidden">
+                                    <img alt="" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500" src="assets/img/productos/Blusa_Camisa_Mlarga/Camisa_Dama.png"/>
+                                    <span class="absolute top-2 left-2 inline-flex items-center px-2 py-0.5 rounded-full spectrum-badge text-white font-label-xs text-label-xs font-bold shadow-sm">Más vendido</span>
+                                </div>
+                                <div class="p-space-sm">
+                                    <h3 class="font-body-sm text-body-sm text-on-surface font-semibold leading-snug">Blusa Manga Larga Dama</h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORÍAS -->
+        <section class="w-full py-space-3xl">
+            <div class="max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter-lg">
+                    <div class="vs-flip-card h-72" tabindex="0">
+                        <div class="vs-flip-border"></div>
+                        <div class="vs-flip-inner">
+                            <div class="vs-flip-front bg-surface-container-low">
+                                <span class="material-symbols-outlined text-primary-container text-[28px] mb-space-sm">checkroom</span>
+                                <h3 class="font-title-lg text-title-lg text-on-surface">Uniformes corporativos e industriales</h3>
+                            </div>
+                            <div class="vs-flip-back bg-surface-container-low">
+                                <h3 class="font-title-lg text-title-lg text-on-surface mb-space-xs">Uniformes corporativos e industriales</h3>
+                                <ul class="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-1"><li>Playeras y polos</li><li>Camisas y blusas</li><li>Pantalones y camisolas</li><li>Uniformes por giro: industrial, restaurante y seguridad privada</li><li>Bordados industriales</li></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vs-flip-card h-72" tabindex="0">
+                        <div class="vs-flip-border"></div>
+                        <div class="vs-flip-inner">
+                            <div class="vs-flip-front bg-surface-container-low">
+                                <span class="material-symbols-outlined text-primary-container text-[28px] mb-space-sm">footprint</span>
+                                <h3 class="font-title-lg text-title-lg text-on-surface">Calzado de seguridad</h3>
+                            </div>
+                            <div class="vs-flip-back bg-surface-container-low">
+                                <h3 class="font-title-lg text-title-lg text-on-surface mb-space-xs">Calzado de seguridad</h3>
+                                <ul class="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-1"><li>Calzado con casco</li><li>Calzado sin casco</li><li>Botas para soldador</li><li>Calzado antiderrapante</li></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vs-flip-card h-72" tabindex="0">
+                        <div class="vs-flip-border"></div>
+                        <div class="vs-flip-inner">
+                            <div class="vs-flip-front bg-surface-container-low">
+                                <span class="material-symbols-outlined text-primary-container text-[28px] mb-space-sm">health_and_safety</span>
+                                <h3 class="font-title-lg text-title-lg text-on-surface">Equipo de Protección Personal</h3>
+                            </div>
+                            <div class="vs-flip-back bg-surface-container-low">
+                                <h3 class="font-title-lg text-title-lg text-on-surface mb-space-xs">Equipo de Protección Personal</h3>
+                                <ul class="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-1"><li>Chalecos con reflejante</li><li>Uniformes de seguridad y EPP</li></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vs-flip-card h-72" tabindex="0">
+                        <div class="vs-flip-border"></div>
+                        <div class="vs-flip-inner">
+                            <div class="vs-flip-front bg-surface-container-low">
+                                <span class="material-symbols-outlined text-primary-container text-[28px] mb-space-sm">redeem</span>
+                                <h3 class="font-title-lg text-title-lg text-on-surface">Promocionales</h3>
+                            </div>
+                            <div class="vs-flip-back bg-surface-container-low">
+                                <h3 class="font-title-lg text-title-lg text-on-surface mb-space-xs">Promocionales</h3>
+                                <ul class="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-1"><li>V.S Souvenirs</li><li>Gorras y sombrerería</li><li>Mochilas y bolsas</li><li>Artículos promocionales</li></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vs-flip-card h-72" tabindex="0">
+                        <div class="vs-flip-border"></div>
+                        <div class="vs-flip-inner">
+                            <div class="vs-flip-front bg-surface-container-low">
+                                <span class="material-symbols-outlined text-primary-container text-[28px] mb-space-sm">chair</span>
+                                <h3 class="font-title-lg text-title-lg text-on-surface">Mobiliario</h3>
+                            </div>
+                            <div class="vs-flip-back bg-surface-container-low">
+                                <h3 class="font-title-lg text-title-lg text-on-surface mb-space-xs">Mobiliario</h3>
+                                <ul class="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-1"><li>Consulta opciones con un ejecutivo</li></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vs-flip-card h-72" tabindex="0">
+                        <div class="vs-flip-border"></div>
+                        <div class="vs-flip-inner">
+                            <div class="vs-flip-front bg-surface-container-low">
+                                <span class="material-symbols-outlined text-primary-container text-[28px] mb-space-sm">devices</span>
+                                <h3 class="font-title-lg text-title-lg text-on-surface">Tecnología</h3>
+                            </div>
+                            <div class="vs-flip-back bg-surface-container-low">
+                                <h3 class="font-title-lg text-title-lg text-on-surface mb-space-xs">Tecnología</h3>
+                                <ul class="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-1"><li>Consulta opciones con un ejecutivo</li></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BORDADO INDUSTRIAL -->
+        <section class="w-full py-space-3xl bg-surface-container-low">
+            <div class="max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter-lg items-center">
+                    <div class="flex flex-col gap-space-sm">
+                        <h2 class="font-headline-lg text-headline-lg text-on-surface">Bordado Institucional Tajima</h2>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant">Hasta 12 colores simultáneos con hilo de alta resistencia Madeira, sobre tejido Oxford duradero y anti-arrugas de alta transpirabilidad — pensado para uso corporativo diario.</p>
+                        <div class="pt-space-sm">
+                            <a class="vs-btn inline-flex items-center justify-center gap-2 px-space-md py-2.5 bg-primary-container text-on-primary font-body-md text-body-md font-semibold" data-path="cotizador" href="contacto.html">
+                                <span class="vs-btn-text">Solicitar cotización</span>
+                                <span class="material-symbols-outlined vs-btn-icon text-[18px]">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm">
+                        <div class="group flex flex-col items-center text-center gap-space-sm p-space-md bg-surface-container-lowest rounded-xl border border-outline-variant/60 shadow-sm hover:shadow-lg hover:-translate-y-0.5 hover:border-emerald-200 transition-all duration-200">
+                            <span class="mx-auto inline-flex items-center justify-center w-11 h-11 rounded-lg bg-emerald-50 text-emerald-600 group-hover:scale-105 transition-transform duration-200">
+                                <span class="material-symbols-outlined text-[22px]">verified</span>
+                            </span>
+                            <span class="block w-full text-center font-body-sm text-body-sm text-on-surface font-semibold leading-snug">Algodón &amp; Poliéster 65/35</span>
+                        </div>
+                        <div class="group flex flex-col items-center text-center gap-space-sm p-space-md bg-surface-container-lowest rounded-xl border border-outline-variant/60 shadow-sm hover:shadow-lg hover:-translate-y-0.5 hover:border-indigo-200 transition-all duration-200">
+                            <span class="mx-auto inline-flex items-center justify-center w-11 h-11 rounded-lg bg-indigo-50 text-indigo-600 group-hover:scale-105 transition-transform duration-200">
+                                <span class="material-symbols-outlined text-[22px]">precision_manufacturing</span>
+                            </span>
+                            <span class="block w-full text-center font-body-sm text-body-sm text-on-surface font-semibold leading-snug">Bordado Tajima 12 colores</span>
+                        </div>
+                        <div class="group flex flex-col items-center text-center gap-space-sm p-space-md bg-surface-container-lowest rounded-xl border border-outline-variant/60 shadow-sm hover:shadow-lg hover:-translate-y-0.5 hover:border-amber-200 transition-all duration-200">
+                            <span class="mx-auto inline-flex items-center justify-center w-11 h-11 rounded-lg bg-amber-50 text-amber-600 group-hover:scale-105 transition-transform duration-200">
+                                <span class="material-symbols-outlined text-[22px]">local_shipping</span>
+                            </span>
+                            <span class="block w-full text-center font-body-sm text-body-sm text-on-surface font-semibold leading-snug">Entrega en flotas corporativas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KAIZER -->
+        <section class="w-full py-space-3xl">
+            <div class="max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter-lg items-center">
+                    <img alt="Bota de seguridad Kaizer M-7 con casco de poliamida, antiperforación y suela dieléctrica" class="w-full rounded-xl shadow-xl" src="assets/img/calzado-kaizer.jpg"/>
+                    <div class="flex flex-col gap-space-sm">
+                        <h2 class="font-headline-lg text-headline-lg text-on-surface">Kaizer M-7: calzado de seguridad para la industria azucarera</h2>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant">Casco de poliamida, sistema antiperforación (anticlavos) y suela dieléctrica contra riesgos eléctricos, en una bota pensada para entornos exigentes.</p>
+                        <div class="pt-space-sm"><a class="vs-btn inline-flex items-center justify-center px-space-md py-2.5 bg-primary-container text-on-primary font-body-md text-body-md font-semibold" href="contacto.html"><span class="vs-btn-text">Cotizar calzado</span></a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATÁLOGO -->
+        <section id="catalogo" class="w-full pt-space-2xl pb-space-3xl">
+            <div class="max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop">
+                <div id="resultados" class="scroll-mt-24"></div>
+
                 <!-- BUSCADOR -->
-                <div class="mt-space-xl max-w-2xl" role="search">
+                <div class="mb-space-xl max-w-2xl" role="search">
                     <label class="sr-only" for="search-input">Buscar productos</label>
                     <div class="rounded-xl p-[2px] bg-outline-variant/60 focus-within:bg-gradient-to-r focus-within:from-pink-500 focus-within:via-orange-400 focus-within:to-emerald-500 shadow-lg transition-shadow">
                         <div class="relative flex items-center h-14 bg-surface-container-lowest rounded-[6px]">
@@ -62,13 +365,6 @@
                     </div>
                     <p id="search-stats" class="mt-space-sm font-label-md text-label-md text-secondary"></p>
                 </div>
-            </div>
-        </section>
-
-        <!-- CATÁLOGO -->
-        <section id="catalogo" class="w-full pt-space-2xl pb-space-3xl">
-            <div class="max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop">
-                <div id="resultados" class="scroll-mt-24"></div>
 
                 <!-- Línea + orden + filtros (móvil) -->
                 <div class="flex flex-col gap-space-md mb-space-lg">
@@ -125,66 +421,6 @@
                         <p id="results-count" class="mb-space-sm font-body-md text-body-md text-on-surface-variant" aria-live="polite"></p>
                         <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-gutter-md"></div>
                         <noscript><p class="font-body-md text-body-md text-on-surface-variant">Activa JavaScript para ver el catálogo, o <a class="text-primary-container font-semibold underline" href="contacto.html">escríbenos</a> y te lo enviamos.</p></noscript>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CATEGORÍAS -->
-        <section class="w-full py-space-3xl">
-            <div class="max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter-lg">
-<div class="flex flex-col gap-space-sm p-space-lg bg-surface-container-low rounded-xl"><span class="material-symbols-outlined text-primary-container text-[28px]">checkroom</span><h3 class="font-title-lg text-title-lg text-on-surface">Uniformes corporativos e industriales</h3><ul class="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-1.5"><li>Playeras y polos</li><li>Camisas y blusas</li><li>Pantalones y camisolas</li><li>Uniformes por giro: industrial, restaurante y seguridad privada</li><li>Bordados industriales</li></ul></div>
-<div class="flex flex-col gap-space-sm p-space-lg bg-surface-container-low rounded-xl"><span class="material-symbols-outlined text-primary-container text-[28px]">footprint</span><h3 class="font-title-lg text-title-lg text-on-surface">Calzado de seguridad</h3><ul class="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-1.5"><li>Calzado con casco</li><li>Calzado sin casco</li><li>Botas para soldador</li><li>Calzado antiderrapante</li></ul></div>
-<div class="flex flex-col gap-space-sm p-space-lg bg-surface-container-low rounded-xl"><span class="material-symbols-outlined text-primary-container text-[28px]">health_and_safety</span><h3 class="font-title-lg text-title-lg text-on-surface">Equipo de Protección Personal</h3><ul class="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-1.5"><li>Chalecos con reflejante</li><li>Uniformes de seguridad y EPP</li></ul></div>
-<div class="flex flex-col gap-space-sm p-space-lg bg-surface-container-low rounded-xl"><span class="material-symbols-outlined text-primary-container text-[28px]">redeem</span><h3 class="font-title-lg text-title-lg text-on-surface">Promocionales</h3><ul class="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-1.5"><li>V.S Souvenirs</li><li>Gorras y sombrerería</li><li>Mochilas y bolsas</li><li>Artículos promocionales</li></ul></div>
-<div class="flex flex-col gap-space-sm p-space-lg bg-surface-container-low rounded-xl"><span class="material-symbols-outlined text-primary-container text-[28px]">chair</span><h3 class="font-title-lg text-title-lg text-on-surface">Mobiliario</h3><ul class="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-1.5"><li>Consulta opciones con un ejecutivo</li></ul></div>
-<div class="flex flex-col gap-space-sm p-space-lg bg-surface-container-low rounded-xl"><span class="material-symbols-outlined text-primary-container text-[28px]">devices</span><h3 class="font-title-lg text-title-lg text-on-surface">Tecnología</h3><ul class="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-1.5"><li>Consulta opciones con un ejecutivo</li></ul></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- BORDADO INDUSTRIAL -->
-        <section class="w-full py-space-3xl bg-surface-container-low">
-            <div class="max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter-lg items-center">
-                    <div class="flex flex-col gap-space-sm">
-                        <h2 class="font-headline-lg text-headline-lg text-on-surface">Bordado Institucional Tajima</h2>
-                        <p class="font-body-lg text-body-lg text-on-surface-variant">Hasta 12 colores simultáneos con hilo de alta resistencia Madeira, sobre tejido Oxford duradero y anti-arrugas de alta transpirabilidad — pensado para uso corporativo diario.</p>
-                        <div class="pt-space-sm">
-                            <a class="vs-btn inline-flex items-center justify-center gap-2 px-space-md py-2.5 bg-primary-container text-on-primary font-body-md text-body-md font-semibold" data-path="cotizador" href="contacto.html">
-                                <span class="vs-btn-text">Solicitar cotización</span>
-                                <span class="material-symbols-outlined vs-btn-icon text-[18px]">arrow_forward</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-3 gap-space-sm">
-                        <div class="flex flex-col items-center gap-2 p-space-sm bg-surface rounded-lg text-center">
-                            <span class="material-symbols-outlined text-emerald-600 text-[22px]">verified</span>
-                            <span class="font-body-sm text-body-sm text-on-surface-variant">Algodón &amp; Poliéster 65/35</span>
-                        </div>
-                        <div class="flex flex-col items-center gap-2 p-space-sm bg-surface rounded-lg text-center">
-                            <span class="material-symbols-outlined text-indigo-600 text-[22px]">precision_manufacturing</span>
-                            <span class="font-body-sm text-body-sm text-on-surface-variant">Bordado Tajima 12 colores</span>
-                        </div>
-                        <div class="flex flex-col items-center gap-2 p-space-sm bg-surface rounded-lg text-center">
-                            <span class="material-symbols-outlined text-amber-600 text-[22px]">local_shipping</span>
-                            <span class="font-body-sm text-body-sm text-on-surface-variant">Entrega en flotas corporativas</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- KAIZER -->
-        <section class="w-full py-space-3xl">
-            <div class="max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter-lg items-center">
-                    <img alt="Bota de seguridad Kaizer M-7 con casco de poliamida, antiperforación y suela dieléctrica" class="w-full rounded-xl shadow-xl" src="assets/img/calzado-kaizer.jpg"/>
-                    <div class="flex flex-col gap-space-sm">
-                        <h2 class="font-headline-lg text-headline-lg text-on-surface">Kaizer M-7: calzado de seguridad para la industria azucarera</h2>
-                        <p class="font-body-lg text-body-lg text-on-surface-variant">Casco de poliamida, sistema antiperforación (anticlavos) y suela dieléctrica contra riesgos eléctricos, en una bota pensada para entornos exigentes.</p>
-                        <div class="pt-space-sm"><a class="vs-btn inline-flex items-center justify-center px-space-md py-2.5 bg-primary-container text-on-primary font-body-md text-body-md font-semibold" href="contacto.html"><span class="vs-btn-text">Cotizar calzado</span></a></div>
                     </div>
                 </div>
             </div>

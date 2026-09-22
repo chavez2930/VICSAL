@@ -172,9 +172,137 @@
   }
 }
 
+/* ======================================================================
+   TARJETAS TOGGLE "UN SOLO ALIADO"
+   Cada tarjeta gira sobre su eje Y al pasar el mouse (o al enfocarla
+   con teclado): el frente muestra solo el ícono y el título, el
+   reverso muestra el título y la descripción. Al quitar el mouse
+   regresa al frente. El contorno que aparece en el hover usa el mismo
+   degradado pink-500 -> orange-400 -> emerald-500 de los botones y el
+   menú (ver .vs-btn arriba), como un marco de 2px superpuesto (no
+   envuelve el contenido, así que la tarjeta SIEMPRE es visible; solo
+   el marco de color aparece/desaparece).
+   ====================================================================== */
+.vs-flip-card {
+  position: relative;
+  perspective: 1200px;
+}
+
+/* Marco degradado: capa independiente encima de la tarjeta, con el
+   centro recortado (mask) para que sea solo el borde, no un relleno. */
+.vs-flip-border {
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 0.75rem;
+  background: linear-gradient(90deg, #ec4899, #fb923c 50%, #10b981);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.vs-flip-card:hover .vs-flip-border,
+.vs-flip-card:focus-visible .vs-flip-border,
+.vs-flip-card:focus-within .vs-flip-border {
+  opacity: 1;
+}
+
+.vs-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.vs-flip-card:hover .vs-flip-inner,
+.vs-flip-card:focus-visible .vs-flip-inner,
+.vs-flip-card:focus-within .vs-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.vs-flip-front,
+.vs-flip-back {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.vs-flip-back {
+  transform: rotateY(180deg);
+}
+
 /* ---- Clases usadas en el HTML que faltaban ---- */
 .spectrum-badge { background: linear-gradient(90deg, #ec4899, #fb923c, #10b981); }
 .spectrum-border-top { border-top: 3px solid transparent; border-image: linear-gradient(90deg, #ec4899, #fb923c, #10b981) 1; }
 .vs-btn-plain { overflow: visible; }
 .vs-btn-plain::before, .vs-btn-plain::after { display: none; }
 a[href^="mailto:"] { overflow-wrap: anywhere; }
+
+/* ======================================================================
+   ILUSTRACIÓN FLOTANTE DEL HERO (Contacto)
+   Cada elemento entra con un fundido suave (opacity) y luego queda
+   flotando en un loop infinito muy sutil (translateY + una leve
+   rotación fija por elemento vía --vs-rot). Se separan en dos capas:
+   .vs-float-badge controla la entrada (opacity) y .vs-float-inner el
+   loop de flotación (transform), para que ninguna de las dos
+   animaciones se pise entre sí.
+   ====================================================================== */
+.vs-float-badge {
+  opacity: 0;
+  animation: vs-float-in 0.7s ease forwards;
+  animation-delay: var(--vs-delay, 0s);
+}
+
+.vs-float-inner {
+  animation: vs-float var(--vs-float-dur, 5s) ease-in-out infinite;
+  animation-delay: var(--vs-delay, 0s);
+}
+
+@keyframes vs-float-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes vs-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--vs-rot, 0deg));
+  }
+  50% {
+    transform: translateY(-14px) rotate(var(--vs-rot, 0deg));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vs-float-badge {
+    opacity: 1;
+    animation: none;
+  }
+  .vs-float-inner {
+    animation: none;
+  }
+}

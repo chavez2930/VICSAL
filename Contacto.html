@@ -20,10 +20,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="assets/js/tailwind-config.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/intl-tel-input@29/dist/css/intlTelInput.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
     /* Campos: al enfocar, el borde usa el mismo degradado de los botones */
     .vs-field:focus{outline:none;box-shadow:none;border:2px solid transparent;
-      padding-top:calc(.625rem - 1px);padding-bottom:calc(.625rem - 1px);
+      padding-top:calc(.75rem - 1px);padding-bottom:calc(.75rem - 1px);
       background:linear-gradient(#f7f9fb,#f7f9fb) padding-box,linear-gradient(90deg,#ec4899,#fb923c 50%,#10b981) border-box}
     .vs-field:not(.vs-tel):focus{padding-left:calc(.75rem - 1px);padding-right:calc(.75rem - 1px)}
     .vs-field::placeholder{color:#75777f}
@@ -31,6 +32,13 @@
     /* Distintivo de reCAPTCHA v3: abajo a la izquierda, se expande al pasar el mouse */
     .grecaptcha-badge{width:70px!important;overflow:hidden!important;transition:width .3s ease!important;left:4px!important;right:auto!important}
     .grecaptcha-badge:hover{width:256px!important}
+    /* Palomita de éxito (SweetAlert) con los colores del logo en vez del verde por defecto */
+    .vs-swal-success-icon.swal2-success{border-color:transparent!important}
+    .vs-swal-success-icon .swal2-success-ring{border-color:rgba(236,72,153,.25)!important}
+    .vs-swal-success-icon .swal2-success-fix{background:transparent!important}
+    .vs-swal-success-icon [class^="swal2-success-circular-line"]{background:transparent!important}
+    .vs-swal-success-icon .swal2-success-line-tip,
+    .vs-swal-success-icon .swal2-success-line-long{background:linear-gradient(90deg,#ec4899,#fb923c 50%,#10b981)!important}
 </style>
 </head>
 
@@ -49,13 +57,58 @@
         <!-- HERO -->
         <section class="relative w-full bg-surface-container-low overflow-hidden py-space-3xl lg:py-space-4xl">
             <div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-primary-fixed opacity-40 blur-3xl pointer-events-none"></div>
-            <div class="max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop relative z-10">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-lowest shadow-sm mb-space-md">
-                    <span class="w-2.5 h-2.5 rounded-full spectrum-badge"></span>
-                    <span class="font-label-xs text-label-xs uppercase tracking-widest text-primary-container font-bold">Contacto</span>
+            <div class="absolute -bottom-24 -right-24 w-80 h-80 rounded-full bg-gradient-to-br from-pink-300 via-orange-200 to-emerald-300 opacity-30 blur-3xl pointer-events-none"></div>
+            <div class="max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center">
+                <div class="lg:col-span-7">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-lowest shadow-sm mb-space-md">
+                        <span class="w-2.5 h-2.5 rounded-full spectrum-badge"></span>
+                        <span class="font-label-xs text-label-xs uppercase tracking-widest text-primary-container font-bold">Contacto</span>
+                    </div>
+                    <h1 class="font-headline-xl-mobile text-headline-xl-mobile lg:font-headline-xl lg:text-headline-xl text-on-surface max-w-3xl">Hablemos de lo que tu empresa necesita</h1>
+                    <p class="mt-space-md font-body-lg text-body-lg text-secondary max-w-2xl">Escríbenos, llámanos o pide una cotización B2B en línea. Un ejecutivo de cuenta te responde a la brevedad.</p>
                 </div>
-                <h1 class="font-headline-xl-mobile text-headline-xl-mobile lg:font-headline-xl lg:text-headline-xl text-on-surface max-w-3xl">Hablemos de lo que tu empresa necesita</h1>
-                <p class="mt-space-md font-body-lg text-body-lg text-secondary max-w-2xl">Escríbenos, llámanos o pide una cotización B2B en línea. Un ejecutivo de cuenta te responde a la brevedad.</p>
+
+                <!-- Ilustración animada: uniformes / prendas de trabajo -->
+                <div class="hidden lg:block lg:col-span-5 relative h-96" aria-hidden="true">
+                    <div class="absolute inset-0 m-auto w-56 h-56 rounded-full bg-gradient-to-br from-pink-300 via-orange-200 to-emerald-200 opacity-50 blur-2xl"></div>
+
+                    <!-- Chips flotantes: uno arriba, uno a la derecha, uno abajo, uno a la izquierda -->
+                    <div class="vs-float-badge absolute left-1/2 top-0 -translate-x-1/2" style="--vs-delay:.1s">
+                        <div class="vs-float-inner" style="--vs-float-dur:4.5s; --vs-rot:-1.5deg">
+                            <span class="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-surface-container-lowest shadow-lg whitespace-nowrap">
+                                <span class="material-symbols-outlined text-pink-500 text-[20px]">dry_cleaning</span>
+                                <span class="font-label-sm text-label-sm text-on-surface font-semibold">Confección a medida</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="vs-float-badge absolute right-0 top-1/2 -translate-y-1/2" style="--vs-delay:.35s">
+                        <div class="vs-float-inner" style="--vs-float-dur:5.2s; --vs-rot:1.5deg">
+                            <span class="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-surface-container-lowest shadow-lg whitespace-nowrap">
+                                <span class="material-symbols-outlined text-orange-500 text-[20px]">engineering</span>
+                                <span class="font-label-sm text-label-sm text-on-surface font-semibold">EPP certificado</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="vs-float-badge absolute left-1/2 bottom-0 -translate-x-1/2" style="--vs-delay:.55s">
+                        <div class="vs-float-inner" style="--vs-float-dur:5s; --vs-rot:1.5deg">
+                            <span class="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-surface-container-lowest shadow-lg whitespace-nowrap">
+                                <span class="material-symbols-outlined text-emerald-600 text-[20px]">styler</span>
+                                <span class="font-label-sm text-label-sm text-on-surface font-semibold">Bordado y logotipo</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="vs-float-badge absolute left-0 top-1/2 -translate-y-1/2" style="--vs-delay:.75s">
+                        <div class="vs-float-inner" style="--vs-float-dur:4.8s; --vs-rot:-1.5deg">
+                            <span class="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-surface-container-lowest shadow-lg whitespace-nowrap">
+                                <span class="material-symbols-outlined text-primary-container text-[20px]">inventory_2</span>
+                                <span class="font-label-sm text-label-sm text-on-surface font-semibold">Entrega por volumen</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -68,50 +121,58 @@
                     <form class="lg:col-span-7 flex flex-col gap-space-md bg-surface-container-low rounded-xl p-space-lg">
                         <h2 class="font-title-lg text-title-lg text-on-surface">Cuéntanos sobre tu proyecto</h2>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-space-md items-start">
-<div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface-variant" for="nombre">Nombre</label><textarea autocomplete="name" class="vs-field w-full rounded-lg border border-outline-variant bg-surface px-space-sm py-2.5 font-body-md text-body-md text-on-surface resize-none overflow-hidden" data-autogrow data-single id="nombre" name="nombre" placeholder="Tu nombre" required rows="1"></textarea></div>
-<div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface-variant" for="empresa">Empresa</label><textarea autocomplete="organization" class="vs-field w-full rounded-lg border border-outline-variant bg-surface px-space-sm py-2.5 font-body-md text-body-md text-on-surface resize-none overflow-hidden" data-autogrow data-single id="empresa" name="empresa" placeholder="Nombre de tu empresa" rows="1"></textarea></div>
-<div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface-variant" for="correo">Correo</label><input autocomplete="email" class="vs-field w-full rounded-lg border border-outline-variant bg-surface px-space-sm py-2.5 font-body-md text-body-md text-on-surface" id="correo" name="correo" placeholder="tucorreo@empresa.com" required type="email"/></div>
-<div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface-variant" for="telefono">Teléfono</label><input autocomplete="tel-national" class="vs-field w-full rounded-lg border border-outline-variant bg-surface px-space-sm py-2.5 font-body-md text-body-md text-on-surface vs-tel" id="telefono" name="telefono" type="tel"/></div>
+<div class="flex flex-col gap-2"><label class="font-label-lg text-label-lg text-on-surface-variant font-semibold" for="nombre">Nombre</label><textarea autocomplete="name" class="vs-field w-full rounded-lg border border-outline-variant bg-surface px-space-sm py-3 font-body-lg text-body-lg text-on-surface resize-none overflow-hidden" data-autogrow data-single id="nombre" name="nombre" placeholder="Tu nombre" required rows="1"></textarea></div>
+<div class="flex flex-col gap-2"><label class="font-label-lg text-label-lg text-on-surface-variant font-semibold" for="empresa">Empresa</label><textarea autocomplete="organization" class="vs-field w-full rounded-lg border border-outline-variant bg-surface px-space-sm py-3 font-body-lg text-body-lg text-on-surface resize-none overflow-hidden" data-autogrow data-single id="empresa" name="empresa" placeholder="Nombre de tu empresa" rows="1"></textarea></div>
+<div class="flex flex-col gap-2"><label class="font-label-lg text-label-lg text-on-surface-variant font-semibold" for="correo">Correo</label><input autocomplete="email" class="vs-field w-full rounded-lg border border-outline-variant bg-surface px-space-sm py-3 font-body-lg text-body-lg text-on-surface" id="correo" name="correo" placeholder="tucorreo@empresa.com" required type="email"/></div>
+<div class="flex flex-col gap-2"><label class="font-label-lg text-label-lg text-on-surface-variant font-semibold" for="telefono">Teléfono</label><input autocomplete="tel-national" class="vs-field w-full rounded-lg border border-outline-variant bg-surface px-space-sm py-3 font-body-lg text-body-lg text-on-surface vs-tel" id="telefono" name="telefono" type="tel"/></div>
 </div>
-<div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface-variant" for="mensaje">¿Qué necesitas?</label><textarea class="vs-field w-full rounded-lg border border-outline-variant bg-surface px-space-sm py-2.5 font-body-md text-body-md text-on-surface resize-none overflow-hidden" data-autogrow id="mensaje" name="mensaje" placeholder="Uniformes, cantidad aproximada, plazos, etc." required rows="4"></textarea></div>
-<div class="flex flex-col gap-1.5">
-<p class="hidden font-body-sm text-body-sm text-error" id="captcha-error" role="alert">No pudimos verificar que eres una persona. Inténtalo de nuevo.</p></div>
-<button class="vs-btn inline-flex items-center justify-center gap-2 px-space-md py-2.5 bg-primary-container text-on-primary font-body-md text-body-md font-semibold self-start" type="submit">
-                            <span class="vs-btn-text">Enviar mensaje</span>
+<div class="flex flex-col gap-2"><label class="font-label-lg text-label-lg text-on-surface-variant font-semibold" for="mensaje">¿Qué necesitas?</label><textarea class="vs-field w-full rounded-lg border border-outline-variant bg-surface px-space-sm py-3 font-body-lg text-body-lg text-on-surface resize-none overflow-hidden" data-autogrow id="mensaje" name="mensaje" placeholder="Uniformes, cantidad aproximada, plazos, etc." required rows="4"></textarea></div>
+<button class="vs-btn inline-flex items-center justify-center gap-2 px-space-md py-2.5 bg-primary-container text-on-primary font-body-md text-body-md font-semibold self-start disabled:opacity-60 disabled:cursor-not-allowed" id="form-submit" type="submit">
+                            <span class="vs-btn-text" id="form-submit-text">Enviar mensaje</span>
                             <span class="material-symbols-outlined vs-btn-icon text-[18px]">send</span>
                         </button>
                     </form>
 
                     <!-- Datos de contacto -->
                     <div class="lg:col-span-5 flex flex-col gap-space-md">
-                        <div class="flex items-start gap-3 p-space-md bg-surface-container-low rounded-xl">
-                            <div style="clip-path: url(#squircleClip)" class="w-11 h-11 shrink-0 bg-gradient-to-br from-primary-container to-primary flex items-center justify-center shadow-md">
-                                <span class="material-symbols-outlined text-white text-[20px]">location_on</span>
-                            </div>
-                            <div class="flex flex-col gap-0.5">
-                                <span class="font-title-md text-title-md text-on-surface">Sede Operativa</span>
-                                <span class="font-body-sm text-body-sm text-on-surface-variant">Hacienda el Arbolillo, Lote 87-B, Col. Hacienda del Valle II, C.P. 50210, San Mateo Otzacatipan, Edo. de México</span>
+
+                        <!-- Tarjeta única: filas separadas, con el mismo trazo degradado del menú al hacer hover -->
+                        <div class="flex flex-col bg-surface-container-low rounded-xl overflow-hidden spectrum-border-top">
+                            <a class="vs-btn flex items-start gap-3 p-space-md border-b border-outline-variant/60" href="https://www.google.com/maps/search/?api=1&amp;query=Hacienda%20el%20Arbolillo%2C%20Lote%2087-B%2C%20Col.%20Hacienda%20del%20Valle%20II%2C%20C.P.%2050210%2C%20San%20Mateo%20Otzacatipan%2C%20Edo.%20de%20M%C3%A9xico" rel="noopener noreferrer" target="_blank">
+                                <div style="clip-path: url(#squircleClip)" class="w-11 h-11 shrink-0 bg-gradient-to-br from-primary-container to-primary flex items-center justify-center shadow-md">
+                                    <span class="material-symbols-outlined text-white text-[20px]">location_on</span>
+                                </div>
+                                <div class="flex flex-col gap-0.5">
+                                    <span class="font-title-md text-title-md text-on-surface vs-btn-text">Sede Operativa</span>
+                                    <span class="font-body-sm text-body-sm text-on-surface-variant vs-btn-text">Hacienda el Arbolillo, Lote 87-B, Col. Hacienda del Valle II, C.P. 50210, San Mateo Otzacatipan, Edo. de México</span>
+                                </div>
+                            </a>
+                            <a class="vs-btn flex items-start gap-3 p-space-md border-b border-outline-variant/60" href="tel:+527223494427">
+                                <div style="clip-path: url(#squircleClip)" class="w-11 h-11 shrink-0 bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center shadow-md">
+                                    <span class="material-symbols-outlined text-white text-[20px]">call</span>
+                                </div>
+                                <div class="flex flex-col gap-0.5">
+                                    <span class="font-title-md text-title-md text-on-surface vs-btn-text">Teléfono</span>
+                                    <span class="font-body-sm text-body-sm text-on-surface-variant vs-btn-text">722 349 4427</span>
+                                </div>
+                            </a>
+                            <div class="vs-btn flex items-start gap-3 p-space-md">
+                                <div style="clip-path: url(#squircleClip)" class="w-11 h-11 shrink-0 bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-md">
+                                    <span class="material-symbols-outlined text-white text-[20px]">mail</span>
+                                </div>
+                                <div class="flex flex-col gap-0.5">
+                                    <span class="font-title-md text-title-md text-on-surface vs-btn-text">Correo</span>
+                                    <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary-container transition-colors vs-btn-text" href="mailto:gerencia.ventas@solucionesvicsal.com">gerencia.ventas@solucionesvicsal.com</a>
+                                    <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary-container transition-colors vs-btn-text" href="mailto:ventas1@solucionesvicsal.com">ventas1@solucionesvicsal.com</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="flex items-start gap-3 p-space-md bg-surface-container-low rounded-xl">
-                            <div style="clip-path: url(#squircleClip)" class="w-11 h-11 shrink-0 bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center shadow-md">
-                                <span class="material-symbols-outlined text-white text-[20px]">call</span>
-                            </div>
-                            <div class="flex flex-col gap-0.5">
-                                <span class="font-title-md text-title-md text-on-surface">Teléfono</span>
-                                <a class="font-body-sm text-body-sm text-on-surface-variant" href="tel:+527223494427">722 349 4427</a>
-                            </div>
+
+                        <!-- Mapa de la sede operativa -->
+                        <div class="rounded-xl overflow-hidden shadow-sm h-56 lg:h-64">
+                            <iframe class="w-full h-full border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Hacienda%20el%20Arbolillo%2C%20San%20Mateo%20Otzacatipan%2C%20Estado%20de%20M%C3%A9xico&amp;output=embed" title="Ubicación de la Sede Operativa VICSAL"></iframe>
                         </div>
-                        <div class="flex items-start gap-3 p-space-md bg-surface-container-low rounded-xl">
-                            <div style="clip-path: url(#squircleClip)" class="w-11 h-11 shrink-0 bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-md">
-                                <span class="material-symbols-outlined text-white text-[20px]">mail</span>
-                            </div>
-                            <div class="flex flex-col gap-0.5">
-                                <span class="font-title-md text-title-md text-on-surface">Correo</span>
-                                <a class="font-body-sm text-body-sm text-on-surface-variant" href="mailto:gerencia.ventas@solucionesvicsal.com">gerencia.ventas@solucionesvicsal.com</a>
-                                <a class="font-body-sm text-body-sm text-on-surface-variant" href="mailto:ventas1@solucionesvicsal.com">ventas1@solucionesvicsal.com</a>
-                            </div>
-                        </div>
+
                         <a class="vs-btn inline-flex items-center justify-center gap-2 px-space-md py-2.5 bg-emerald-600 text-on-primary font-body-md text-body-md font-semibold" href="https://wa.me/527223494427" rel="noopener noreferrer" target="_blank">
                             <span class="vs-btn-text">Escribir por WhatsApp</span>
                         </a>
@@ -196,31 +257,133 @@
 
         /* Captcha (Google reCAPTCHA v3, invisible) */
         var RECAPTCHA_SITE_KEY = '6LdkTsUtAAAAAKq2VZidT8EBJ0gwEx5c61zxKRre'; /* solo la clave del sitio; la secreta NUNCA va aquí */
-        var err = document.getElementById('captcha-error');
         var rc = document.createElement('script');
         rc.src = 'https://www.google.com/recaptcha/api.js?render=' + RECAPTCHA_SITE_KEY + '&hl=es';
         rc.async = true;
         document.head.appendChild(rc);
 
+        /* Endpoint que guarda el mensaje en la base de datos (MySQL) */
+        var ENDPOINT_CONTACTO = 'config/Procesarcontacto.php';
+
+        var submitBtn = document.getElementById('form-submit');
+        var submitText = document.getElementById('form-submit-text');
+
+        var nombre = document.getElementById('nombre');
+        var correo = document.getElementById('correo');
+        var mensaje = document.getElementById('mensaje');
+
+        function showError(msg) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Revisa tu formulario',
+                text: msg,
+                confirmButtonText: 'Entendido',
+                confirmButtonColor: '#ec4899',
+                background: '#f7f9fb',
+                color: '#1a1c1e'
+            });
+        }
+        function showSuccess() {
+            Swal.fire({
+                icon: 'success',
+                title: '¡Mensaje enviado!',
+                text: 'Gracias por escribirnos. Un ejecutivo de cuenta te contactará a la brevedad.',
+                confirmButtonText: 'Perfecto',
+                confirmButtonColor: '#0b1b3d',
+                background: '#f7f9fb',
+                color: '#1a1c1e',
+                customClass: { icon: 'vs-swal-success-icon' }
+            });
+        }
+        function setLoading(loading) {
+            submitBtn.disabled = loading;
+            submitText.textContent = loading ? 'Enviando…' : 'Enviar mensaje';
+        }
+
+        /* Validación en el cliente (misma lógica que valida el servidor) */
+        function validarFormulario() {
+            var nombreVal = nombre.value.trim();
+            var correoVal = correo.value.trim();
+            var mensajeVal = mensaje.value.trim();
+            var correoRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (nombreVal.length < 2 || nombreVal.length > 150) {
+                return 'Escribe tu nombre completo (mínimo 2 caracteres).';
+            }
+            if (!/^[\p{L}\s.'-]+$/u.test(nombreVal)) {
+                return 'El nombre solo puede contener letras y espacios.';
+            }
+            if (!correoRegex.test(correoVal) || correoVal.length > 150) {
+                return 'Escribe un correo electrónico válido.';
+            }
+            if (tel.value.trim()) {
+                var ok = null;
+                try { ok = iti.isValidNumber(); } catch (e) {}
+                if (ok === false) return 'Escribe un número de teléfono válido para el país seleccionado.';
+            }
+            if (mensajeVal.length < 5 || mensajeVal.length > 2000) {
+                return 'Cuéntanos qué necesitas (entre 5 y 2000 caracteres).';
+            }
+            return null;
+        }
+
         form.addEventListener('submit', function (e) {
             e.preventDefault();
-            err.classList.add('hidden');
-            var win = window.open('', '_blank'); /* se abre dentro del clic para que el navegador no lo bloquee */
-            function fail() { if (win) win.close(); err.classList.remove('hidden'); }
-            if (!window.grecaptcha) return fail();
+
+            var validationError = validarFormulario();
+            if (validationError) return showError(validationError);
+
+            if (!window.grecaptcha) return showError('No pudimos verificar que eres una persona. Inténtalo de nuevo.');
+
+            setLoading(true);
             window.grecaptcha.ready(function () {
                 window.grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'contacto' }).then(function (token) {
-                    /* token: aquí se enviaría a un servidor para verificarlo con la clave secreta */
-                    var f = new FormData(form), phone = '';
+                    var q = new URLSearchParams(window.location.search);
+                    var phone = '';
                     if (tel.value.trim()) {
                         phone = iti.getNumber('INTERNATIONAL') || ('+' + iti.getSelectedCountryData().dialCode + ' ' + tel.value.trim());
                     }
-                    var msg = ['Hola, soy ' + f.get('nombre') + (f.get('empresa') ? ' de ' + f.get('empresa') : '') + '.', 'Correo: ' + f.get('correo'), phone ? 'Teléfono: ' + phone : '', '', f.get('mensaje')].join('\n');
-                    var url = 'https://wa.me/527223494427?text=' + encodeURIComponent(msg);
-                    if (win) { win.opener = null; win.location.href = url; } else { window.location.href = url; }
-                    form.reset();
-                    fitAll();
-                }, fail);
+                    var payload = {
+                        nombre: nombre.value.trim(),
+                        empresa: document.getElementById('empresa').value.trim(),
+                        correo: correo.value.trim(),
+                        telefono: phone,
+                        mensaje: mensaje.value.trim(),
+                        producto: (q.get('producto') || '').trim(),
+                        categoria: (q.get('categoria') || '').trim(),
+                        referencia: (q.get('ref') || '').trim(),
+                        captchaToken: token
+                    };
+
+                    fetch(ENDPOINT_CONTACTO, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    })
+                        .then(function (res) { return res.json().then(function (data) { return { status: res.status, data: data }; }); })
+                        .then(function (r) {
+                            if (r.data && r.data.ok) {
+                                showSuccess();
+                                form.reset();
+                                fitAll();
+                            } else {
+                                var msg = 'No pudimos enviar tu mensaje. Inténtalo de nuevo.';
+                                if (r.data && r.data.errors) {
+                                    msg = Object.values(r.data.errors)[0];
+                                } else if (r.data && r.data.error) {
+                                    msg = r.data.error;
+                                }
+                                showError(msg);
+                            }
+                        })
+                        .catch(function () {
+                            showError('No pudimos conectar con el servidor. Revisa tu conexión e inténtalo de nuevo.');
+                        })
+                        .finally(function () { setLoading(false); });
+                }, function () {
+                    setLoading(false);
+                    showError('No pudimos verificar que eres una persona. Inténtalo de nuevo.');
+                });
             });
         });
     })();

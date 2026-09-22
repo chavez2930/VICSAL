@@ -16,14 +16,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const percentage = (offsetX / rect.width) * 100;
       clippedLayer.style.width = percentage + '%';
-      handle.style.left = percentage + '%';
-      
+
+      // La línea/flecha del handle se mueve por separado, en píxeles y con
+      // un margen mínimo respecto a los bordes, para que el botón circular
+      // (48px) nunca quede cortado por el "overflow-hidden" del contenedor
+      // ni se salga visualmente de las esquinas redondeadas.
+      const handleRadius = 24; // mitad de w-12 (48px)
+      const margin = 6;
+      const minX = handleRadius + margin;
+      const maxX = rect.width - handleRadius - margin;
+      const handleX = Math.min(Math.max(offsetX, minX), maxX);
+      handle.style.left = handleX + 'px';
+
       leftImage.style.width = rect.width + 'px';
     }
 
     function syncLeftImageWidth() {
       const rect = container.getBoundingClientRect();
       leftImage.style.width = rect.width + 'px';
+
+      // Al cambiar el ancho del contenedor (resize), recalcula el límite
+      // en píxeles del handle a partir del porcentaje actual del recorte,
+      // para que siga sin salirse ni cortarse en el nuevo tamaño.
+      const currentPercentage = parseFloat(clippedLayer.style.width) || 50;
+      const offsetX = (currentPercentage / 100) * rect.width;
+      const handleRadius = 24;
+      const margin = 6;
+      const minX = handleRadius + margin;
+      const maxX = rect.width - handleRadius - margin;
+      handle.style.left = Math.min(Math.max(offsetX, minX), maxX) + 'px';
     }
 
     window.addEventListener('resize', syncLeftImageWidth);

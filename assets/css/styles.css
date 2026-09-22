@@ -173,19 +173,16 @@
 }
 
 /* ======================================================================
-   TARJETAS TOGGLE "UN SOLO ALIADO"
-   Cada tarjeta gira sobre su eje Y al pasar el mouse (o al enfocarla
-   con teclado): el frente muestra solo el ícono y el título, el
-   reverso muestra el título y la descripción. Al quitar el mouse
-   regresa al frente. El contorno que aparece en el hover usa el mismo
-   degradado pink-500 -> orange-400 -> emerald-500 de los botones y el
-   menú (ver .vs-btn arriba), como un marco de 2px superpuesto (no
-   envuelve el contenido, así que la tarjeta SIEMPRE es visible; solo
-   el marco de color aparece/desaparece).
+   TARJETAS "UN SOLO ALIADO"
+   Tarjetas normales (sin giro): siempre muestran el ícono y el
+   título. Al pasar el mouse (o enfocarlas con teclado) solo aparece
+   un marco de 2px con el mismo degradado pink-500 -> orange-400 ->
+   emerald-500 que usan los botones (.vs-btn) y el menú, superpuesto
+   sobre la tarjeta (no envuelve el contenido, así que la tarjeta
+   SIEMPRE es visible; solo el marco de color aparece/desaparece).
    ====================================================================== */
 .vs-flip-card {
   position: relative;
-  perspective: 1200px;
 }
 
 /* Marco degradado: capa independiente encima de la tarjeta, con el
@@ -221,32 +218,17 @@
   width: 100%;
   height: 100%;
   text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
 }
 
-.vs-flip-card:hover .vs-flip-inner,
-.vs-flip-card:focus-visible .vs-flip-inner,
-.vs-flip-card:focus-within .vs-flip-inner {
-  transform: rotateY(180deg);
-}
-
-.vs-flip-front,
-.vs-flip-back {
-  position: absolute;
-  inset: 0;
+.vs-flip-front {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: 100%;
   padding: 1.25rem;
   border-radius: 0.75rem;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-.vs-flip-back {
-  transform: rotateY(180deg);
 }
 
 /* ---- Clases usadas en el HTML que faltaban ---- */

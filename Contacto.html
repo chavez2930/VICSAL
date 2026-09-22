@@ -137,16 +137,7 @@
                     <div class="lg:col-span-5 flex flex-col gap-space-md">
 
                         <!-- Tarjeta única: filas separadas, con el mismo trazo degradado del menú al hacer hover -->
-                        <div class="flex flex-col bg-surface-container-low rounded-xl overflow-hidden spectrum-border-top">
-                            <a class="vs-btn flex items-start gap-3 p-space-md border-b border-outline-variant/60" href="https://www.google.com/maps/search/?api=1&amp;query=Hacienda%20el%20Arbolillo%2C%20Lote%2087-B%2C%20Col.%20Hacienda%20del%20Valle%20II%2C%20C.P.%2050210%2C%20San%20Mateo%20Otzacatipan%2C%20Edo.%20de%20M%C3%A9xico" rel="noopener noreferrer" target="_blank">
-                                <div style="clip-path: url(#squircleClip)" class="w-11 h-11 shrink-0 bg-gradient-to-br from-primary-container to-primary flex items-center justify-center shadow-md">
-                                    <span class="material-symbols-outlined text-white text-[20px]">location_on</span>
-                                </div>
-                                <div class="flex flex-col gap-0.5">
-                                    <span class="font-title-md text-title-md text-on-surface vs-btn-text">Sede Operativa</span>
-                                    <span class="font-body-sm text-body-sm text-on-surface-variant vs-btn-text">Hacienda el Arbolillo, Lote 87-B, Col. Hacienda del Valle II, C.P. 50210, San Mateo Otzacatipan, Edo. de México</span>
-                                </div>
-                            </a>
+                        <div class="flex flex-col bg-surface-container-low rounded-xl overflow-hidden">
                             <a class="vs-btn flex items-start gap-3 p-space-md border-b border-outline-variant/60" href="tel:+527223494427">
                                 <div style="clip-path: url(#squircleClip)" class="w-11 h-11 shrink-0 bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center shadow-md">
                                     <span class="material-symbols-outlined text-white text-[20px]">call</span>
@@ -168,6 +159,19 @@
                             </div>
                         </div>
 
+                        <!-- Ubicación de la sede: justo arriba del mapa, con el trazo degradado -->
+                        <div class="flex flex-col bg-surface-container-low rounded-xl overflow-hidden">
+                            <a class="vs-btn flex items-start gap-3 p-space-md" href="https://www.google.com/maps/search/?api=1&amp;query=Hacienda%20el%20Arbolillo%2C%20Lote%2087-B%2C%20Col.%20Hacienda%20del%20Valle%20II%2C%20C.P.%2050210%2C%20San%20Mateo%20Otzacatipan%2C%20Edo.%20de%20M%C3%A9xico" rel="noopener noreferrer" target="_blank">
+                                <div style="clip-path: url(#squircleClip)" class="w-11 h-11 shrink-0 bg-gradient-to-br from-primary-container to-primary flex items-center justify-center shadow-md">
+                                    <span class="material-symbols-outlined text-white text-[20px]">location_on</span>
+                                </div>
+                                <div class="flex flex-col gap-0.5">
+                                    <span class="font-title-md text-title-md text-on-surface vs-btn-text">Sede Operativa</span>
+                                    <span class="font-body-sm text-body-sm text-on-surface-variant vs-btn-text">Hacienda el Arbolillo, Lote 87-B, Col. Hacienda del Valle II, C.P. 50210, San Mateo Otzacatipan, Edo. de México</span>
+                                </div>
+                            </a>
+                        </div>
+
                         <!-- Mapa de la sede operativa -->
                         <div class="rounded-xl overflow-hidden shadow-sm h-56 lg:h-64">
                             <iframe class="w-full h-full border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Hacienda%20el%20Arbolillo%2C%20San%20Mateo%20Otzacatipan%2C%20Estado%20de%20M%C3%A9xico&amp;output=embed" title="Ubicación de la Sede Operativa VICSAL"></iframe>
@@ -183,8 +187,8 @@
         </section>
     </main>
 
-    <aside class="fixed bottom-6 right-6 z-40 flex items-center gap-3 group">
-        <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none bg-primary-container text-on-primary text-body-sm font-body-sm px-3.5 py-1.5 rounded-lg shadow-lg whitespace-nowrap">¿Necesitas cotización inmediata? Escríbenos</span>
+    <aside class="fixed bottom-6 right-6 z-40 group">
+        <span class="absolute bottom-full right-0 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none bg-primary-container text-on-primary text-body-sm font-body-sm px-3.5 py-1.5 rounded-lg shadow-lg whitespace-nowrap">¿Necesitas cotización inmediata? Escríbenos</span>
         <a aria-label="WhatsApp" class="vs-btn vs-btn-plain rounded-full flex items-center justify-center w-14 h-14 bg-emerald-600 text-on-primary shadow-xl" href="https://wa.me/527223494427" rel="noopener noreferrer" target="_blank">
             <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
             <svg class="relative h-7 w-7 text-white" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

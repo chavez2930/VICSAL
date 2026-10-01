@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- PÁGINA: CONTACTO (contacto.html)
+         Formulario de contacto (lo procesa config/procesarcontacto.php) y datos de la empresa:
+         teléfono, correos, dirección y mapa.
+         HEAD: metadatos (codificación, viewport responsive, descripción para buscadores) y título de la pestaña. -->
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Contacto VICSAL: cotiza uniformes, calzado de seguridad, EPP, promocionales, mobiliario y tecnología para tu empresa." name="description"/>
+    <title>Contacto - VICSAL</title>
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
+
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+    <!-- CSS Local -->
+    <link href="assets/css/styles.css" rel="stylesheet"/>
+
+    <!-- Tailwind CDN y Configuración Local -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/tailwind-config.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/intl-tel-input@29/dist/css/intlTelInput.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- CSS propio de esta página: campos del formulario, badge de reCAPTCHA y palomita de éxito.
+         Va después de styles.css y de las hojas de las librerías para poder ajustarlas. -->
+    <link href="assets/css/contacto.css" rel="stylesheet"/>
+</head>
+
+<body class="bg-surface font-body-md text-on-surface antialiased">
+    <!-- DEFINICIONES SVG (invisibles, 0x0 px)
+         Contienen el recorte "squircle" (esquinas redondeadas tipo iOS, id squircleClip) que se aplica
+         a fotos e íconos de todo el sitio con la clase de recorte definida en assets/css/styles.css. -->
+    <svg class="vs-svg-defs" width="0" height="0">
+        <defs>
+            <clipPath id="squircleClip" clipPathUnits="objectBoundingBox">
+                <path d="M 0,0.5 C 0,0 0,0 0.5,0 S 1,0 1,0.5 1,1 0.5,1 0,1 0,0.5"></path>
+            </clipPath>
+        </defs>
+    </svg>
+
+    <!-- HEADER (barra de navegación): loadpartials.js reemplaza este marcador por
+         assets/components/header.html y luego carga nav.js (menú, scroll y link activo). -->
+    <div data-include="header"></div>
+
+    <!-- CONTENIDO PRINCIPAL DE LA PÁGINA (todo lo que va entre el header y el footer) -->
+    <main class="w-full pt-20 bg-surface min-h-screen">
+        <!-- HERO -->
+        <section class="relative w-full bg-surface-container-low overflow-hidden py-space-3xl lg:py-space-4xl">
+            <div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-primary-fixed opacity-40 blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-24 -right-24 w-80 h-80 rounded-full bg-gradient-to-br from-pink-300 via-orange-200 to-emerald-300 opacity-30 blur-3xl pointer-events-none"></div>
+            <div class="max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center">
+                <div class="lg:col-span-7">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-lowest shadow-sm mb-space-md">
+                        <span class="w-2.5 h-2.5 rounded-full spectrum-badge"></span>
+                        <span class="font-label-xs text-label-xs uppercase tracking-widest text-primary-container font-bold">Contacto</span>
+                    </div>
+                    <h1 class="font-headline-xl-mobile text-headline-xl-mobile lg:font-headline-xl lg:text-headline-xl text-on-surface max-w-3xl">Hablemos de lo que tu empresa necesita</h1>
+                    <p class="mt-space-md font-body-lg text-body-lg text-secondary max-w-2xl">Escríbenos, llámanos o pide una cotización B2B en línea. Un ejecutivo de cuenta te responde a la brevedad.</p>
+                </div>
+
+                <!-- Ilustración animada: uniformes / prendas de trabajo -->
+                <div class="hidden lg:block lg:col-span-5 relative h-96" aria-hidden="true">
+                    <div class="absolute inset-0 m-auto w-56 h-56 rounded-full bg-gradient-to-br from-pink-300 via-orange-200 to-emerald-200 opacity-50 blur-2xl"></div>
+
+                    <!-- Chips flotantes: uno arriba, uno a la derecha, uno abajo, uno a la izquierda -->
+                    <div class="vs-float-badge absolute left-1/2 top-0 -translate-x-1/2" style="--vs-delay:.1s">
+                        <div class="vs-float-inner" style="--vs-float-dur:4.5s; --vs-rot:-1.5deg">
+                            <span class="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-surface-container-lowest shadow-lg whitespace-nowrap">
+                                <span class="material-symbols-outlined text-pink-500 text-[20px]">dry_cleaning</span>
+                                <span class="font-label-sm text-label-sm text-on-surface font-semibold">Confección a medida</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="vs-float-badge absolute right-0 top-1/2 -translate-y-1/2" style="--vs-delay:.35s">
+                        <div class="vs-float-inner" style="--vs-float-dur:5.2s; --vs-rot:1.5deg">
+                            <span class="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-surface-container-lowest shadow-lg whitespace-nowrap">
+                                <span class="material-symbols-outlined text-orange-500 text-[20px]">engineering</span>
+                                <span class="font-label-sm text-label-sm text-on-surface font-semibold">EPP certificado</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="vs-float-badge absolute left-1/2 bottom-0 -translate-x-1/2" style="--vs-delay:.55s">
+                        <div class="vs-float-inner" style="--vs-float-dur:5s; --vs-rot:1.5deg">
+                            <span class="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-surface-container-lowest shadow-lg whitespace-nowrap">
+                                <span class="material-symbols-outlined text-emerald-600 text-[20px]">styler</span>
+                                <span class="font-label-sm text-label-sm text-on-surface font-semibold">Bordado y logotipo</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="vs-float-badge absolute left-0 top-1/2 -translate-y-1/2" style="--vs-delay:.75s">
+                        <div class="vs-float-inner" style="--vs-float-dur:4.8s; --vs-rot:-1.5deg">
+                            <span class="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-surface-container-lowest shadow-lg whitespace-nowrap">
+                                <span class="material-symbols-outlined text-primary-container text-[20px]">inventory_2</span>
+                                <span class="font-label-sm text-label-sm text-on-surface font-semibold">Entrega por volumen</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORMULARIO + DATOS -->
+        <section class="w-full py-space-3xl">
+            <div class="max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg">
+
+                    <!-- FORMULARIO DE CONTACTO
+                         No tiene action: assets/js/contacto.js lo valida, pide el token de reCAPTCHA v3
+                         y lo envía por fetch (JSON) a config/procesarcontacto.php, que lo guarda en MySQL
+                         y manda el aviso por correo. -->
+                    <form class="lg:col-span-7 flex flex-col gap-space-md bg-surface-container-low rounded-xl p-space-lg">
+                        <h2 class="font-title-lg text-title-lg text-on-surface">Cuéntanos sobre tu proyecto</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md items-start">
+<div class="flex flex-col gap-2"><label class="font-label-lg text-label-lg text-on-surface-variant font-semibold" for="nombre">Nombre</label><textarea autocomplete="name" class="vs-field w-full rounded-lg border border-outline-variant bg-surface px-space-sm py-3 font-body-lg text-body-lg text-on-surface resize-none overflow-hidden" data-autogrow data-single id="nombre" name="nombre" placeholder="Tu nombre" required rows="1"></textarea></div>
+<div class="flex flex-col gap-2"><label class="font-label-lg text-label-lg text-on-surface-variant font-semibold" for="empresa">Empresa</label><textarea autocomplete="organization" class="vs-field w-full rounded-lg border border-outline-variant bg-surface px-space-sm py-3 font-body-lg text-body-lg text-on-surface resize-none overflow-hidden" data-autogrow data-single id="empresa" name="empresa" placeholder="Nombre de tu empresa" rows="1"></textarea></div>
+<div class="flex flex-col gap-2"><label class="font-label-lg text-label-lg text-on-surface-variant font-semibold" for="correo">Correo</label><input autocomplete="email" class="vs-field w-full rounded-lg border border-outline-variant bg-surface px-space-sm py-3 font-body-lg text-body-lg text-on-surface" id="correo" name="correo" placeholder="tucorreo@empresa.com" required type="email"/></div>
+<div class="flex flex-col gap-2"><label class="font-label-lg text-label-lg text-on-surface-variant font-semibold" for="telefono">Teléfono</label><input autocomplete="tel-national" class="vs-field w-full rounded-lg border border-outline-variant bg-surface px-space-sm py-3 font-body-lg text-body-lg text-on-surface vs-tel" id="telefono" name="telefono" type="tel"/></div>
+</div>
+<div class="flex flex-col gap-2"><label class="font-label-lg text-label-lg text-on-surface-variant font-semibold" for="mensaje">¿Qué necesitas?</label><textarea class="vs-field w-full rounded-lg border border-outline-variant bg-surface px-space-sm py-3 font-body-lg text-body-lg text-on-surface resize-none overflow-hidden" data-autogrow id="mensaje" name="mensaje" placeholder="Uniformes, cantidad aproximada, plazos, etc." required rows="4"></textarea></div>
+<button class="vs-btn inline-flex items-center justify-center gap-2 px-space-md py-2.5 bg-primary-container text-on-primary font-body-md text-body-md font-semibold self-start disabled:opacity-60 disabled:cursor-not-allowed" id="form-submit" type="submit">
+                            <span class="vs-btn-text" id="form-submit-text">Enviar mensaje</span>
+                            <span class="material-symbols-outlined vs-btn-icon text-[18px]">send</span>
+                        </button>
+                    </form>
+
+                    <!-- Datos de contacto -->
+                    <div class="lg:col-span-5 flex flex-col gap-space-md">
+
+                        <!-- Tarjeta única: filas separadas, con el mismo trazo degradado del menú al hacer hover -->
+                        <div class="flex flex-col bg-surface-container-low rounded-xl overflow-hidden">
+                            <a class="vs-btn flex items-start gap-3 p-space-md border-b border-outline-variant/60" href="tel:+527223494427">
+                                <!-- Ícono de teléfono solo decorativo: mismo marco que los de correo y ubicación -->
+                                <div class="w-11 h-11 shrink-0 drop-shadow-md pointer-events-none" aria-hidden="true">
+                                    <div class="w-full h-full p-[2px] bg-neutral-400 vs-squircle">
+                                        <div class="w-full h-full bg-white flex items-center justify-center vs-squircle">
+                                            <span class="material-symbols-outlined text-emerald-600 text-[26px]" style="font-variation-settings: 'FILL' 1;">call</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-0.5">
+                                    <span class="font-title-md text-title-md text-on-surface vs-btn-text">Teléfono</span>
+                                    <span class="font-body-sm text-body-sm text-on-surface-variant vs-btn-text">722 349 4427</span>
+                                </div>
+                            </a>
+                            <div class="vs-btn flex items-start gap-3 p-space-md">
+                                <!-- Ícono de Gmail solo decorativo (no es botón ni enlace): mismo diseño que el del footer -->
+                                <div class="w-11 h-11 shrink-0 drop-shadow-md pointer-events-none" aria-hidden="true">
+                                    <div class="w-full h-full p-[2px] bg-neutral-400 vs-squircle">
+                                        <div class="w-full h-full bg-white flex items-center justify-center vs-squircle">
+                                            <svg class="h-6 w-6" viewBox="9 8 49 39" xmlns="http://www.w3.org/2000/svg">
+                                                <defs>
+                                                    <linearGradient id="gm-arm-c" gradientUnits="userSpaceOnUse" x1="11" y1="0" x2="56" y2="0">
+                                                        <stop offset="0" stop-color="#FF5FA2"/>
+                                                        <stop offset="0.22" stop-color="#FF4B4B"/>
+                                                        <stop offset="0.6" stop-color="#FF4B47"/>
+                                                        <stop offset="0.85" stop-color="#FF9A1F"/>
+                                                        <stop offset="1" stop-color="#FFD600"/>
+                                                    </linearGradient>
+                                                    <linearGradient id="gm-leg-c" gradientUnits="userSpaceOnUse" x1="0" y1="14" x2="0" y2="45">
+                                                        <stop offset="0" stop-color="#FFD600"/>
+                                                        <stop offset="0.25" stop-color="#22B45B"/>
+                                                        <stop offset="0.6" stop-color="#0FA59B"/>
+                                                        <stop offset="1" stop-color="#3B8BFF"/>
+                                                    </linearGradient>
+                                                </defs>
+                                                <path fill="#FF4B47" d="M10.8 13.7V42a3 3 0 0 0 3 3h3.3a3 3 0 0 0 3-3V13.7z"/>
+                                                <path fill="url(#gm-leg-c)" d="M46.8 13.7V42a3 3 0 0 0 3 3h3.4a3 3 0 0 0 3-3V13.7z"/>
+                                                <path fill="none" stroke="url(#gm-arm-c)" stroke-width="9.3" stroke-linecap="round" stroke-linejoin="miter" d="M15.5 13.7L33.5 29.2L51.5 13.7"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-0.5">
+                                    <span class="font-title-md text-title-md text-on-surface vs-btn-text">Correo</span>
+                                    <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary-container transition-colors vs-btn-text" href="mailto:gerencia.ventas@solucionesvicsal.com">gerencia.ventas@solucionesvicsal.com</a>
+                                    <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary-container transition-colors vs-btn-text" href="mailto:ventas1@solucionesvicsal.com">ventas1@solucionesvicsal.com</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Ubicación de la sede: justo arriba del mapa, con el trazo degradado -->
+                        <div class="flex flex-col bg-surface-container-low rounded-xl overflow-hidden">
+                            <a class="vs-btn flex items-start gap-3 p-space-md" href="https://www.google.com/maps/search/?api=1&amp;query=Hacienda%20el%20Arbolillo%2C%20Lote%2087-B%2C%20Col.%20Hacienda%20del%20Valle%20II%2C%20C.P.%2050210%2C%20San%20Mateo%20Otzacatipan%2C%20Edo.%20de%20M%C3%A9xico" rel="noopener noreferrer" target="_blank">
+                                <!-- Ícono de ubicación solo decorativo: mismo diseño que el del footer -->
+                                <div class="w-11 h-11 shrink-0 drop-shadow-md pointer-events-none" aria-hidden="true">
+                                    <div class="w-full h-full p-[2px] bg-neutral-400 vs-squircle">
+                                        <div class="w-full h-full bg-white flex items-center justify-center vs-squircle">
+                                            <span class="vs-maps-pin w-5"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-0.5">
+                                    <span class="font-title-md text-title-md text-on-surface vs-btn-text">Sede Operativa</span>
+                                    <span class="font-body-sm text-body-sm text-on-surface-variant vs-btn-text">Hacienda el Arbolillo, Lote 87-B, Col. Hacienda del Valle II, C.P. 50210, San Mateo Otzacatipan, Edo. de México</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Mapa de la sede operativa -->
+                        <div class="rounded-xl overflow-hidden shadow-sm h-56 lg:h-64">
+                            <iframe class="w-full h-full border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Hacienda%20el%20Arbolillo%2C%20San%20Mateo%20Otzacatipan%2C%20Estado%20de%20M%C3%A9xico&amp;output=embed" title="Ubicación de la Sede Operativa VICSAL"></iframe>
+                        </div>
+
+                        <a class="vs-btn inline-flex items-center justify-center gap-2 px-space-md py-2.5 bg-emerald-600 text-on-primary font-body-md text-body-md font-semibold" href="https://wa.me/527223494427" rel="noopener noreferrer" target="_blank">
+                            <span class="vs-btn-text">Escribir por WhatsApp</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- BOTÓN FLOTANTE DE WHATSAPP
+         Fijo abajo a la derecha en todas las páginas. Al pasar el mouse muestra el texto de ayuda
+         y al hacer clic abre WhatsApp con el número de ventas. -->
+    <aside class="fixed bottom-6 right-6 z-40 group">
+        <span class="absolute bottom-full right-0 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none bg-primary-container text-on-primary text-body-sm font-body-sm px-3.5 py-1.5 rounded-lg shadow-lg whitespace-nowrap">¿Necesitas cotización inmediata? Escríbenos</span>
+        <a aria-label="WhatsApp" class="vs-btn vs-btn-plain rounded-full flex items-center justify-center w-14 h-14 bg-emerald-600 text-on-primary shadow-xl" href="https://wa.me/527223494427" rel="noopener noreferrer" target="_blank">
+            <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
+            <svg class="relative h-7 w-7 text-white" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.001 2.002c-5.518 0-9.997 4.479-9.997 9.997 0 1.762.464 3.482 1.346 4.997l-1.42 5.19a.6.6 0 0 0 .735.735l5.19-1.42a9.96 9.96 0 0 0 4.146.894h.004c5.518 0 9.997-4.478 9.997-9.996 0-2.67-1.04-5.18-2.928-7.07a9.93 9.93 0 0 0-7.073-2.927zm0 18.312h-.003a8.3 8.3 0 0 1-4.234-1.16l-.304-.18-3.151.862.842-3.075-.198-.316a8.31 8.31 0 0 1-1.276-4.436c0-4.596 3.74-8.335 8.336-8.335a8.28 8.28 0 0 1 5.895 2.445 8.28 8.28 0 0 1 2.438 5.897c-.002 4.596-3.741 8.298-8.345 8.298zm4.568-6.223c-.25-.125-1.475-.728-1.704-.812-.229-.083-.396-.125-.563.125-.166.25-.646.812-.792.978-.146.167-.291.188-.541.063-.25-.125-1.056-.39-2.012-1.242-.744-.664-1.246-1.484-1.392-1.734-.146-.25-.016-.386.11-.51.113-.113.25-.292.375-.438.125-.146.166-.25.25-.417.083-.167.041-.313-.021-.438-.062-.125-.563-1.357-.771-1.858-.203-.487-.41-.421-.563-.429-.146-.007-.313-.009-.48-.009-.166 0-.437.062-.666.313-.229.25-.875.854-.875 2.083 0 1.229.896 2.417 1.021 2.583.125.167 1.764 2.695 4.273 3.78.597.258 1.062.412 1.425.527.599.19 1.144.163 1.575.099.48-.072 1.475-.603 1.683-1.187.208-.583.208-1.083.145-1.187-.062-.104-.229-.167-.479-.292z"></path>
+            </svg>
+        </a>
+    </aside>
+
+    <!-- FOOTER (pie de página): loadpartials.js reemplaza este marcador por
+         assets/components/footer.html y luego carga footer.js (botón de catálogo). -->
+    <div data-include="footer"></div>
+
+    <!-- Cargar scripts al final ----------------------------------------
+         loadpartials.js va PRIMERO: inyecta header.html y footer.html,
+         y nav.js viaja PEGADO al componente header (se carga solo,
+         ver assets/js/loadpartials.js -> COMPONENT_SCRIPTS). No hace
+         falta poner <script src="assets/js/nav.js"> aquí a mano. -->
+    <script src="assets/js/loadpartials.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@29/dist/js/intlTelInput.min.js"></script>
+    <!-- Lógica del formulario: validación, teléfono internacional, reCAPTCHA v3 y envío (assets/js/contacto.js) -->
+    <script src="assets/js/contacto.js"></script>
+    <!-- Pre-llena el mensaje cuando se llega desde una tarjeta del catálogo (assets/js/contacto-prefill.js) -->
+    <script src="assets/js/contacto-prefill.js"></script>
+</body>
+</html>

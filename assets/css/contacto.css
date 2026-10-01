@@ -1,0 +1,28 @@
+/* ======================================================================
+   CSS DE LA PÁGINA DE CONTACTO (assets/css/contacto.css)
+   Antes estaba en un bloque style dentro de contacto.html. Solo aplica a esa página.
+   Se carga después de styles.css y de la hoja de intl-tel-input para poder ajustarla.
+
+   Contenido: 1) campos del formulario (.vs-field), 2) selector de teléfono (.iti),
+   3) badge de reCAPTCHA v3, 4) palomita de éxito de SweetAlert2 con los colores de la marca.
+   ====================================================================== */
+
+/* Campos: al enfocar, el borde usa el mismo degradado de los botones */
+.vs-field:focus{outline:none;box-shadow:none;border:2px solid transparent;
+  padding-top:calc(.75rem - 1px);padding-bottom:calc(.75rem - 1px);
+  background:linear-gradient(#f7f9fb,#f7f9fb) padding-box,linear-gradient(90deg,#ec4899,#fb923c 50%,#10b981) border-box}
+.vs-field:not(.vs-tel):focus{padding-left:calc(.75rem - 1px);padding-right:calc(.75rem - 1px)}
+/* Color del texto de ayuda (placeholder) de los campos */
+.vs-field::placeholder{color:#75777f}
+/* Que el selector de teléfono internacional ocupe todo el ancho del campo */
+.iti{width:100%}
+/* Distintivo de reCAPTCHA v3: abajo a la izquierda, se expande al pasar el mouse */
+.grecaptcha-badge{width:70px!important;overflow:hidden!important;transition:width .3s ease!important;left:4px!important;right:auto!important}
+.grecaptcha-badge:hover{width:256px!important}
+/* Palomita de éxito (SweetAlert) con los colores del logo en vez del verde por defecto */
+.vs-swal-success-icon.swal2-success{border-color:transparent!important}
+.vs-swal-success-icon .swal2-success-ring{border-color:rgba(236,72,153,.25)!important}
+.vs-swal-success-icon .swal2-success-fix{background:transparent!important}
+.vs-swal-success-icon [class^="swal2-success-circular-line"]{background:transparent!important}
+.vs-swal-success-icon .swal2-success-line-tip,
+.vs-swal-success-icon .swal2-success-line-long{background:linear-gradient(90deg,#ec4899,#fb923c 50%,#10b981)!important}

@@ -1,0 +1,188 @@
+<!-- COMPONENTE: FOOTER (pie de página)
+     Lo inyecta loadpartials.js en el marcador de footer de cada página; footer.js controla el botón del catálogo.
+     Columnas: 1) marca y redes, 2) líneas y catálogo, 3) sede operativa, 4) atención corporativa. Abajo, la barra legal. -->
+<footer class="w-full bg-surface-container-lowest spectrum-border-top">
+        <div class="max-w-max-width-container mx-auto px-margin-desktop pt-space-3xl pb-space-2xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter-lg pb-space-2xl">
+                <!-- COLUMNA 1: logo, descripción de la empresa y redes sociales de sus dos marcas -->
+                <div class="lg:col-span-4 flex flex-col gap-space-md">
+                    <div class="flex items-center gap-space-sm">
+                        <img alt="VICSAL Logo" class="h-20 w-auto object-contain" src="assets/img/logo.png"/>
+                        <div class="flex flex-col">
+                            <span class="font-headline-sm text-headline-sm text-primary-container tracking-tight leading-none">VICSAL</span>
+                            <span class="font-label-xs text-label-xs tracking-wider text-secondary uppercase font-bold mt-0.5">Corporativo Vicsal</span>
+                        </div>
+                    </div>
+                    <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed max-w-sm">Soluciones integrales para empresas: uniformes corporativos e industriales, calzado de seguridad, Equipo de Protección Personal, promocionales, mobiliario y tecnología.</p>
+                    <div class="flex flex-col gap-space-sm pt-space-xs">
+                        <!-- Grupo: Vicsal Uniformes de Excelencia -->
+                        <div class="flex flex-col gap-2">
+                            <span class="font-label-xs text-label-xs tracking-wider text-secondary uppercase font-bold">Uniformes de Excelencia</span>
+                            <div class="flex items-center gap-space-sm">
+                                <!-- Facebook -->
+                                <a aria-label="Facebook Vicsal Uniformes de Excelencia" class="block" href="https://www.facebook.com/solucionesintegralesvicsal" rel="noopener noreferrer" target="_blank">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 grayscale hover:grayscale-0 flex items-center justify-center shadow-md border border-blue-500/30 cursor-pointer transform transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-1 hover:shadow-xl vs-squircle">
+                                        <svg class="h-[18px] w-[18px] text-white" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.098 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"></path>
+                                        </svg>
+                                    </div>
+                                </a>
+                                <!-- Instagram -->
+                                <a aria-label="Instagram Vicsal Uniformes de Excelencia" class="block" href="https://www.instagram.com/vicsal_uniformesdeexcelencia" rel="noopener noreferrer" target="_blank">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-pink-500 via-purple-500 to-orange-400 grayscale hover:grayscale-0 flex items-center justify-center shadow-md border border-pink-400/30 cursor-pointer transform transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-1 hover:shadow-xl vs-squircle">
+                                        <svg class="h-[18px] w-[18px] text-white" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Grupo: Vicsal Souvenirs -->
+                        <div class="flex flex-col gap-2">
+                            <span class="font-label-xs text-label-xs tracking-wider text-secondary uppercase font-bold">Vicsal Souvenirs</span>
+                            <div class="flex items-center gap-space-sm">
+                                <!-- Facebook -->
+                                <a aria-label="Facebook Vicsal Souvenirs" class="block" href="https://www.facebook.com/profile.php?id=61580254471239" rel="noopener noreferrer" target="_blank">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 grayscale hover:grayscale-0 flex items-center justify-center shadow-md border border-blue-500/30 cursor-pointer transform transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-1 hover:shadow-xl vs-squircle">
+                                        <svg class="h-[18px] w-[18px] text-white" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.098 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"></path>
+                                        </svg>
+                                    </div>
+                                </a>
+                                <!-- Instagram -->
+                                <a aria-label="Instagram Vicsal Souvenirs" class="block" href="https://www.instagram.com/vicsal.souvenirs/" rel="noopener noreferrer" target="_blank">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-pink-500 via-purple-500 to-orange-400 grayscale hover:grayscale-0 flex items-center justify-center shadow-md border border-pink-400/30 cursor-pointer transform transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-1 hover:shadow-xl vs-squircle">
+                                        <svg class="h-[18px] w-[18px] text-white" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
+                                        </svg>
+                                    </div>
+                                </a>
+                                <!-- Threads -->
+                                <a aria-label="Threads Vicsal Souvenirs" class="block" href="https://www.threads.com/@vicsal.souvenirs" rel="noopener noreferrer" target="_blank">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-neutral-800 to-black grayscale hover:grayscale-0 flex items-center justify-center shadow-md border border-neutral-700/40 cursor-pointer transform transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-1 hover:shadow-xl vs-squircle">
+                                        <svg class="h-[18px] w-[18px] text-white" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6.321 6.016c-.27-.18-1.166-.802-1.166-.802.756-1.081 1.753-1.502 3.132-1.502.975 0 1.803.327 2.394.948s.928 1.509 1.005 2.644q.492.207.905.484c1.109.745 1.719 1.86 1.719 3.137 0 2.716-2.226 5.075-6.256 5.075C4.594 16 1 13.987 1 7.994 1 2.034 4.482 0 8.044 0 9.69 0 13.55.243 15 5.036l-1.36.353C12.516 1.974 10.163 1.43 8.006 1.43c-3.565 0-5.582 2.171-5.582 6.79 0 4.143 2.254 6.343 5.63 6.343 2.777 0 4.847-1.443 4.847-3.556 0-1.438-1.208-2.127-1.27-2.127-.236 1.234-.868 3.31-3.644 3.31-1.618 0-3.013-1.118-3.013-2.582 0-2.09 1.984-2.847 3.55-2.847.586 0 1.294.04 1.663.114 0-.637-.54-1.728-1.9-1.728-1.25 0-1.566.405-1.967.868ZM8.716 8.19c-2.04 0-2.304.87-2.304 1.416 0 .878 1.043 1.168 1.6 1.168 1.02 0 2.067-.282 2.232-2.423a6.2 6.2 0 0 0-1.528-.161"></path>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- COLUMNA 2: enlaces rápidos a las líneas del catálogo -->
+                <div class="lg:col-span-2 flex flex-col gap-space-sm">
+                    <h4 class="font-title-md text-title-md text-primary-container">Líneas y Catálogo</h4>
+                    <ul class="flex flex-col gap-2 font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-on-surface transition-colors"><a href="productos.html">Uniformes corporativos e industriales</a></li><li class="hover:text-on-surface transition-colors"><a href="productos.html">Calzado de seguridad</a></li><li class="hover:text-on-surface transition-colors"><a href="productos.html">Equipo de Protección Personal</a></li><li class="hover:text-on-surface transition-colors"><a href="productos.html">Promocionales y souvenirs</a></li><li class="hover:text-on-surface transition-colors"><a href="productos.html">Mobiliario y tecnología</a></li><li class="hover:text-on-surface transition-colors"><a href="index.html#marcas">Marcas asociadas</a></li></ul>
+                </div>
+                <!-- COLUMNA 3: sede operativa (dirección y correos de contacto) -->
+                <div class="lg:col-span-3 flex flex-col gap-space-sm">
+                    <h4 class="font-title-md text-title-md text-primary-container">Sede Operativa</h4>
+                    <div class="flex flex-col gap-3 font-body-sm text-body-sm text-on-surface-variant">
+                        <div class="flex items-start gap-3">
+                            <div class="w-12 h-12 shrink-0 transform transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-1 drop-shadow-md hover:drop-shadow-xl" aria-hidden="true">
+                                <div class="w-full h-full p-[2px] bg-neutral-400 vs-squircle">
+                                    <div class="w-full h-full bg-white flex items-center justify-center vs-squircle">
+                                        <span class="vs-maps-pin w-[22px]"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="pt-1.5">Hacienda el Arbolillo, Lote 87-B, Col. Hacienda del Valle II, C.P. 50210, San Mateo Otzacatipan, Edo. de México</span>
+                        </div>
+                        <!-- Correos: mismo diseño que los íconos de redes sociales. Al pasar el mouse o tocar el ícono
+                             aparece una burbuja flotante con el correo (solo CSS, ver sección 9 de styles.css); el ícono y la burbuja abren el correo. -->
+                        <div class="flex items-center gap-space-sm pt-space-xs">
+                            <div class="vs-mail relative" tabindex="-1">
+                                <a href="mailto:gerencia.ventas@solucionesvicsal.com" aria-label="Escribir a gerencia.ventas@solucionesvicsal.com" class="block">
+                                    <div class="vs-mail-icon w-12 h-12 cursor-pointer transform transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-1 drop-shadow-md hover:drop-shadow-xl">
+                                        <div class="w-full h-full p-[2px] bg-neutral-400 vs-squircle">
+                                        <div class="w-full h-full bg-white flex items-center justify-center vs-squircle">
+                                        <svg class="h-7 w-7" viewBox="9 8 49 39" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                            <defs>
+                                                <linearGradient id="gm-arm-1" gradientUnits="userSpaceOnUse" x1="11" y1="0" x2="56" y2="0">
+                                                    <stop offset="0" stop-color="#FF5FA2"/>
+                                                    <stop offset="0.22" stop-color="#FF4B4B"/>
+                                                    <stop offset="0.6" stop-color="#FF4B47"/>
+                                                    <stop offset="0.85" stop-color="#FF9A1F"/>
+                                                    <stop offset="1" stop-color="#FFD600"/>
+                                                </linearGradient>
+                                                <linearGradient id="gm-leg-1" gradientUnits="userSpaceOnUse" x1="0" y1="14" x2="0" y2="45">
+                                                    <stop offset="0" stop-color="#FFD600"/>
+                                                    <stop offset="0.25" stop-color="#22B45B"/>
+                                                    <stop offset="0.6" stop-color="#0FA59B"/>
+                                                    <stop offset="1" stop-color="#3B8BFF"/>
+                                                </linearGradient>
+                                            </defs>
+                                            <path fill="#FF4B47" d="M10.8 13.7V42a3 3 0 0 0 3 3h3.3a3 3 0 0 0 3-3V13.7z"/>
+                                            <path fill="url(#gm-leg-1)" d="M46.8 13.7V42a3 3 0 0 0 3 3h3.4a3 3 0 0 0 3-3V13.7z"/>
+                                            <path fill="none" stroke="url(#gm-arm-1)" stroke-width="9.3" stroke-linecap="round" stroke-linejoin="miter" d="M15.5 13.7L33.5 29.2L51.5 13.7"/>
+                                        </svg>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="vs-mail-bubble bg-primary-container text-on-primary font-body-sm text-body-sm" role="tooltip">
+                                    <a href="mailto:gerencia.ventas@solucionesvicsal.com">gerencia.ventas@solucionesvicsal.com</a>
+                                </div>
+                            </div>
+                            <div class="vs-mail relative" tabindex="-1">
+                                <a href="mailto:ventas1@solucionesvicsal.com" aria-label="Escribir a ventas1@solucionesvicsal.com" class="block">
+                                    <div class="vs-mail-icon w-12 h-12 cursor-pointer transform transition-all duration-300 ease-out hover:scale-110 hover:-translate-y-1 drop-shadow-md hover:drop-shadow-xl">
+                                        <div class="w-full h-full p-[2px] bg-neutral-400 vs-squircle">
+                                        <div class="w-full h-full bg-white flex items-center justify-center vs-squircle">
+                                        <svg class="h-7 w-7" viewBox="9 8 49 39" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                            <defs>
+                                                <linearGradient id="gm-arm-2" gradientUnits="userSpaceOnUse" x1="11" y1="0" x2="56" y2="0">
+                                                    <stop offset="0" stop-color="#FF5FA2"/>
+                                                    <stop offset="0.22" stop-color="#FF4B4B"/>
+                                                    <stop offset="0.6" stop-color="#FF4B47"/>
+                                                    <stop offset="0.85" stop-color="#FF9A1F"/>
+                                                    <stop offset="1" stop-color="#FFD600"/>
+                                                </linearGradient>
+                                                <linearGradient id="gm-leg-2" gradientUnits="userSpaceOnUse" x1="0" y1="14" x2="0" y2="45">
+                                                    <stop offset="0" stop-color="#FFD600"/>
+                                                    <stop offset="0.25" stop-color="#22B45B"/>
+                                                    <stop offset="0.6" stop-color="#0FA59B"/>
+                                                    <stop offset="1" stop-color="#3B8BFF"/>
+                                                </linearGradient>
+                                            </defs>
+                                            <path fill="#FF4B47" d="M10.8 13.7V42a3 3 0 0 0 3 3h3.3a3 3 0 0 0 3-3V13.7z"/>
+                                            <path fill="url(#gm-leg-2)" d="M46.8 13.7V42a3 3 0 0 0 3 3h3.4a3 3 0 0 0 3-3V13.7z"/>
+                                            <path fill="none" stroke="url(#gm-arm-2)" stroke-width="9.3" stroke-linecap="round" stroke-linejoin="miter" d="M15.5 13.7L33.5 29.2L51.5 13.7"/>
+                                        </svg>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="vs-mail-bubble bg-primary-container text-on-primary font-body-sm text-body-sm" role="tooltip">
+                                    <a href="mailto:ventas1@solucionesvicsal.com">ventas1@solucionesvicsal.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- COLUMNA 4: atención corporativa (botones de catálogo en PDF y de cotización) -->
+                <div class="lg:col-span-3 flex flex-col gap-space-sm">
+                    <h4 class="font-title-md text-title-md text-primary-container">Atención Corporativa</h4>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant">Consulta nuestro catálogo o solicita la visita de un ejecutivo a tus instalaciones.</p>
+                    <div class="pt-space-xs flex flex-col gap-2.5">
+                        <!-- Botón "Ver catálogo": descarga el PDF del catálogo de calzado de seguridad.
+                             assets/js/footer.js le pone el estado "Descargando..." durante 4 s para evitar dobles clics. -->
+                        <a id="btn-catalogo" class="vs-btn vs-btn--light inline-flex items-center justify-center gap-2 px-space-md py-2 bg-surface-container text-primary-container font-label-md text-label-md" data-path="descargar-catalogo" href="assets/catalogo/catalogo-calzado-seguridad-vicsal-2026.pdf" download="Catalogo-Calzado-Seguridad-VICSAL-2026.pdf"><span class="material-symbols-outlined vs-btn-icon text-[18px]">menu_book</span><span class="vs-btn-text">Ver catálogo</span></a>
+                        <a class="vs-btn inline-flex items-center justify-center gap-2 px-space-md py-2 bg-primary-container text-on-primary font-label-md text-label-md" data-path="cotizador" href="contacto.html"><span class="material-symbols-outlined vs-btn-icon text-[18px]">request_quote</span><span class="vs-btn-text">Solicitar cotización</span></a>
+                    </div>
+                </div>
+            </div>
+            <!-- BARRA LEGAL INFERIOR: copyright y enlaces legales.
+                 Pendiente: Aviso de Privacidad y Términos todavía apuntan a "#" (sin página). -->
+            <div class="pt-space-lg border-t border-surface-container flex flex-col md:flex-row items-center justify-between gap-4 font-body-sm text-body-sm text-on-surface-variant">
+                <p>© 2026 VICSAL Proveedor Integral Empresarial. Todos los derechos reservados.</p>
+                <div class="flex items-center gap-space-lg">
+                    <a class="relative transition-colors hover:text-primary-container after:absolute after:inset-x-0 after:-bottom-1 after:h-[2px] after:rounded-full after:bg-gradient-to-r after:from-pink-500 after:via-orange-400 after:to-emerald-500 after:scale-x-0 after:opacity-0 after:origin-left after:transition-all after:duration-200 hover:after:scale-x-100 hover:after:opacity-100" data-path="aviso-privacidad" href="#">Aviso de Privacidad</a>
+                    <a class="relative transition-colors hover:text-primary-container after:absolute after:inset-x-0 after:-bottom-1 after:h-[2px] after:rounded-full after:bg-gradient-to-r after:from-pink-500 after:via-orange-400 after:to-emerald-500 after:scale-x-0 after:opacity-0 after:origin-left after:transition-all after:duration-200 hover:after:scale-x-100 hover:after:opacity-100" data-path="terminos-condiciones" href="#">Términos y Condiciones</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Los estilos del botón "Ver catálogo" en espera viven en assets/css/styles.css (sección FOOTER) -->

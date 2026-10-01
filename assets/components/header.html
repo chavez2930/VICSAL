@@ -1,0 +1,133 @@
+<!-- COMPONENTE: HEADER (barra de navegación fija)
+     Lo inyecta loadpartials.js en el marcador de header de cada página. Su comportamiento está en nav.js:
+     ocultarse al bajar y mostrarse al subir, marcar el link activo (por data-path) y abrir el menú móvil.
+     Los enlaces del megamenú apuntan a productos.html?cat=ID, que catalogo.js lee para filtrar. -->
+<header id="site-header" class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] transition-transform duration-300 will-change-transform">
+    <div class="h-20 max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop flex items-center justify-between gap-space-md">
+        <!-- LOGO Y NOMBRE DE LA EMPRESA (lado izquierdo) -->
+        <div class="flex items-center gap-space-sm shrink-0">
+            <img alt="VICSAL Logo" class="h-20 w-auto object-contain" src="assets/img/logo.png"/>
+            <div class="flex flex-col">
+                <span class="font-headline-sm text-headline-sm text-primary-container tracking-tight leading-none">CORPORATIVO VICSAL</span>
+                <span class="font-label-xs text-label-xs tracking-wider text-secondary uppercase font-bold mt-0.5">Evolucionamos contigo</span>
+            </div>
+        </div>
+
+        <!-- ===== MENÚ DE ESCRITORIO (solo visible desde xl / 1280px) ===== -->
+        <nav class="hidden xl:flex items-center gap-space-lg relative" data-active-classes="text-primary-container font-semibold after:absolute after:bottom-[-22px] after:left-0 after:w-full after:h-[2px] after:bg-gradient-to-r after:from-pink-500 after:via-orange-400 after:to-emerald-500">
+            <!-- Enlace superior: Inicio (nav.js lo marca como activo según la página actual) -->
+            <div class="relative"><a data-nav="top" class="relative py-2 font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="home" href="index.html">Inicio</a></div>
+            <!-- Enlace superior: Sobre Nosotros -->
+            <div class="relative"><a data-nav="top" class="relative py-2 font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="nosotros" href="nosotros.html">Sobre Nosotros</a></div>
+
+            <!-- MEGAMENU: Productos -->
+            <div class="group relative">
+                <a data-nav="top" class="relative py-2 font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors inline-flex items-center gap-1" data-path="productos" href="productos.html">
+                    Productos
+                    <span class="material-symbols-outlined text-[18px] transition-transform duration-200 group-hover:rotate-180">expand_more</span>
+                </a>
+                <div class="invisible opacity-0 translate-y-1 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[56rem] max-w-[92vw] bg-surface-container-lowest rounded-xl shadow-[0_16px_36px_-6px_rgba(11,27,61,0.12)] p-space-lg z-50">
+                    <div class="grid grid-cols-4 gap-gutter-lg">
+                        <div class="flex flex-col gap-1">
+                            <!-- COLUMNA 1 del megamenú: Uniformes por giro (industriales, restaurante, seguridad privada) -->
+                            <span class="font-label-md text-label-md text-primary-container uppercase tracking-wider font-bold px-space-sm mb-1">Uniformes por giro</span>
+                            <a data-nav="sub" class="relative px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary-container text-body-sm font-body-sm transition-colors after:absolute after:inset-x-space-sm after:bottom-0 after:h-[2px] after:rounded-full after:bg-gradient-to-r after:from-pink-500 after:via-orange-400 after:to-emerald-500 after:scale-x-0 after:opacity-0 after:origin-left after:transition-all after:duration-200 hover:after:scale-x-100 hover:after:opacity-100" data-path="catalogo-uniformes-industriales" href="productos.html?cat=uniformes-industriales">Industriales</a>
+                            <a data-nav="sub" class="relative px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary-container text-body-sm font-body-sm transition-colors after:absolute after:inset-x-space-sm after:bottom-0 after:h-[2px] after:rounded-full after:bg-gradient-to-r after:from-pink-500 after:via-orange-400 after:to-emerald-500 after:scale-x-0 after:opacity-0 after:origin-left after:transition-all after:duration-200 hover:after:scale-x-100 hover:after:opacity-100" data-path="catalogo-uniformes-restaurante" href="productos.html?cat=uniformes-restaurante">Restaurante</a>
+                            <a data-nav="sub" class="relative px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary-container text-body-sm font-body-sm transition-colors after:absolute after:inset-x-space-sm after:bottom-0 after:h-[2px] after:rounded-full after:bg-gradient-to-r after:from-pink-500 after:via-orange-400 after:to-emerald-500 after:scale-x-0 after:opacity-0 after:origin-left after:transition-all after:duration-200 hover:after:scale-x-100 hover:after:opacity-100" data-path="catalogo-uniformes-seguridad-privada" href="productos.html?cat=uniformes-seguridad-privada">Seguridad privada</a>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <!-- COLUMNA 2 del megamenú: Prendas de trabajo (chalecos, camisolas, pantalones) -->
+                            <span class="font-label-md text-label-md text-primary-container uppercase tracking-wider font-bold px-space-sm mb-1">Prendas de trabajo</span>
+                            <a data-nav="sub" class="relative px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary-container text-body-sm font-body-sm transition-colors after:absolute after:inset-x-space-sm after:bottom-0 after:h-[2px] after:rounded-full after:bg-gradient-to-r after:from-pink-500 after:via-orange-400 after:to-emerald-500 after:scale-x-0 after:opacity-0 after:origin-left after:transition-all after:duration-200 hover:after:scale-x-100 hover:after:opacity-100" data-path="catalogo-chalecos-seguridad" href="productos.html?cat=chalecos-seguridad">Chalecos de seguridad</a>
+                            <a data-nav="sub" class="relative px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary-container text-body-sm font-body-sm transition-colors after:absolute after:inset-x-space-sm after:bottom-0 after:h-[2px] after:rounded-full after:bg-gradient-to-r after:from-pink-500 after:via-orange-400 after:to-emerald-500 after:scale-x-0 after:opacity-0 after:origin-left after:transition-all after:duration-200 hover:after:scale-x-100 hover:after:opacity-100" data-path="catalogo-camisolas" href="productos.html?cat=camisolas">Camisolas</a>
+                            <a data-nav="sub" class="relative px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary-container text-body-sm font-body-sm transition-colors after:absolute after:inset-x-space-sm after:bottom-0 after:h-[2px] after:rounded-full after:bg-gradient-to-r after:from-pink-500 after:via-orange-400 after:to-emerald-500 after:scale-x-0 after:opacity-0 after:origin-left after:transition-all after:duration-200 hover:after:scale-x-100 hover:after:opacity-100" data-path="catalogo-pantalones" href="productos.html?cat=pantalones">Pantalones</a>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <!-- COLUMNA 3 del megamenú: Casual y de vestir (playeras, camisas, blusas y línea dama) -->
+                            <span class="font-label-md text-label-md text-primary-container uppercase tracking-wider font-bold px-space-sm mb-1">Casual y de vestir</span>
+                            <a data-nav="sub" class="relative px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary-container text-body-sm font-body-sm transition-colors after:absolute after:inset-x-space-sm after:bottom-0 after:h-[2px] after:rounded-full after:bg-gradient-to-r after:from-pink-500 after:via-orange-400 after:to-emerald-500 after:scale-x-0 after:opacity-0 after:origin-left after:transition-all after:duration-200 hover:after:scale-x-100 hover:after:opacity-100" data-path="catalogo-playeras-cuello-redondo" href="productos.html?cat=playeras-cuello-redondo">Playeras cuello redondo</a>
+                            <a data-nav="sub" class="relative px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary-container text-body-sm font-body-sm transition-colors after:absolute after:inset-x-space-sm after:bottom-0 after:h-[2px] after:rounded-full after:bg-gradient-to-r after:from-pink-500 after:via-orange-400 after:to-emerald-500 after:scale-x-0 after:opacity-0 after:origin-left after:transition-all after:duration-200 hover:after:scale-x-100 hover:after:opacity-100" data-path="catalogo-playeras-polo" href="productos.html?cat=playeras-polo">Playeras tipo polo</a>
+                            <a data-nav="sub" class="relative px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary-container text-body-sm font-body-sm transition-colors after:absolute after:inset-x-space-sm after:bottom-0 after:h-[2px] after:rounded-full after:bg-gradient-to-r after:from-pink-500 after:via-orange-400 after:to-emerald-500 after:scale-x-0 after:opacity-0 after:origin-left after:transition-all after:duration-200 hover:after:scale-x-100 hover:after:opacity-100" data-path="catalogo-camisas-blusas-manga-larga" href="productos.html?cat=camisas-blusas-manga-larga">Blusas y camisas manga larga</a>
+                            <a data-nav="sub" class="relative px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary-container text-body-sm font-body-sm transition-colors after:absolute after:inset-x-space-sm after:bottom-0 after:h-[2px] after:rounded-full after:bg-gradient-to-r after:from-pink-500 after:via-orange-400 after:to-emerald-500 after:scale-x-0 after:opacity-0 after:origin-left after:transition-all after:duration-200 hover:after:scale-x-100 hover:after:opacity-100" data-path="catalogo-camisas-blusas-manga-corta" href="productos.html?cat=camisas-blusas-manga-corta">Blusas y camisas manga corta</a>
+                            <a data-nav="sub" class="relative px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary-container text-body-sm font-body-sm transition-colors after:absolute after:inset-x-space-sm after:bottom-0 after:h-[2px] after:rounded-full after:bg-gradient-to-r after:from-pink-500 after:via-orange-400 after:to-emerald-500 after:scale-x-0 after:opacity-0 after:origin-left after:transition-all after:duration-200 hover:after:scale-x-100 hover:after:opacity-100" data-path="catalogo-prendas-vestir-dama" href="productos.html?cat=prendas-vestir-dama">Prendas de vestir dama</a>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <!-- COLUMNA 4 del megamenú: Calzado (con casco, sin casco y botas para soldador) -->
+                            <span class="font-label-md text-label-md text-primary-container uppercase tracking-wider font-bold px-space-sm mb-1">Calzado</span>
+                            <a data-nav="sub" class="relative px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary-container text-body-sm font-body-sm transition-colors after:absolute after:inset-x-space-sm after:bottom-0 after:h-[2px] after:rounded-full after:bg-gradient-to-r after:from-pink-500 after:via-orange-400 after:to-emerald-500 after:scale-x-0 after:opacity-0 after:origin-left after:transition-all after:duration-200 hover:after:scale-x-100 hover:after:opacity-100" data-path="catalogo-calzado-con-casco" href="productos.html?cat=calzado-con-casco">Calzado con casco</a>
+                            <a data-nav="sub" class="relative px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary-container text-body-sm font-body-sm transition-colors after:absolute after:inset-x-space-sm after:bottom-0 after:h-[2px] after:rounded-full after:bg-gradient-to-r after:from-pink-500 after:via-orange-400 after:to-emerald-500 after:scale-x-0 after:opacity-0 after:origin-left after:transition-all after:duration-200 hover:after:scale-x-100 hover:after:opacity-100" data-path="catalogo-calzado-sin-casco" href="productos.html?cat=calzado-sin-casco">Calzado sin casco</a>
+                            <a data-nav="sub" class="relative px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary-container text-body-sm font-body-sm transition-colors after:absolute after:inset-x-space-sm after:bottom-0 after:h-[2px] after:rounded-full after:bg-gradient-to-r after:from-pink-500 after:via-orange-400 after:to-emerald-500 after:scale-x-0 after:opacity-0 after:origin-left after:transition-all after:duration-200 hover:after:scale-x-100 hover:after:opacity-100" data-path="catalogo-calzado-soldador" href="productos.html?cat=calzado-soldador">Botas para soldador</a>
+                        </div>
+                    </div>
+                    <div class="mt-space-md pt-space-md border-t border-surface-container flex items-center justify-between gap-space-md">
+                        <div class="flex items-center gap-space-sm">
+                        </div>
+                        <!-- Enlace destacado al final del megamenú: catálogo completo -->
+                        <a class="vs-btn inline-flex items-center gap-2 px-space-md py-2.5 bg-primary-container text-on-primary font-body-md text-body-md font-semibold" data-path="catalogo-completo" href="productos.html">
+                            <span class="vs-btn-text">Ver catálogo completo</span>
+                            <span class="material-symbols-outlined vs-btn-icon text-[18px]">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enlace superior: Contacto -->
+            <div class="relative"><a data-nav="top" class="relative py-2 font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="contacto" href="contacto.html">Contacto</a></div>
+        </nav>
+
+        <div class="flex items-center gap-space-sm shrink-0">
+            <!-- Botón Contacto: se oculta en celular muy chico para no saturar, vuelve desde sm -->
+            <a class="vs-btn hidden sm:inline-flex items-center justify-center px-space-md py-2.5 bg-primary-container text-on-primary font-body-md text-body-md font-semibold" data-path="contacto" href="contacto.html"><span class="vs-btn-text">Contacto</span></a>
+
+            <!-- ===== BOTÓN HAMBURGUESA (solo visible hasta xl / 1280px) ===== -->
+            <button id="mobile-menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" class="xl:hidden w-11 h-11 flex items-center justify-center rounded-lg text-primary-container hover:bg-surface-container transition-colors">
+                <span class="material-symbols-outlined text-[28px]" id="mobile-menu-icon">menu</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ===== PANEL DE MENÚ MÓVIL (oculto por defecto) ===== -->
+    <div id="mobile-menu-panel" class="xl:hidden hidden max-h-[calc(100vh-5rem)] overflow-y-auto bg-surface-container-lowest border-t border-surface-container shadow-lg">
+        <nav class="flex flex-col px-margin-mobile py-space-md gap-1">
+            <a data-nav="top" class="px-space-sm py-3 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="home" href="index.html">Inicio</a>
+            <a data-nav="top" class="px-space-sm py-3 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="nosotros" href="nosotros.html">Sobre Nosotros</a>
+
+            <!-- Acordeón de Productos (clic para expandir, no hover) -->
+            <div class="rounded-lg">
+                <button type="button" id="mobile-productos-toggle" aria-expanded="false" class="w-full flex items-center justify-between px-space-sm py-3 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors">
+                    <span>Productos</span>
+                    <span class="material-symbols-outlined text-[20px] transition-transform duration-200" id="mobile-productos-chevron">expand_more</span>
+                </button>
+                <div id="mobile-productos-panel" class="hidden pl-space-md flex flex-col gap-1 pb-2">
+                    <span class="px-space-sm pt-2 font-label-xs text-label-xs text-secondary uppercase font-bold">Uniformes por giro</span>
+                    <a data-nav="sub" class="px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary-container text-body-sm font-body-sm transition-colors" data-path="catalogo-uniformes-industriales" href="productos.html?cat=uniformes-industriales">Industriales</a>
+                    <a data-nav="sub" class="px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary-container text-body-sm font-body-sm transition-colors" data-path="catalogo-uniformes-restaurante" href="productos.html?cat=uniformes-restaurante">Restaurante</a>
+                    <a data-nav="sub" class="px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary-container text-body-sm font-body-sm transition-colors" data-path="catalogo-uniformes-seguridad-privada" href="productos.html?cat=uniformes-seguridad-privada">Seguridad privada</a>
+
+                    <span class="px-space-sm pt-3 font-label-xs text-label-xs text-secondary uppercase font-bold">Prendas de trabajo</span>
+                    <a data-nav="sub" class="px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary-container text-body-sm font-body-sm transition-colors" data-path="catalogo-chalecos-seguridad" href="productos.html?cat=chalecos-seguridad">Chalecos de seguridad</a>
+                    <a data-nav="sub" class="px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary-container text-body-sm font-body-sm transition-colors" data-path="catalogo-camisolas" href="productos.html?cat=camisolas">Camisolas</a>
+                    <a data-nav="sub" class="px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary-container text-body-sm font-body-sm transition-colors" data-path="catalogo-pantalones" href="productos.html?cat=pantalones">Pantalones</a>
+
+                    <span class="px-space-sm pt-3 font-label-xs text-label-xs text-secondary uppercase font-bold">Casual y de vestir</span>
+                    <a data-nav="sub" class="px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary-container text-body-sm font-body-sm transition-colors" data-path="catalogo-playeras-cuello-redondo" href="productos.html?cat=playeras-cuello-redondo">Playeras cuello redondo</a>
+                    <a data-nav="sub" class="px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary-container text-body-sm font-body-sm transition-colors" data-path="catalogo-playeras-polo" href="productos.html?cat=playeras-polo">Playeras tipo polo</a>
+                    <a data-nav="sub" class="px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary-container text-body-sm font-body-sm transition-colors" data-path="catalogo-camisas-blusas-manga-larga" href="productos.html?cat=camisas-blusas-manga-larga">Blusas y camisas manga larga</a>
+                    <a data-nav="sub" class="px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary-container text-body-sm font-body-sm transition-colors" data-path="catalogo-camisas-blusas-manga-corta" href="productos.html?cat=camisas-blusas-manga-corta">Blusas y camisas manga corta</a>
+                    <a data-nav="sub" class="px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary-container text-body-sm font-body-sm transition-colors" data-path="catalogo-prendas-vestir-dama" href="productos.html?cat=prendas-vestir-dama">Prendas de vestir dama</a>
+
+                    <span class="px-space-sm pt-3 font-label-xs text-label-xs text-secondary uppercase font-bold">Calzado</span>
+                    <a data-nav="sub" class="px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary-container text-body-sm font-body-sm transition-colors" data-path="catalogo-calzado-con-casco" href="productos.html?cat=calzado-con-casco">Calzado con casco</a>
+                    <a data-nav="sub" class="px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary-container text-body-sm font-body-sm transition-colors" data-path="catalogo-calzado-sin-casco" href="productos.html?cat=calzado-sin-casco">Calzado sin casco</a>
+                    <a data-nav="sub" class="px-space-sm py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-primary-container text-body-sm font-body-sm transition-colors" data-path="catalogo-calzado-soldador" href="productos.html?cat=calzado-soldador">Botas para soldador</a>
+
+                    <a data-nav="sub" class="px-space-sm py-2 mt-2 rounded-lg font-semibold text-primary-container hover:bg-surface-container transition-colors" data-path="catalogo-completo" href="productos.html">Ver catálogo completo →</a>
+                </div>
+            </div>
+
+            <a data-nav="top" class="px-space-sm py-3 rounded-lg font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="contacto" href="contacto.html">Contacto</a>
+
+            <a class="vs-btn inline-flex items-center justify-center px-space-md py-3 mt-2 bg-primary-container text-on-primary font-body-md text-body-md font-semibold" data-path="contacto" href="contacto.html"><span class="vs-btn-text">Cotiza con nosotros</span></a>
+        </nav>
+    </div>
+</header>

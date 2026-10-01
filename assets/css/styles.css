@@ -1,0 +1,443 @@
+/* ======================================================================
+   HOJA DE ESTILOS GENERAL (assets/css/styles.css)
+   Estilos propios que complementan a Tailwind (Tailwind se carga por CDN y se configura en
+   assets/js/tailwind-config.js). Se usa en TODAS las páginas y en los componentes header y footer.
+
+   Contenido, en orden:
+     1. Botón único del sitio (.vs-btn)
+     2. Carrusel de soluciones (.no-scrollbar)
+     3. Marquee de marcas (.marquee-*)
+     4. Tarjetas "Un solo aliado" (.vs-flip-*)
+     5. Utilidades de marca (.spectrum-*, .vs-btn-plain, correos largos)
+     6. Ilustración flotante del hero de Contacto (.vs-float-*)
+     7. Recorte squircle y utilidades SVG (antes eran style="" en el HTML)
+     8. Footer: botón "Ver catálogo" en espera
+
+   CSS exclusivo de una página: assets/css/contacto.css.
+   ====================================================================== */
+
+/* ======================================================================
+   BOTÓN ÚNICO DEL SITIO
+   Adaptado del efecto de Uiverse.io by Cornerstone-04 que subiste:
+   botón plano cuyo marco se "dibuja" al hover con dos trazos opuestos
+   (inferior-izquierdo y superior-derecho) que se encuentran. Reemplaza
+   por completo el efecto anterior (brillo + letras animadas, Uiverse
+   by dexter-st). Es el ÚNICO efecto/diseño de botón en todo el sitio.
+
+   - No fija background-color ni color de texto: cada botón conserva su
+     propio color (bg-primary-container, bg-surface-container-lowest,
+     bg-emerald-600, etc.) definido con las clases de Tailwind que ya
+     tenías en el HTML.
+   - El marco que se dibuja en el hover ya NO es negro (#262626, como
+     en el Uiverse original); usa el MISMO degradado pink-500 ->
+     orange-400 -> emerald-500 que se pinta cuando seleccionas/pasas el
+     mouse por una opción del menú de arriba (ver Nav.js y los
+     after:from-pink-500 after:via-orange-400 after:to-emerald-500 del
+     header), para que el "look" de selección coincida en todo el sitio.
+   - Variante ".vs-btn--light" se conserva por compatibilidad con el
+     HTML, pero ya no cambia nada visualmente: el marco degradado se ve
+     igual sobre cualquier fondo.
+   ====================================================================== */
+
+.vs-btn {
+  --vs-accent-1: #ec4899; /* pink-500 */
+  --vs-accent-2: #fb923c; /* orange-400 */
+  --vs-accent-3: #10b981; /* emerald-500 */
+  --vs-gradient: linear-gradient(
+    90deg,
+    var(--vs-accent-1),
+    var(--vs-accent-2) 50%,
+    var(--vs-accent-3)
+  );
+
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
+  user-select: none;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Trazo inferior + izquierdo (entra desde la derecha) */
+.vs-btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  border-bottom: 3px solid transparent;
+  border-left: 3px solid transparent;
+  border-image: var(--vs-gradient) 1;
+  box-sizing: border-box;
+  transform: translateX(100%);
+  pointer-events: none;
+}
+
+/* Trazo superior + derecho (entra desde la izquierda) */
+.vs-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  border-top: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-image: var(--vs-gradient) 1;
+  box-sizing: border-box;
+  transform: translateX(-100%);
+  pointer-events: none;
+}
+
+.vs-btn:hover,
+.vs-btn:focus-visible {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.18);
+}
+
+.vs-btn:hover::before,
+.vs-btn:focus-visible::before {
+  height: 100%;
+  transform: translateX(0);
+  transition:
+    0.3s transform linear,
+    0.3s height linear 0.3s;
+}
+
+.vs-btn:hover::after,
+.vs-btn:focus-visible::after {
+  height: 100%;
+  transform: translateX(0);
+  transition:
+    0.3s transform linear,
+    0.3s height linear 0.5s;
+}
+
+/* ---------- Texto e ícono ----------
+   Sin animaciones: heredan el color que ya trae cada botón
+   (text-on-primary, text-primary-container, etc.) */
+.vs-btn-text {
+  position: relative;
+  z-index: 1;
+}
+
+.vs-btn-icon {
+  position: relative;
+  z-index: 1;
+}
+/* ======================================================================
+   CARRUSEL DE SOLUCIONES (tarjetas tipo video)
+   Oculta la barra de scroll nativa para que el desplazamiento horizontal
+   se controle con las flechas (o swipe/drag), igual que un carrusel de
+   tarjetas de video.
+   ====================================================================== */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ======================================================================
+   MARQUEE DE MARCAS (slider infinito y automático)
+   La pista contiene el set de logos + un set duplicado (aria-hidden) y
+   se desliza con una animación CSS de translateX(0) a translateX(-50%);
+   como el segundo set es idéntico al primero, el loop se ve continuo.
+   Se pausa al pasar el mouse y respeta "reduce motion".
+   ====================================================================== */
+.marquee-wrapper {
+  --vs-marquee-fade: 48px;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 var(--vs-marquee-fade),
+    #000 calc(100% - var(--vs-marquee-fade)),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 var(--vs-marquee-fade),
+    #000 calc(100% - var(--vs-marquee-fade)),
+    transparent
+  );
+}
+
+.marquee-track {
+  width: max-content;
+  animation: vs-marquee 26s linear infinite;
+}
+
+.marquee-wrapper:hover .marquee-track,
+.marquee-wrapper:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes vs-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* ======================================================================
+   TARJETAS "UN SOLO ALIADO"
+   Tarjetas normales (sin giro): siempre muestran el ícono y el
+   título. Al pasar el mouse (o enfocarlas con teclado) solo aparece
+   un marco de 2px con el mismo degradado pink-500 -> orange-400 ->
+   emerald-500 que usan los botones (.vs-btn) y el menú, superpuesto
+   sobre la tarjeta (no envuelve el contenido, así que la tarjeta
+   SIEMPRE es visible; solo el marco de color aparece/desaparece).
+   ====================================================================== */
+.vs-flip-card {
+  position: relative;
+}
+
+/* Marco degradado: capa independiente encima de la tarjeta, con el
+   centro recortado (mask) para que sea solo el borde, no un relleno. */
+.vs-flip-border {
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 0.75rem;
+  background: linear-gradient(90deg, #ec4899, #fb923c 50%, #10b981);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.vs-flip-card:hover .vs-flip-border,
+.vs-flip-card:focus-visible .vs-flip-border,
+.vs-flip-card:focus-within .vs-flip-border {
+  opacity: 1;
+}
+
+.vs-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.vs-flip-front {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+}
+
+/* ---- UTILIDADES DE MARCA: clases usadas en el HTML que no venían de Tailwind ---- */
+/* Fondo con el degradado de la marca (rosa, naranja y verde): insignias y etiquetas pequeñas. */
+.spectrum-badge { background: linear-gradient(90deg, #ec4899, #fb923c, #10b981); }
+/* Línea superior de 3px con el degradado de la marca (la usa el footer). */
+.spectrum-border-top { border-top: 3px solid transparent; border-image: linear-gradient(90deg, #ec4899, #fb923c, #10b981) 1; }
+/* Variante de .vs-btn SIN el marco animado: deja el overflow visible y oculta los trazos
+   ::before y ::after (botones redondos: flechas del carrusel y WhatsApp). */
+.vs-btn-plain { overflow: visible; }
+.vs-btn-plain::before, .vs-btn-plain::after { display: none; }
+/* Los correos largos se parten para no desbordar la pantalla en móvil. */
+a[href^="mailto:"] { overflow-wrap: anywhere; }
+
+/* ======================================================================
+   ILUSTRACIÓN FLOTANTE DEL HERO (Contacto)
+   Cada elemento entra con un fundido suave (opacity) y luego queda
+   flotando en un loop infinito muy sutil (translateY + una leve
+   rotación fija por elemento vía --vs-rot). Se separan en dos capas:
+   .vs-float-badge controla la entrada (opacity) y .vs-float-inner el
+   loop de flotación (transform), para que ninguna de las dos
+   animaciones se pise entre sí.
+   ====================================================================== */
+/* NOTA: --vs-delay, --vs-rot y --vs-float-dur se definen en el atributo style de cada
+   elemento en el HTML (cambian por elemento), por eso esos style no se movieron aquí. */
+.vs-float-badge {
+  opacity: 0;
+  animation: vs-float-in 0.7s ease forwards;
+  animation-delay: var(--vs-delay, 0s);
+}
+
+.vs-float-inner {
+  animation: vs-float var(--vs-float-dur, 5s) ease-in-out infinite;
+  animation-delay: var(--vs-delay, 0s);
+}
+
+@keyframes vs-float-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes vs-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--vs-rot, 0deg));
+  }
+  50% {
+    transform: translateY(-14px) rotate(var(--vs-rot, 0deg));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vs-float-badge {
+    opacity: 1;
+    animation: none;
+  }
+  .vs-float-inner {
+    animation: none;
+  }
+}
+
+/* ======================================================================
+   7. RECORTE "SQUIRCLE" Y UTILIDADES SVG
+   Antes eran atributos style="..." dentro del HTML; ahora viven aquí.
+   ====================================================================== */
+
+/* SVG invisible (0x0) que solo define el recorte squircleClip: se saca del flujo de la página */
+.vs-svg-defs { position: absolute; }
+
+/* Recorta un elemento con esquinas tipo "squircle" (iOS) usando el clipPath de ese SVG.
+   Se usa en fotos e íconos cuadrados (nosotros, contacto y footer). */
+.vs-squircle { clip-path: url(#squircleClip); }
+
+/* Video decorativo sin borde ni contorno de enfoque (Nosotros) */
+.vs-video-clean { border: none; outline: none; }
+
+/* Colores del logotipo de Gmail en los íconos de correo del footer: uno por trazo del SVG */
+.vs-gmail-blue { fill: #4285f4; }
+.vs-gmail-green { fill: #34a853; }
+.vs-gmail-yellow { fill: #fbbc04; }
+.vs-gmail-red { fill: #ea4335; }
+.vs-gmail-darkred { fill: #c5221f; }
+
+/* ======================================================================
+   8. FOOTER: BOTÓN "VER CATÁLOGO" EN ESPERA
+   Antes estaba en un bloque style dentro de footer.html. La clase .en-espera la pone
+   assets/js/footer.js durante 4 s después de hacer clic en la descarga del PDF.
+   ====================================================================== */
+
+/* Botón atenuado, con cursor de espera y sin aceptar más clics mientras dura la descarga */
+#btn-catalogo.en-espera { opacity: .5 !important; cursor: wait !important; pointer-events: none !important; filter: grayscale(1); }
+
+/* El ícono gira mientras está en espera (footer.js cambia el ícono por "progress_activity") */
+#btn-catalogo.en-espera .vs-btn-icon { display: inline-block; animation: catalogo-giro 1s linear infinite; }
+
+/* Animación de giro completo del ícono */
+@keyframes catalogo-giro { to { transform: rotate(360deg); } }
+
+
+/* ======================================================================
+   9. FOOTER: ÍCONOS DE CORREO CON BURBUJA FLOTANTE
+   El ícono usa el mismo diseño que los de redes sociales. La burbuja con el correo aparece
+   al pasar el mouse (escritorio) o al tocar el ícono (móvil, vía :focus-within) y se cierra
+   al tocar fuera. La burbuja NO va dentro del div con .vs-squircle porque el clip-path la recortaría.
+   ====================================================================== */
+
+/* Al enfocar/tocar, el ícono se ve igual que en hover (escala y elevación) */
+.vs-mail:focus-within .vs-mail-icon {
+  transform: translateY(-0.25rem) scale(1.1);
+}
+
+.vs-mail-bubble {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  z-index: 30;
+  width: max-content;
+  max-width: min(22rem, calc(100vw - 3rem));
+  padding: 0.5rem 0.875rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
+/* Puente invisible entre el ícono y la burbuja para que no se cierre al mover el mouse */
+.vs-mail-bubble::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: 14px;
+}
+
+/* Flechita que apunta al ícono (hereda el color de fondo de la burbuja) */
+.vs-mail-bubble::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 16px;
+  width: 10px;
+  height: 10px;
+  background: inherit;
+  transform: rotate(45deg);
+}
+
+.vs-mail:hover .vs-mail-bubble,
+.vs-mail:focus-within .vs-mail-bubble {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.vs-mail-bubble a:hover { text-decoration: underline; }
+
+@media (prefers-reduced-motion: reduce) {
+  .vs-mail-bubble { transition: none; }
+}
+
+/* ======================================================================
+   10. ÍCONO DE UBICACIÓN (pin tipo Google Maps)
+   Pin con degradado cónico (azul, verde, amarillo, naranja, rojo y violeta) recortado con una
+   máscara SVG (el pin con el hueco al centro). Se usa en el footer y en Contacto; el tamaño se
+   define con el ancho (w-[..px]) y la altura sale de la proporción.
+   ====================================================================== */
+.vs-maps-pin {
+  display: block;
+  aspect-ratio: 24 / 30;
+  background: conic-gradient(
+    from 0deg at 50% 40%,
+    #3b8bff 0deg,
+    #12a9b0 60deg,
+    #17b45b 110deg,
+    #22b957 190deg,
+    #c8d400 215deg,
+    #ffd600 232deg,
+    #ff8a2b 255deg,
+    #ff4b47 280deg,
+    #e0579f 300deg,
+    #9b7df0 325deg,
+    #3b8bff 360deg
+  );
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 30'%3E%3Cpath fill-rule='evenodd' d='M3.55 19.04A11 11 0 1 1 20.45 19.04L12.85 28.18Q12 29.4 11.15 28.18ZM12 6.2a5.8 5.8 0 1 0 0 11.6a5.8 5.8 0 1 0 0-11.6z'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 30'%3E%3Cpath fill-rule='evenodd' d='M3.55 19.04A11 11 0 1 1 20.45 19.04L12.85 28.18Q12 29.4 11.15 28.18ZM12 6.2a5.8 5.8 0 1 0 0 11.6a5.8 5.8 0 1 0 0-11.6z'/%3E%3C/svg%3E") center / contain no-repeat;
+}

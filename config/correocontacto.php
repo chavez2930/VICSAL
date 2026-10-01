@@ -4,7 +4,8 @@
  * Se manda DESPUÉS de guardar en la base de datos (ver procesarcontacto.php).
  *
  * Los ajustes vienen del .env a través de db_vicsal.php / db.php (constantes):
- *   CONTACTO_NOTIFY_TO  -> quién recibe el aviso (obligatorio; si falta, no se manda correo)
+ *   CONTACTO_NOTIFY_TO  -> quién(es) reciben el aviso; varios correos separados por coma
+ *                          (obligatorio; si falta, no se manda correo)
  *   CONTACTO_MAIL_FROM  -> remitente. Debe ser un correo DEL DOMINIO del sitio
  *                          para que Gmail no lo mande a spam.
  *   SITE_URL            -> dirección pública del sitio (para el logo del correo)
@@ -184,7 +185,7 @@ function vs_correo_contacto_armar(array $d): array
  * Cliente SMTP mínimo (SSL 465 o STARTTLS 587). Devuelve true/false y deja el
  * motivo del fallo en $GLOBALS['vs_mail_error'].
  */
-function vs_smtp_enviar(string $para, string $cabeceras, string $cuerpo, string $from): bool
+function vs_smtp_enviar(array $para, string $cabeceras, string $cuerpo, string $from): bool
 {
     $fallo = function (string $m): bool { $GLOBALS['vs_mail_error'] = $m; error_log('[contacto][smtp] ' . $m); return false; };
     $puerto = (int)SMTP_PORT;
@@ -218,7 +219,11 @@ function vs_smtp_enviar(string $para, string $cabeceras, string $cuerpo, string 
     if (SMTP_PASS !== '') {
         if (!$cmd('AUTH LOGIN', [334]) || !$cmd(base64_encode(SMTP_USER), [334]) || !$cmd(base64_encode(SMTP_PASS), [235])) { fclose($fp); return false; }
     }
-    if (!$cmd('MAIL FROM:<' . $from . '>', [250]) || !$cmd('RCPT TO:<' . $para . '>', [250, 251]) || !$cmd('DATA', [354])) { fclose($fp); return false; }
+    if (!$cmd('MAIL FROM:<' . $from . '>', [250])) { fclose($fp); return false; }
+    foreach ($para as $dest) {
+        if (!$cmd('RCPT TO:<' . $dest . '>', [250, 251])) { fclose($fp); return false; }
+    }
+    if (!$cmd('DATA', [354])) { fclose($fp); return false; }
 
     $datos = preg_replace('/^\./m', '..', $cabeceras . "\r\n\r\n" . $cuerpo);
     fwrite($fp, $datos . "\r\n.\r\n");
@@ -238,6 +243,17 @@ function vs_enviar_correo_contacto(array $d): bool
         if (CONTACTO_NOTIFY_TO === '') {
             $GLOBALS['vs_mail_error'] = 'CONTACTO_NOTIFY_TO no está configurado en el .env';
             error_log('[contacto] CONTACTO_NOTIFY_TO no está configurado en el .env; no se envió el aviso.');
+            return false;
+        }
+
+        // CONTACTO_NOTIFY_TO puede traer uno o varios correos separados por coma o punto y coma.
+        $destinatarios = array_values(array_filter(
+            array_map('trim', preg_split('/[,;]+/', CONTACTO_NOTIFY_TO) ?: []),
+            fn($e) => filter_var($e, FILTER_VALIDATE_EMAIL)
+        ));
+        if (!$destinatarios) {
+            $GLOBALS['vs_mail_error'] = 'CONTACTO_NOTIFY_TO no tiene correos válidos';
+            error_log('[contacto] CONTACTO_NOTIFY_TO no tiene correos válidos.');
             return false;
         }
 
@@ -269,14 +285,14 @@ function vs_enviar_correo_contacto(array $d): bool
         if (SMTP_PASS !== '') {
             $from = SMTP_USER; // con SMTP el remitente debe ser la cuenta autenticada
             $cabeceras[1] = 'From: ' . mb_encode_mimeheader('VICSAL Contacto', 'UTF-8', 'B') . ' <' . $from . '>';
-            $cabeceras[] = 'To: ' . CONTACTO_NOTIFY_TO;
+            $cabeceras[] = 'To: ' . implode(', ', $destinatarios);
             $cabeceras[] = 'Subject: ' . $asuntoCodificado;
             $cabeceras[] = 'Date: ' . date('r');
             $cabeceras[] = 'Message-ID: <' . bin2hex(random_bytes(10)) . '@' . (parse_url(SITE_URL, PHP_URL_HOST) ?: 'localhost') . '>';
-            return vs_smtp_enviar(CONTACTO_NOTIFY_TO, implode("\r\n", $cabeceras), $cuerpo, $from);
+            return vs_smtp_enviar($destinatarios, implode("\r\n", $cabeceras), $cuerpo, $from);
         }
 
-        $ok = mail(CONTACTO_NOTIFY_TO, $asuntoCodificado, $cuerpo, implode("\r\n", $cabeceras), '-f' . $from);
+        $ok = mail(implode(', ', $destinatarios), $asuntoCodificado, $cuerpo, implode("\r\n", $cabeceras), '-f' . $from);
         if (!$ok) { $GLOBALS['vs_mail_error'] = 'mail() devolvió false (probablemente deshabilitado en el hosting)'; error_log('[contacto] mail() devolvió false.'); }
         return $ok;
     } catch (Throwable $e) {

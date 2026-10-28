@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- PÁGINA: AVISO DE PRIVACIDAD (avisoprivacidad.html)
+         Aviso de privacidad integral conforme a la LFPDPPP (DOF 20/03/2025).
+         Los textos entre corchetes y resaltados en amarillo (etiqueta mark) son MARCADORES:
+         hay que reemplazarlos por los datos reales y quitarles la etiqueta mark antes de publicar.
+         HEAD: metadatos (codificación, viewport responsive, descripción para buscadores) y título de la pestaña. -->
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Aviso de privacidad integral de Corporativo VICSAL: qué datos personales recabamos, para qué los usamos y cómo ejercer tus derechos ARCO." name="description"/>
+    <title>Aviso de Privacidad - VICSAL</title>
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
+
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+    <!-- CSS Local -->
+    <link href="assets/css/styles.css" rel="stylesheet"/>
+
+    <!-- Tailwind CDN y Configuración Local -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/tailwind-config.js"></script>
+</head>
+
+<body class="bg-surface font-body-md text-on-surface antialiased">
+    <!-- DEFINICIONES SVG (invisibles, 0x0 px)
+         Contienen el recorte "squircle" (id squircleClip) que usan los íconos del footer. -->
+    <svg class="vs-svg-defs" width="0" height="0">
+        <defs>
+            <clipPath id="squircleClip" clipPathUnits="objectBoundingBox">
+                <path d="M 0,0.5 C 0,0 0,0 0.5,0 S 1,0 1,0.5 1,1 0.5,1 0,1 0,0.5"></path>
+            </clipPath>
+        </defs>
+    </svg>
+
+    <!-- HEADER (barra de navegación): lo inyecta loadpartials.js -->
+    <div data-include="header"></div>
+
+    <!-- CONTENIDO PRINCIPAL DE LA PÁGINA -->
+    <main class="w-full pt-20 bg-surface min-h-screen">
+        <!-- HERO -->
+        <section class="relative w-full bg-surface-container-low overflow-hidden py-space-3xl lg:py-space-4xl">
+            <div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-primary-fixed opacity-40 blur-3xl pointer-events-none"></div>
+            <div class="max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop relative z-10">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-lowest shadow-sm mb-space-md">
+                    <span class="w-2.5 h-2.5 rounded-full spectrum-badge"></span>
+                    <span class="font-label-xs text-label-xs uppercase tracking-widest text-primary-container font-bold">Legal</span>
+                </div>
+                <h1 class="font-headline-xl-mobile text-headline-xl-mobile lg:font-headline-xl lg:text-headline-xl text-primary-container max-w-3xl">Aviso de Privacidad Integral</h1>
+                <p class="mt-space-md font-body-lg text-body-lg text-secondary max-w-2xl">Te explicamos qué datos personales recabamos a través de este sitio, para qué los usamos y cómo puedes ejercer tus derechos.</p>
+                <p class="mt-space-sm font-label-md text-label-md text-secondary uppercase">Última actualización: <mark class="bg-yellow-200 text-on-surface px-1">[FECHA DE ACTUALIZACIÓN]</mark></p>
+            </div>
+        </section>
+
+        <!-- CONTENIDO LEGAL: índice (barra lateral en escritorio) + texto -->
+        <section class="w-full py-space-3xl">
+            <div class="max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-start">
+
+                    <!-- ÍNDICE -->
+                    <nav aria-label="Contenido del aviso" class="lg:col-span-4 xl:col-span-3 lg:sticky lg:top-24 bg-surface-container-low rounded-xl p-space-lg">
+                        <span class="font-label-md text-label-md text-primary-container uppercase tracking-wider font-bold">Contenido</span>
+                        <ol class="mt-space-sm flex flex-col gap-2 font-body-sm text-body-sm text-on-surface-variant list-decimal pl-5">
+                            <li><a class="hover:text-primary-container transition-colors" href="#responsable">Identidad y domicilio del responsable</a></li>
+                            <li><a class="hover:text-primary-container transition-colors" href="#datos">Datos personales que recabamos</a></li>
+                            <li><a class="hover:text-primary-container transition-colors" href="#finalidades">Finalidades del tratamiento</a></li>
+                            <li><a class="hover:text-primary-container transition-colors" href="#transferencias">Transferencias y remisiones</a></li>
+                            <li><a class="hover:text-primary-container transition-colors" href="#arco">Derechos ARCO</a></li>
+                            <li><a class="hover:text-primary-container transition-colors" href="#revocacion">Revocación y limitación</a></li>
+                            <li><a class="hover:text-primary-container transition-colors" href="#cookies">Cookies y servicios de terceros</a></li>
+                            <li><a class="hover:text-primary-container transition-colors" href="#seguridad">Conservación y seguridad</a></li>
+                            <li><a class="hover:text-primary-container transition-colors" href="#cambios">Cambios al aviso</a></li>
+                            <li><a class="hover:text-primary-container transition-colors" href="#autoridad">Autoridad competente</a></li>
+                        </ol>
+                    </nav>
+
+                    <!-- TEXTO DEL AVISO -->
+                    <article class="lg:col-span-8 xl:col-span-9 max-w-3xl flex flex-col gap-space-2xl font-body-lg text-body-lg text-on-surface-variant break-words">
+
+                        <p>En cumplimiento de la Ley Federal de Protección de Datos Personales en Posesión de los Particulares, publicada en el Diario Oficial de la Federación el 20 de marzo de 2025 (en adelante, la "Ley"), y de las demás disposiciones aplicables, ponemos a tu disposición el presente Aviso de Privacidad Integral.</p>
+
+                        <!-- 1. RESPONSABLE -->
+                        <div id="responsable" class="flex flex-col gap-space-sm scroll-mt-24">
+                            <h2 class="font-headline-md text-headline-sm md:text-headline-md text-primary-container">1. Identidad y domicilio del responsable</h2>
+                            <p><mark class="bg-yellow-200 text-on-surface px-1">[NOMBRE O RAZÓN SOCIAL]</mark>, que opera comercialmente como "Corporativo VICSAL" (en adelante, "VICSAL"), con domicilio en <mark class="bg-yellow-200 text-on-surface px-1">[DOMICILIO]</mark>, es el responsable del tratamiento de tus datos personales.</p>
+                            <p>Para cualquier asunto relacionado con tus datos personales puedes contactar a <mark class="bg-yellow-200 text-on-surface px-1">[PERSONA O DEPARTAMENTO DE DATOS PERSONALES]</mark> en el correo <mark class="bg-yellow-200 text-on-surface px-1">[CORREO DE CONTACTO]</mark> o en el teléfono <mark class="bg-yellow-200 text-on-surface px-1">[TELÉFONO DE CONTACTO]</mark>.</p>
+                        </div>
+
+                        <!-- 2. DATOS -->
+                        <div id="datos" class="flex flex-col gap-space-sm scroll-mt-24">
+                            <h2 class="font-headline-md text-headline-sm md:text-headline-md text-primary-container">2. Datos personales que recabamos</h2>
+                            <p>Recabamos tus datos personales de forma directa cuando los escribes en el formulario de la página de Contacto. Los datos de identificación y contacto que solicitamos son:</p>
+                            <ul class="list-disc pl-6 flex flex-col gap-1">
+                                <li>Nombre.</li>
+                                <li>Teléfono.</li>
+                                <li>Correo electrónico.</li>
+                                <li>Nombre de la empresa en la que laboras o que representas.</li>
+                            </ul>
+                            <p>Además, guardamos el mensaje que escribes en el campo "¿Qué necesitas?" y, si llegas desde el catálogo, el producto o la categoría que consultaste. Por seguridad y para prevenir envíos automatizados (spam), al enviar el formulario se registran tu dirección IP, los datos técnicos de tu navegador y dispositivo, y el resultado de la verificación antispam.</p>
+                            <p><strong class="text-on-surface">No solicitamos datos personales sensibles.</strong> Te pedimos no incluir este tipo de información en tu mensaje. Este sitio está dirigido a empresas y no está destinado a menores de edad.</p>
+                        </div>
+
+                        <!-- 3. FINALIDADES -->
+                        <div id="finalidades" class="flex flex-col gap-space-sm scroll-mt-24">
+                            <h2 class="font-headline-md text-headline-sm md:text-headline-md text-primary-container">3. Finalidades del tratamiento</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter-md mt-space-xs">
+                                <div class="flex flex-col gap-space-sm bg-surface-container-low rounded-xl p-space-lg">
+                                    <span class="material-symbols-outlined text-emerald-600 text-[28px]">task_alt</span>
+                                    <h3 class="font-title-lg text-title-lg text-on-surface">Finalidades necesarias</h3>
+                                    <p class="font-body-sm text-body-sm">Son indispensables para atender tu solicitud y no requieren tu consentimiento:</p>
+                                    <ul class="list-disc pl-5 flex flex-col gap-1 font-body-sm text-body-sm">
+                                        <li>Atender y responder tu solicitud de información o cotización.</li>
+                                        <li>Comunicarnos contigo por teléfono, correo electrónico o WhatsApp sobre tu solicitud.</li>
+                                        <li>Elaborar y dar seguimiento a cotizaciones y propuestas comerciales.</li>
+                                        <li>Proteger el formulario contra spam, fraude y abuso.</li>
+                                    </ul>
+                                </div>
+                                <div class="flex flex-col gap-space-sm bg-surface-container-low rounded-xl p-space-lg">
+                                    <span class="material-symbols-outlined text-primary-container text-[28px]">campaign</span>
+                                    <h3 class="font-title-lg text-title-lg text-on-surface">Finalidades secundarias</h3>
+                                    <p class="font-body-sm text-body-sm">No son necesarias para atender tu solicitud y puedes negarte a ellas:</p>
+                                    <ul class="list-disc pl-5 flex flex-col gap-1 font-body-sm text-body-sm">
+                                        <li>Enviarte información sobre productos, promociones y novedades.</li>
+                                        <li>Invitarte a responder encuestas de calidad y satisfacción.</li>
+                                        <li>Elaborar estadísticas internas sobre el interés en nuestras líneas de productos.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p>Si no quieres que tus datos se usen para las finalidades secundarias, envía un correo a <mark class="bg-yellow-200 text-on-surface px-1">[CORREO DE CONTACTO]</mark> con el asunto "Negativa a finalidades secundarias". Puedes hacerlo en cualquier momento. Negarte no afectará la atención de tu solicitud.</p>
+                        </div>
+
+                        <!-- 4. TRANSFERENCIAS -->
+                        <div id="transferencias" class="flex flex-col gap-space-sm scroll-mt-24">
+                            <h2 class="font-headline-md text-headline-sm md:text-headline-md text-primary-container">4. Transferencias y remisiones</h2>
+                            <p>No vendemos ni cedemos tus datos personales. No los transferimos a terceros sin tu consentimiento, salvo en los casos que la Ley permite sin consentimiento, como un requerimiento fundado de una autoridad competente.</p>
+                            <p>Para operar el sitio, tus datos pueden ser tratados por proveedores que actúan por cuenta de VICSAL, como el servicio de alojamiento web, la base de datos y el correo electrónico. Esto es una remisión y no requiere tu consentimiento. Estos proveedores están obligados a tratar tus datos solo para los fines que les indicamos y a protegerlos.</p>
+                        </div>
+
+                        <!-- 5. ARCO -->
+                        <div id="arco" class="flex flex-col gap-space-sm scroll-mt-24">
+                            <h2 class="font-headline-md text-headline-sm md:text-headline-md text-primary-container">5. Cómo ejercer tus derechos ARCO</h2>
+                            <p>Tienes derecho a <strong class="text-on-surface">Acceder</strong> a tus datos personales y a conocer cómo los tratamos, a <strong class="text-on-surface">Rectificarlos</strong> si son inexactos o están incompletos, a <strong class="text-on-surface">Cancelarlos</strong> cuando consideres que no se requieren para alguna de las finalidades señaladas, y a <strong class="text-on-surface">Oponerte</strong> a su tratamiento para fines específicos.</p>
+                            <p>Para ejercerlos, envía tu solicitud a <mark class="bg-yellow-200 text-on-surface px-1">[CORREO DE CONTACTO]</mark>. La solicitud debe incluir:</p>
+                            <ol class="list-decimal pl-6 flex flex-col gap-1">
+                                <li>Tu nombre y un correo electrónico u otro medio para enviarte la respuesta.</li>
+                                <li>Un documento que acredite tu identidad o, en su caso, la representación legal de quien actúe en tu nombre.</li>
+                                <li>La descripción clara del derecho que quieres ejercer y de los datos involucrados.</li>
+                                <li>Cualquier otro dato que nos ayude a localizar tu información, como la fecha aproximada en que nos escribiste.</li>
+                                <li>En el caso de rectificación, las correcciones y el documento que las sustente.</li>
+                            </ol>
+                            <p>Te responderemos en un plazo máximo de 20 días hábiles contados desde que recibamos tu solicitud. Si resulta procedente, la haremos efectiva dentro de los 15 días hábiles siguientes a la respuesta. Estos plazos pueden ampliarse una sola vez por un periodo igual cuando las circunstancias lo justifiquen, en los términos de la Ley. El trámite es gratuito; solo podrían cobrarse los gastos de envío o de reproducción de documentos.</p>
+                        </div>
+
+                        <!-- 6. REVOCACIÓN -->
+                        <div id="revocacion" class="flex flex-col gap-space-sm scroll-mt-24">
+                            <h2 class="font-headline-md text-headline-sm md:text-headline-md text-primary-container">6. Revocación del consentimiento y limitación del uso</h2>
+                            <p>Puedes revocar el consentimiento que nos hayas dado, o pedirnos que limitemos el uso o la divulgación de tus datos, con el mismo procedimiento y en el mismo correo que los derechos ARCO. Debes considerar que, en algunos casos, no podremos atender tu solicitud de inmediato porque alguna obligación legal nos exija seguir tratando tus datos. También es posible que la revocación nos impida seguir atendiendo tu solicitud de cotización.</p>
+                        </div>
+
+                        <!-- 7. COOKIES -->
+                        <div id="cookies" class="flex flex-col gap-space-sm scroll-mt-24">
+                            <h2 class="font-headline-md text-headline-sm md:text-headline-md text-primary-container">7. Cookies y servicios de terceros</h2>
+                            <p>Este sitio <strong class="text-on-surface">no utiliza cookies de rastreo ni publicitarias</strong> ni herramientas de analítica. Nuestro servidor tampoco crea sesiones ni guarda cookies propias en tu navegador.</p>
+                            <p>Para funcionar, el sitio carga recursos de los siguientes terceros. Al hacerlo, tu navegador les envía datos técnicos como tu dirección IP y el tipo de navegador. Cada uno los trata conforme a su propia política de privacidad:</p>
+                            <ul class="list-disc pl-6 flex flex-col gap-1">
+                                <li><strong class="text-on-surface">Google Fonts</strong>: tipografías e íconos del sitio.</li>
+                                <li><strong class="text-on-surface">Tailwind CSS y jsDelivr</strong>: hojas de estilo y librerías del sitio, por ejemplo el selector de lada telefónica y las ventanas de confirmación.</li>
+                                <li><strong class="text-on-surface">Google reCAPTCHA v3</strong> (solo en Contacto): protege el formulario contra spam. Analiza información de tu dispositivo y de tu interacción con la página, y puede usar cookies propias de Google.</li>
+                                <li><strong class="text-on-surface">Google Maps</strong> (solo en Contacto): el mapa incrustado de nuestra ubicación puede usar cookies propias de Google.</li>
+                            </ul>
+                            <p>Los enlaces a WhatsApp, Facebook, Instagram y Threads solo te llevan a esos servicios cuando haces clic en ellos. A partir de ese momento aplican sus propias políticas de privacidad. Puedes bloquear o eliminar las cookies desde la configuración de tu navegador; si bloqueas las de Google, es posible que el formulario de contacto o el mapa no funcionen correctamente.</p>
+                        </div>
+
+                        <!-- 8. SEGURIDAD -->
+                        <div id="seguridad" class="flex flex-col gap-space-sm scroll-mt-24">
+                            <h2 class="font-headline-md text-headline-sm md:text-headline-md text-primary-container">8. Conservación y seguridad</h2>
+                            <p>Conservaremos tus datos durante <mark class="bg-yellow-200 text-on-surface px-1">[PLAZO DE CONSERVACIÓN]</mark> o mientras sean necesarios para las finalidades descritas y para cumplir con nuestras obligaciones legales. Después los bloquearemos y eliminaremos de forma segura. Aplicamos medidas de seguridad administrativas, técnicas y físicas para proteger tus datos contra daño, pérdida, alteración, destrucción o uso, acceso o tratamiento no autorizado.</p>
+                        </div>
+
+                        <!-- 9. CAMBIOS -->
+                        <div id="cambios" class="flex flex-col gap-space-sm scroll-mt-24">
+                            <h2 class="font-headline-md text-headline-sm md:text-headline-md text-primary-container">9. Cambios al aviso de privacidad</h2>
+                            <p>Este aviso puede modificarse por cambios en la ley, en nuestras prácticas o en los servicios que ofrecemos. Cualquier cambio se publicará en esta misma página (<a class="text-primary-container font-semibold underline" href="avisoprivacidad.html">avisoprivacidad.html</a>) y se actualizará la fecha de "Última actualización" que aparece al inicio. Te recomendamos revisarla periódicamente. Si el cambio implica nuevas finalidades que requieran tu consentimiento, te lo solicitaremos antes de tratar tus datos para ellas.</p>
+                        </div>
+
+                        <!-- 10. AUTORIDAD -->
+                        <div id="autoridad" class="flex flex-col gap-space-sm scroll-mt-24">
+                            <h2 class="font-headline-md text-headline-sm md:text-headline-md text-primary-container">10. Autoridad competente</h2>
+                            <p>Si consideras que tu derecho a la protección de datos personales ha sido vulnerado, puedes acudir a la <strong class="text-on-surface">Secretaría Anticorrupción y Buen Gobierno</strong>, la autoridad encargada de vigilar el cumplimiento de la Ley.</p>
+                        </div>
+
+                        <!-- CONTACTO -->
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md bg-primary-container rounded-xl px-space-lg py-space-xl">
+                            <div class="flex flex-col gap-1">
+                                <h3 class="font-headline-sm text-headline-sm text-on-primary">¿Dudas sobre tus datos?</h3>
+                                <p class="font-body-md text-body-md text-on-primary/80">Escríbenos a <mark class="bg-yellow-200 text-on-surface px-1">[CORREO DE CONTACTO]</mark></p>
+                            </div>
+                            <a class="vs-btn inline-flex items-center justify-center px-space-md py-2.5 bg-surface-container-lowest text-primary-container font-body-md text-body-md font-semibold shrink-0" href="terminosdeuso.html"><span class="vs-btn-text">Ver Términos de Uso</span></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- BOTÓN FLOTANTE DE WHATSAPP (igual que en las demás páginas) -->
+    <aside class="fixed bottom-6 right-6 z-40 group">
+        <span class="absolute bottom-full right-0 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none bg-primary-container text-on-primary text-body-sm font-body-sm px-3.5 py-1.5 rounded-lg shadow-lg whitespace-nowrap">¿Necesitas cotización inmediata? Escríbenos</span>
+        <a aria-label="WhatsApp" class="vs-btn vs-btn-plain rounded-full flex items-center justify-center w-14 h-14 bg-emerald-600 text-on-primary shadow-xl" href="https://wa.me/527223494427" rel="noopener noreferrer" target="_blank">
+            <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
+            <svg class="relative h-7 w-7 text-white" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.001 2.002c-5.518 0-9.997 4.479-9.997 9.997 0 1.762.464 3.482 1.346 4.997l-1.42 5.19a.6.6 0 0 0 .735.735l5.19-1.42a9.96 9.96 0 0 0 4.146.894h.004c5.518 0 9.997-4.478 9.997-9.996 0-2.67-1.04-5.18-2.928-7.07a9.93 9.93 0 0 0-7.073-2.927zm0 18.312h-.003a8.3 8.3 0 0 1-4.234-1.16l-.304-.18-3.151.862.842-3.075-.198-.316a8.31 8.31 0 0 1-1.276-4.436c0-4.596 3.74-8.335 8.336-8.335a8.28 8.28 0 0 1 5.895 2.445 8.28 8.28 0 0 1 2.438 5.897c-.002 4.596-3.741 8.298-8.345 8.298zm4.568-6.223c-.25-.125-1.475-.728-1.704-.812-.229-.083-.396-.125-.563.125-.166.25-.646.812-.792.978-.146.167-.291.188-.541.063-.25-.125-1.056-.39-2.012-1.242-.744-.664-1.246-1.484-1.392-1.734-.146-.25-.016-.386.11-.51.113-.113.25-.292.375-.438.125-.146.166-.25.25-.417.083-.167.041-.313-.021-.438-.062-.125-.563-1.357-.771-1.858-.203-.487-.41-.421-.563-.429-.146-.007-.313-.009-.48-.009-.166 0-.437.062-.666.313-.229.25-.875.854-.875 2.083 0 1.229.896 2.417 1.021 2.583.125.167 1.764 2.695 4.273 3.78.597.258 1.062.412 1.425.527.599.19 1.144.163 1.575.099.48-.072 1.475-.603 1.683-1.187.208-.583.208-1.083.145-1.187-.062-.104-.229-.167-.479-.292z"></path>
+            </svg>
+        </a>
+    </aside>
+
+    <!-- FOOTER (pie de página): lo inyecta loadpartials.js -->
+    <div data-include="footer"></div>
+
+    <!-- loadpartials.js inyecta header y footer (y carga nav.js y footer.js por su cuenta) -->
+    <script src="assets/js/loadpartials.js"></script>
+</body>
+</html>

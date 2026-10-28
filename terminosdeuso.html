@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- PÁGINA: TÉRMINOS Y CONDICIONES DE USO (terminosdeuso.html)
+         Reglas de uso del sitio web. Los textos entre corchetes y resaltados en amarillo (etiqueta mark)
+         son MARCADORES: hay que reemplazarlos por los datos reales y quitarles la etiqueta mark antes de publicar.
+         HEAD: metadatos (codificación, viewport responsive, descripción para buscadores) y título de la pestaña. -->
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Términos y condiciones de uso del sitio web de Corporativo VICSAL." name="description"/>
+    <title>Términos de Uso - VICSAL</title>
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
+
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+    <!-- CSS Local -->
+    <link href="assets/css/styles.css" rel="stylesheet"/>
+
+    <!-- Tailwind CDN y Configuración Local -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/tailwind-config.js"></script>
+</head>
+
+<body class="bg-surface font-body-md text-on-surface antialiased">
+    <!-- DEFINICIONES SVG (invisibles, 0x0 px)
+         Contienen el recorte "squircle" (id squircleClip) que usan los íconos del footer. -->
+    <svg class="vs-svg-defs" width="0" height="0">
+        <defs>
+            <clipPath id="squircleClip" clipPathUnits="objectBoundingBox">
+                <path d="M 0,0.5 C 0,0 0,0 0.5,0 S 1,0 1,0.5 1,1 0.5,1 0,1 0,0.5"></path>
+            </clipPath>
+        </defs>
+    </svg>
+
+    <!-- HEADER (barra de navegación): lo inyecta loadpartials.js -->
+    <div data-include="header"></div>
+
+    <!-- CONTENIDO PRINCIPAL DE LA PÁGINA -->
+    <main class="w-full pt-20 bg-surface min-h-screen">
+        <!-- HERO -->
+        <section class="relative w-full bg-surface-container-low overflow-hidden py-space-3xl lg:py-space-4xl">
+            <div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-primary-fixed opacity-40 blur-3xl pointer-events-none"></div>
+            <div class="max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop relative z-10">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-lowest shadow-sm mb-space-md">
+                    <span class="w-2.5 h-2.5 rounded-full spectrum-badge"></span>
+                    <span class="font-label-xs text-label-xs uppercase tracking-widest text-primary-container font-bold">Legal</span>
+                </div>
+                <h1 class="font-headline-xl-mobile text-headline-xl-mobile lg:font-headline-xl lg:text-headline-xl text-primary-container max-w-3xl">Términos y Condiciones de Uso</h1>
+                <p class="mt-space-md font-body-lg text-body-lg text-secondary max-w-2xl">Estas son las reglas para usar el sitio web de Corporativo VICSAL. Al navegar en él, aceptas estos términos.</p>
+                <p class="mt-space-sm font-label-md text-label-md text-secondary uppercase">Última actualización: <mark class="bg-yellow-200 text-on-surface px-1">[FECHA DE ACTUALIZACIÓN]</mark></p>
+            </div>
+        </section>
+
+        <!-- CONTENIDO LEGAL: índice (barra lateral en escritorio) + texto -->
+        <section class="w-full py-space-3xl">
+            <div class="max-w-max-width-container mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-start">
+
+                    <!-- ÍNDICE -->
+                    <nav aria-label="Contenido de los términos" class="lg:col-span-4 xl:col-span-3 lg:sticky lg:top-24 bg-surface-container-low rounded-xl p-space-lg">
+                        <span class="font-label-md text-label-md text-primary-container uppercase tracking-wider font-bold">Contenido</span>
+                        <ol class="mt-space-sm flex flex-col gap-2 font-body-sm text-body-sm text-on-surface-variant list-decimal pl-5">
+                            <li><a class="hover:text-primary-container transition-colors" href="#aceptacion">Aceptación de los términos</a></li>
+                            <li><a class="hover:text-primary-container transition-colors" href="#uso">Uso permitido</a></li>
+                            <li><a class="hover:text-primary-container transition-colors" href="#informacion">Información de productos y cotizaciones</a></li>
+                            <li><a class="hover:text-primary-container transition-colors" href="#propiedad">Propiedad intelectual</a></li>
+                            <li><a class="hover:text-primary-container transition-colors" href="#responsabilidad">Limitación de responsabilidad</a></li>
+                            <li><a class="hover:text-primary-container transition-colors" href="#terceros">Enlaces a sitios de terceros</a></li>
+                            <li><a class="hover:text-primary-container transition-colors" href="#privacidad">Datos personales</a></li>
+                            <li><a class="hover:text-primary-container transition-colors" href="#modificaciones">Modificaciones</a></li>
+                            <li><a class="hover:text-primary-container transition-colors" href="#jurisdiccion">Ley aplicable y jurisdicción</a></li>
+                        </ol>
+                    </nav>
+
+                    <!-- TEXTO DE LOS TÉRMINOS -->
+                    <article class="lg:col-span-8 xl:col-span-9 max-w-3xl flex flex-col gap-space-2xl font-body-lg text-body-lg text-on-surface-variant break-words">
+
+                        <!-- 1. ACEPTACIÓN -->
+                        <div id="aceptacion" class="flex flex-col gap-space-sm scroll-mt-24">
+                            <h2 class="font-headline-md text-headline-sm md:text-headline-md text-primary-container">1. Aceptación de los términos</h2>
+                            <p>Este sitio web es operado por <mark class="bg-yellow-200 text-on-surface px-1">[NOMBRE O RAZÓN SOCIAL]</mark>, que opera comercialmente como "Corporativo VICSAL" (en adelante, "VICSAL"), con domicilio en <mark class="bg-yellow-200 text-on-surface px-1">[DOMICILIO]</mark>.</p>
+                            <p>Al acceder y usar este sitio aceptas estos Términos y Condiciones de Uso. Si no estás de acuerdo con ellos, te pedimos no utilizar el sitio.</p>
+                        </div>
+
+                        <!-- 2. USO PERMITIDO -->
+                        <div id="uso" class="flex flex-col gap-space-sm scroll-mt-24">
+                            <h2 class="font-headline-md text-headline-sm md:text-headline-md text-primary-container">2. Uso permitido</h2>
+                            <p>Puedes usar este sitio para consultar información sobre VICSAL y sus productos, descargar el catálogo y contactarnos para solicitar información o cotizaciones. Al usarlo te comprometes a:</p>
+                            <ul class="list-disc pl-6 flex flex-col gap-1">
+                                <li>Proporcionar información verdadera y actual en el formulario de contacto.</li>
+                                <li>No enviar mensajes masivos, publicidad no solicitada ni contenido ilícito, ofensivo o que viole derechos de terceros.</li>
+                                <li>No intentar acceder sin autorización a los servidores, la base de datos o las áreas restringidas del sitio.</li>
+                                <li>No usar programas automatizados para extraer contenido, enviar formularios o sobrecargar el sitio.</li>
+                                <li>No introducir virus ni código malicioso, ni interferir con el funcionamiento normal del sitio.</li>
+                            </ul>
+                            <p>VICSAL puede bloquear el acceso o ignorar las solicitudes de quien incumpla estas reglas.</p>
+                        </div>
+
+                        <!-- 3. INFORMACIÓN DE PRODUCTOS -->
+                        <div id="informacion" class="flex flex-col gap-space-sm scroll-mt-24">
+                            <h2 class="font-headline-md text-headline-sm md:text-headline-md text-primary-container">3. Información de productos y cotizaciones</h2>
+                            <p>La información, las imágenes, los colores y las especificaciones de los productos que aparecen en el sitio son ilustrativos. Pueden variar según el lote, el proveedor o la pantalla en la que se vean. El contenido del sitio no constituye una oferta de venta. Los precios, existencias, tiempos de entrega y condiciones comerciales solo son válidos cuando constan en una cotización formal emitida por VICSAL.</p>
+                        </div>
+
+                        <!-- 4. PROPIEDAD INTELECTUAL -->
+                        <div id="propiedad" class="flex flex-col gap-space-sm scroll-mt-24">
+                            <h2 class="font-headline-md text-headline-sm md:text-headline-md text-primary-container">4. Propiedad intelectual</h2>
+                            <p>Los textos, fotografías, logotipos, diseños, videos, el catálogo y demás contenido del sitio son propiedad de VICSAL o se usan con autorización de sus titulares. Están protegidos por la Ley Federal del Derecho de Autor, la Ley Federal de Protección a la Propiedad Industrial y los tratados internacionales aplicables.</p>
+                            <p>Puedes ver, descargar e imprimir el contenido solo para uso personal o para evaluar una compra con VICSAL. Para cualquier otro uso, como reproducirlo, modificarlo, distribuirlo o explotarlo comercialmente, necesitas autorización previa y por escrito. Las marcas de terceros que aparecen en el sitio, como las de los fabricantes de calzado y textiles que distribuimos, pertenecen a sus respectivos titulares y se mencionan solo con fines informativos.</p>
+                        </div>
+
+                        <!-- 5. RESPONSABILIDAD -->
+                        <div id="responsabilidad" class="flex flex-col gap-space-sm scroll-mt-24">
+                            <h2 class="font-headline-md text-headline-sm md:text-headline-md text-primary-container">5. Limitación de responsabilidad</h2>
+                            <p>VICSAL procura que la información del sitio sea correcta y esté actualizada, pero no garantiza que esté libre de errores ni que el sitio funcione sin interrupciones. El sitio se ofrece "tal cual". En la medida que lo permita la ley, VICSAL no será responsable de:</p>
+                            <ul class="list-disc pl-6 flex flex-col gap-1">
+                                <li>Daños derivados del uso del sitio o de la imposibilidad de usarlo.</li>
+                                <li>Decisiones tomadas solo con base en la información publicada, sin una cotización formal.</li>
+                                <li>Fallas técnicas, interrupciones o virus que provengan de tu equipo, de tu conexión a internet o de servicios de terceros.</li>
+                                <li>El contenido, las políticas o el funcionamiento de los sitios de terceros enlazados.</li>
+                            </ul>
+                        </div>
+
+                        <!-- 6. TERCEROS -->
+                        <div id="terceros" class="flex flex-col gap-space-sm scroll-mt-24">
+                            <h2 class="font-headline-md text-headline-sm md:text-headline-md text-primary-container">6. Enlaces a sitios de terceros</h2>
+                            <p>El sitio incluye enlaces y servicios de terceros, como WhatsApp, Facebook, Instagram, Threads y Google Maps. VICSAL no controla esos sitios y no es responsable de su contenido ni de sus prácticas de privacidad. Al usarlos aplican sus propios términos y políticas.</p>
+                        </div>
+
+                        <!-- 7. PRIVACIDAD -->
+                        <div id="privacidad" class="flex flex-col gap-space-sm scroll-mt-24">
+                            <h2 class="font-headline-md text-headline-sm md:text-headline-md text-primary-container">7. Datos personales</h2>
+                            <p>El tratamiento de los datos que nos envías por el formulario de contacto se rige por nuestro <a class="text-primary-container font-semibold underline" href="avisoprivacidad.html">Aviso de Privacidad</a>.</p>
+                        </div>
+
+                        <!-- 8. MODIFICACIONES -->
+                        <div id="modificaciones" class="flex flex-col gap-space-sm scroll-mt-24">
+                            <h2 class="font-headline-md text-headline-sm md:text-headline-md text-primary-container">8. Modificaciones</h2>
+                            <p>VICSAL puede modificar estos términos y el contenido del sitio en cualquier momento. Los cambios entran en vigor al publicarse en esta página, con la fecha de "Última actualización" que aparece al inicio. Si sigues usando el sitio después de un cambio, significa que aceptas la versión vigente.</p>
+                        </div>
+
+                        <!-- 9. JURISDICCIÓN -->
+                        <div id="jurisdiccion" class="flex flex-col gap-space-sm scroll-mt-24">
+                            <h2 class="font-headline-md text-headline-sm md:text-headline-md text-primary-container">9. Ley aplicable y jurisdicción</h2>
+                            <p>Estos términos se rigen por las leyes federales de los Estados Unidos Mexicanos. Para cualquier controversia relacionada con su interpretación o cumplimiento, las partes se someten a los tribunales competentes de <mark class="bg-yellow-200 text-on-surface px-1">[CIUDAD Y ESTADO DE LA JURISDICCIÓN]</mark>, y renuncian a cualquier otro fuero que pudiera corresponderles por razón de su domicilio presente o futuro.</p>
+                        </div>
+
+                        <!-- CONTACTO -->
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md bg-primary-container rounded-xl px-space-lg py-space-xl">
+                            <div class="flex flex-col gap-1">
+                                <h3 class="font-headline-sm text-headline-sm text-on-primary">¿Tienes preguntas?</h3>
+                                <p class="font-body-md text-body-md text-on-primary/80">Escríbenos a <mark class="bg-yellow-200 text-on-surface px-1">[CORREO DE CONTACTO]</mark></p>
+                            </div>
+                            <a class="vs-btn inline-flex items-center justify-center px-space-md py-2.5 bg-surface-container-lowest text-primary-container font-body-md text-body-md font-semibold shrink-0" href="contacto.html"><span class="vs-btn-text">Ir a Contacto</span></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- BOTÓN FLOTANTE DE WHATSAPP
+         Fijo abajo a la derecha en todas las páginas. Al pasar el mouse muestra el texto de ayuda
+         y al hacer clic abre WhatsApp con el número de ventas. -->
+    <aside class="fixed bottom-6 right-6 z-40 group">
+        <span class="absolute bottom-full right-0 mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none bg-primary-container text-on-primary text-body-sm font-body-sm px-3.5 py-1.5 rounded-lg shadow-lg whitespace-nowrap">¿Necesitas cotización inmediata? Escríbenos</span>
+        <a aria-label="WhatsApp" class="vs-btn vs-btn-plain rounded-full flex items-center justify-center w-14 h-14 bg-emerald-600 text-on-primary shadow-xl" href="https://wa.me/527223494427" rel="noopener noreferrer" target="_blank">
+            <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
+            <svg class="relative h-7 w-7 text-white" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.001 2.002c-5.518 0-9.997 4.479-9.997 9.997 0 1.762.464 3.482 1.346 4.997l-1.42 5.19a.6.6 0 0 0 .735.735l5.19-1.42a9.96 9.96 0 0 0 4.146.894h.004c5.518 0 9.997-4.478 9.997-9.996 0-2.67-1.04-5.18-2.928-7.07a9.93 9.93 0 0 0-7.073-2.927zm0 18.312h-.003a8.3 8.3 0 0 1-4.234-1.16l-.304-.18-3.151.862.842-3.075-.198-.316a8.31 8.31 0 0 1-1.276-4.436c0-4.596 3.74-8.335 8.336-8.335a8.28 8.28 0 0 1 5.895 2.445 8.28 8.28 0 0 1 2.438 5.897c-.002 4.596-3.741 8.298-8.345 8.298zm4.568-6.223c-.25-.125-1.475-.728-1.704-.812-.229-.083-.396-.125-.563.125-.166.25-.646.812-.792.978-.146.167-.291.188-.541.063-.25-.125-1.056-.39-2.012-1.242-.744-.664-1.246-1.484-1.392-1.734-.146-.25-.016-.386.11-.51.113-.113.25-.292.375-.438.125-.146.166-.25.25-.417.083-.167.041-.313-.021-.438-.062-.125-.563-1.357-.771-1.858-.203-.487-.41-.421-.563-.429-.146-.007-.313-.009-.48-.009-.166 0-.437.062-.666.313-.229.25-.875.854-.875 2.083 0 1.229.896 2.417 1.021 2.583.125.167 1.764 2.695 4.273 3.78.597.258 1.062.412 1.425.527.599.19 1.144.163 1.575.099.48-.072 1.475-.603 1.683-1.187.208-.583.208-1.083.145-1.187-.062-.104-.229-.167-.479-.292z"></path>
+            </svg>
+        </a>
+    </aside>
+
+    <!-- FOOTER (pie de página): lo inyecta loadpartials.js -->
+    <div data-include="footer"></div>
+
+    <!-- loadpartials.js inyecta header y footer (y carga nav.js y footer.js por su cuenta) -->
+    <script src="assets/js/loadpartials.js"></script>
+</body>
+</html>

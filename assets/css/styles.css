@@ -17,6 +17,44 @@
    ====================================================================== */
 
 /* ======================================================================
+   0. VARIABLES GLOBALES
+   Valores que se repetían en varias reglas (aquí y en contacto.css).
+   Cambiar uno aquí lo cambia en todo el sitio.
+   ====================================================================== */
+:root {
+  /* Colores de la marca (los mismos que pink-500, orange-400 y emerald-500 de Tailwind) */
+  --color-brand-pink: #ec4899;
+  --color-brand-orange: #fb923c;
+  --color-brand-green: #10b981;
+  /* Degradado de la marca: botones, tarjetas, campos, insignias y línea del footer */
+  --gradient-brand: linear-gradient(
+    90deg,
+    var(--color-brand-pink),
+    var(--color-brand-orange) 50%,
+    var(--color-brand-green)
+  );
+
+  /* Colores de superficie y texto (iguales a surface y outline de tailwind-config.js) */
+  --color-surface: #f7f9fb;
+  --color-outline: #75777f;
+
+  /* Radios: el mismo que rounded-xl de tailwind-config.js para todas las tarjetas */
+  --radius-card: 0.5rem;
+
+  /* Grosor de los marcos degradados */
+  --border-brand: 3px;
+  --border-brand-thin: 2px;
+
+  /* Sombras */
+  --shadow-hover: 0 5px 15px rgba(0, 0, 0, 0.18);
+  --shadow-float: 0 8px 24px rgba(0, 0, 0, 0.22);
+
+  /* Duraciones de transición */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+}
+
+/* ======================================================================
    BOTÓN ÚNICO DEL SITIO
    Adaptado del efecto de Uiverse.io by Cornerstone-04 que subiste:
    botón plano cuyo marco se "dibuja" al hover con dos trazos opuestos
@@ -40,22 +78,12 @@
    ====================================================================== */
 
 .vs-btn {
-  --vs-accent-1: #ec4899; /* pink-500 */
-  --vs-accent-2: #fb923c; /* orange-400 */
-  --vs-accent-3: #10b981; /* emerald-500 */
-  --vs-gradient: linear-gradient(
-    90deg,
-    var(--vs-accent-1),
-    var(--vs-accent-2) 50%,
-    var(--vs-accent-3)
-  );
-
   position: relative;
   overflow: hidden;
   cursor: pointer;
   text-decoration: none;
   user-select: none;
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow var(--transition-base);
 }
 
 /* Trazo inferior + izquierdo (entra desde la derecha) */
@@ -65,10 +93,10 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 3px;
-  border-bottom: 3px solid transparent;
-  border-left: 3px solid transparent;
-  border-image: var(--vs-gradient) 1;
+  height: var(--border-brand);
+  border-bottom: var(--border-brand) solid transparent;
+  border-left: var(--border-brand) solid transparent;
+  border-image: var(--gradient-brand) 1;
   box-sizing: border-box;
   transform: translateX(100%);
   pointer-events: none;
@@ -81,10 +109,10 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 3px;
-  border-top: 3px solid transparent;
-  border-right: 3px solid transparent;
-  border-image: var(--vs-gradient) 1;
+  height: var(--border-brand);
+  border-top: var(--border-brand) solid transparent;
+  border-right: var(--border-brand) solid transparent;
+  border-image: var(--gradient-brand) 1;
   box-sizing: border-box;
   transform: translateX(-100%);
   pointer-events: none;
@@ -92,7 +120,7 @@
 
 .vs-btn:hover,
 .vs-btn:focus-visible {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.18);
+  box-shadow: var(--shadow-hover);
 }
 
 .vs-btn:hover::before,
@@ -208,9 +236,9 @@
 .vs-flip-border {
   position: absolute;
   inset: 0;
-  padding: 2px;
-  border-radius: 0.75rem;
-  background: linear-gradient(90deg, #ec4899, #fb923c 50%, #10b981);
+  padding: var(--border-brand-thin);
+  border-radius: var(--radius-card);
+  background: var(--gradient-brand);
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
@@ -220,7 +248,7 @@
     linear-gradient(#fff 0 0);
   mask-composite: exclude;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity var(--transition-base);
   pointer-events: none;
   z-index: 2;
 }
@@ -246,14 +274,14 @@
   width: 100%;
   height: 100%;
   padding: 1.25rem;
-  border-radius: 0.75rem;
+  border-radius: var(--radius-card);
 }
 
 /* ---- UTILIDADES DE MARCA: clases usadas en el HTML que no venían de Tailwind ---- */
 /* Fondo con el degradado de la marca (rosa, naranja y verde): insignias y etiquetas pequeñas. */
-.spectrum-badge { background: linear-gradient(90deg, #ec4899, #fb923c, #10b981); }
+.spectrum-badge { background: var(--gradient-brand); }
 /* Línea superior de 3px con el degradado de la marca (la usa el footer). */
-.spectrum-border-top { border-top: 3px solid transparent; border-image: linear-gradient(90deg, #ec4899, #fb923c, #10b981) 1; }
+.spectrum-border-top { border-top: var(--border-brand) solid transparent; border-image: var(--gradient-brand) 1; }
 /* Variante de .vs-btn SIN el marco animado: deja el overflow visible y oculta los trazos
    ::before y ::after (botones redondos: flechas del carrusel y WhatsApp). */
 .vs-btn-plain { overflow: visible; }
@@ -372,12 +400,12 @@ a[href^="mailto:"] { overflow-wrap: anywhere; }
   width: max-content;
   max-width: min(22rem, calc(100vw - 3rem));
   padding: 0.5rem 0.875rem;
-  border-radius: 0.75rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-float);
   opacity: 0;
   visibility: hidden;
   transform: translateY(-6px);
-  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  transition: opacity var(--transition-fast), transform var(--transition-fast), visibility 0.2s;
 }
 
 /* Puente invisible entre el ícono y la burbuja para que no se cierre al mover el mouse */
